@@ -138,6 +138,8 @@ GEM
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
     oj (3.13.9)
+    openbox (0.3.0)
+      thor (~> 1.0)
     overcommit (0.58.0)
       childprocess (>= 0.6.3, < 5)
       iniparse (~> 1.4)
@@ -330,6 +332,7 @@ DEPENDENCIES
   letter_opener
   listen (~> 3.3)
   oj
+  openbox
   overcommit
   pg (~> 1.1)
   pry-rails
