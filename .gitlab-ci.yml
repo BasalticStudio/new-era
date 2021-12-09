@@ -1,113 +1,48 @@
-default:
-  image: ruby:3.0.3
-
-stages:
-  - lint
-  - test
-  - deploy
+include:
+  remote: https://github.com/elct9620/ruby-gitlab-ci/raw/main/rails.yml
 
 variables:
-  RAILS_ENV: test
-  NODE_VERSION: 12.13.1
-  BUNDLER_VERSION: 2.2.26
-  POSTGRES_DB: new-era
-  POSTGRES_PASSWORD: postgres
-  DATABASE_URL: "postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/$POSTGRES_DB"
-
-.install_ruby_gems: &install_ruby_gems
-  - gem install bundler -v ${BUNDLER_VERSION}
-  - bundle install --path vendor
-
-.install_nodejs: &install_nodejs
-  - curl -SLO https://nodejs.org/dist/v$NODE_VERSION/node-v${NODE_VERSION}-linux-x64.tar.xz && tar -xJf node-v${NODE_VERSION}-linux-x64.tar.xz -C /usr/local --strip-components=1;
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH=$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH
-
-.common:
-  before_script:
-    - export LANG=C.UTF-8
-    - export LC_ALL=C.UTF-8
-    - *install_ruby_gems
-  cache:
-    key:
-      files:
-        - Gemfile.lock
-        - yarn.lock
-    paths:
-      - vendor/ruby
-
-      - node_modules
-
-rubocop:
-  extends: .common
-  stage: lint
-  script:
-    - bundle exec rubocop
-  rules:
-    - if: $CI_MERGE_REQUEST_ID
-
-brakeman:
-  image: registry.gitlab.com/gitlab-org/security-products/analyzers/brakeman:2
-  stage: lint
-  allow_failure: true
-  script:
-    - /analyzer run
-  artifacts:
-    reports:
-      sast: gl-sast-report.json
-  rules:
-    - if: $CI_MERGE_REQUEST_ID
+  RUBY_VERSION: 3.0.3
 
 bundler-audit:
-  extends: .common
-  stage: lint
-  script:
-    - gem install bundler-audit
-    - bundle audit --update
-    - bundle audit
   rules:
     - if: $CI_MERGE_REQUEST_ID
     - if: $CI_PIPELINE_SOURCE == 'schedule'
-  allow_failure: true
 
 bundler-leak:
-  extends: .common
-  stage: lint
-  script:
-    - gem install bundler-leak
-    - bundle leak check --update
-    - bundle leak
   rules:
     - if: $CI_MERGE_REQUEST_ID
     - if: $CI_PIPELINE_SOURCE == 'schedule'
 
 yarn-audit:
-  extends: .common
-  stage: lint
-  before_script:
-    - *install_nodejs
-  script:
-    - yarn audit
   rules:
     - if: $CI_MERGE_REQUEST_ID
     - if: $CI_PIPELINE_SOURCE == 'schedule'
-  allow_failure: true
 
-rspec:
-  extends: .common
-  stage: test
-  before_script:
-    - *install_ruby_gems
-    - *install_nodejs
-    - yarn install
-  services:
-    - postgres:12-alpine
-  script:
-    - bundle exec rake db:migrate
-    - bundle exec rspec
+rubocop:
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+
+brakeman:
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+
+assets:precompile:
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-    - if: $CI_MERGE_REQUEST_ID
-  artifacts:
-    reports:
-      cobertura: coverage/coverage.xml
+    - if: $CI_COMMIT_TAG
+
+docker:
+  needs:
+    - job: assets:precompile
+      artifacts: true
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      variables:
+        LATEST_IMAGE: 'yes'
+    - if: $CI_COMMIT_TAG
+
+trivy:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == 'schedule'
