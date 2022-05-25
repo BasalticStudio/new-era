@@ -2,7 +2,7 @@ include:
   remote: https://github.com/elct9620/ruby-gitlab-ci/raw/main/rails.yml
 
 variables:
-  RUBY_VERSION: 3.0.3
+  RUBY_VERSION: 3.0.4
 
 bundler-audit:
   rules:
@@ -21,10 +21,12 @@ yarn-audit:
 
 rubocop:
   rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     - if: $CI_MERGE_REQUEST_ID
 
 brakeman:
   rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     - if: $CI_MERGE_REQUEST_ID
 
 assets:precompile:
