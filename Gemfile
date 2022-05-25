@@ -65,6 +65,8 @@ group :development do
   gem 'overcommit', require: false
   gem 'pry-rails'
   gem 'rack-mini-profiler', require: false
+
+  gem 'boxing'
 end
 
 group :test do
