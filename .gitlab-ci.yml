@@ -1,8 +1,13 @@
 include:
-  remote: https://github.com/elct9620/ruby-gitlab-ci/raw/main/rails.yml
+  - remote: https://github.com/elct9620/ruby-gitlab-ci/raw/main/rails.yml
+  - remote: https://github.com/elct9620/ruby-gitlab-ci/raw/main/swarm.yml
 
 variables:
   RUBY_VERSION: 3.0.4
+  # Deploy
+  DEPLOY_BASE_DOMAIN: basaltic.tw
+  DEPLOY_DOMAIN: ne.basaltic.tw
+  DEPLOY_STACK_FILE: stack.yml
 
 bundler-audit:
   rules:
@@ -30,6 +35,10 @@ brakeman:
     - if: $CI_MERGE_REQUEST_ID
 
 assets:precompile:
+  needs:
+    - rspec
+    - brakeman
+    - rubocop
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     - if: $CI_COMMIT_TAG
@@ -48,3 +57,18 @@ trivy:
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     - if: $CI_PIPELINE_SOURCE == 'schedule'
+
+deploy:
+  extends: .deploy
+  stage: deploy
+  environment:
+    name: production
+  needs:
+    - docker
+  tags:
+    - tyc
+    - swarm
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'schedule'
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
