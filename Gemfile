@@ -45,16 +45,6 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
 
-  gem 'database_rewinder'
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'rspec', require: false
-  gem 'rspec-rails', require: false
-  gem 'shoulda', require: false
-  gem 'shoulda-matchers', require: false
-  gem 'simplecov', require: false
-  gem 'simplecov-cobertura', require: false
-
   gem 'bankai'
 end
 
@@ -82,6 +72,18 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+
+  gem 'database_rewinder'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rspec', require: false
+  gem 'rspec-rails', require: false
+  gem 'shoulda', require: false
+  gem 'shoulda-matchers', require: false
+  gem 'simplecov', require: false
+  gem 'simplecov-cobertura', require: false
+
+  gem 'cucumber-rails', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
