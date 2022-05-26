@@ -30,6 +30,10 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Features
+gem 'flipper-active_record'
+gem 'flipper-active_support_cache_store'
+
 # Utils
 gem 'openbox'
 gem 'sorbet-rails'
