@@ -1,4 +1,3 @@
-# typed: false
 # frozen_string_literal: true
 
 if ENV.fetch('COVERAGE', false) || ENV.fetch('CI', false)

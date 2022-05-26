@@ -1,4 +1,3 @@
-# typed: false
 # frozen_string_literal: true
 
 if ENV['RACK_MINI_PROFILER'].to_i.positive?
