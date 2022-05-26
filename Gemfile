@@ -32,6 +32,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Utils
 gem 'openbox'
+gem 'sorbet-runtime'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to
@@ -44,6 +45,8 @@ group :development, :test do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+
+  gem 'sorbet'
 
   gem 'bankai'
 end

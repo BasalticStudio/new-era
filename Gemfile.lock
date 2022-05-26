@@ -341,6 +341,11 @@ GEM
       simplecov (~> 0.19)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
+    sorbet (0.5.10030)
+      sorbet-static (= 0.5.10030)
+    sorbet-runtime (0.5.10030)
+    sorbet-static (0.5.10030-universal-darwin-21)
+    sorbet-static (0.5.10030-x86_64-linux)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -429,6 +434,8 @@ DEPENDENCIES
   shoulda-matchers
   simplecov
   simplecov-cobertura
+  sorbet
+  sorbet-runtime
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
