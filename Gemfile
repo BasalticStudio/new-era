@@ -32,6 +32,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Utils
 gem 'openbox'
+gem 'sorbet-rails'
 gem 'sorbet-runtime'
 
 group :development, :test do
