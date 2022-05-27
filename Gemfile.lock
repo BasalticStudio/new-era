@@ -166,6 +166,7 @@ GEM
     flipper-active_support_cache_store (0.24.1)
       activesupport (>= 4.2, < 8)
       flipper (~> 0.24.1)
+    foreman (0.87.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     highline (2.0.3)
@@ -452,6 +453,7 @@ DEPENDENCIES
   faker
   flipper-active_record
   flipper-active_support_cache_store
+  foreman
   jsbundling-rails
   letter_opener
   listen (~> 3.3)
