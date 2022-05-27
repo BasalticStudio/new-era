@@ -386,6 +386,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stimulus-rails (1.0.4)
+      railties (>= 6.0.0)
     strscan (3.0.3)
     sys-uname (1.2.2)
       ffi (~> 1.1)
@@ -489,6 +491,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails
+  stimulus-rails
   tailwindcss-rails (~> 2.0.0)
   tapioca
   turbo-rails

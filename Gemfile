@@ -26,6 +26,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Frontend
 gem 'jsbundling-rails'
+gem 'stimulus-rails'
 gem 'tailwindcss-rails', '~> 2.0.0'
 gem 'turbo-rails'
 
