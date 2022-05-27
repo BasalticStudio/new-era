@@ -24,6 +24,9 @@ gem 'sprockets-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Frontend
+gem 'jsbundling-rails'
+
 # Features
 gem 'flipper-active_record'
 gem 'flipper-active_support_cache_store'
