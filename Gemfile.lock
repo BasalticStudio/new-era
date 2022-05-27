@@ -387,6 +387,8 @@ GEM
     strscan (3.0.3)
     sys-uname (1.2.2)
       ffi (~> 1.1)
+    tailwindcss-rails (1.0.0)
+      railties (>= 6.0.0)
     tapioca (0.8.0)
       bundler (>= 1.17.3)
       parallel (>= 1.21.0)
@@ -477,6 +479,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails
+  tailwindcss-rails
   tapioca
   tzinfo-data
   unparser
