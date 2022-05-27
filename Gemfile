@@ -26,7 +26,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Frontend
 gem 'jsbundling-rails'
-gem 'tailwindcss-rails'
+gem 'tailwindcss-rails', '~> 2.0.0'
 
 # Features
 gem 'flipper-active_record'
