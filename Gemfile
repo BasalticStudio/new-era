@@ -44,8 +44,10 @@ group :development, :test do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+  gem 'rubocop-sorbet', require: false
 
   gem 'sorbet'
+  gem 'unparser', require: false
 
   gem 'bankai'
 end
