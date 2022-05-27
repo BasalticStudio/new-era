@@ -14,7 +14,7 @@ gem 'puma', '~> 5.0'
 
 gem 'sprockets-rails'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -27,6 +27,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Frontend
 gem 'jsbundling-rails'
 gem 'tailwindcss-rails', '~> 2.0.0'
+gem 'turbo-rails'
 
 # Features
 gem 'flipper-active_record'
