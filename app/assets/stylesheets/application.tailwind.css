@@ -2,12 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+.game-view {
+  position: absolute;
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+
+  width: 52.25vh;
+  height: 100vh;
+
+  max-height: 177.78vw;
+  max-width: 100vw; /* 16/9 = 1.778 */
+
+  margin: auto;
 }
-
-*/

@@ -10,12 +10,6 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-      },
-      width: {
-        'mobile': '390px'
-      },
-      height: {
-        'mobile': '844px'
       }
     },
   },
