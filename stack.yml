@@ -42,6 +42,7 @@ services:
         - "traefik.http.routers.${DEPLOY_NAME}-https.tls.certresolver=letsencrypt"
         - "traefik.http.routers.${DEPLOY_NAME}-https.tls.domains[0].sans=*.${DEPLOY_BASE_DOMAIN}"
         - "traefik.http.services.${DEPLOY_NAME}.loadbalancer.server.port=3000"
+        - "traefik.http.services.${DEPLOY_NAME}.loadbalancer.sticky.cookie=true"
     networks:
       - net
       - traefik-public
