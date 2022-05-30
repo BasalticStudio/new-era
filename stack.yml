@@ -44,6 +44,7 @@ services:
         - "traefik.http.routers.${DEPLOY_NAME}-https.tls.domains[0].sans=*.${DEPLOY_BASE_DOMAIN}"
         - "traefik.http.services.${DEPLOY_NAME}.loadbalancer.server.port=3000"
         - "traefik.http.services.${DEPLOY_NAME}.loadbalancer.sticky.cookie=true"
+        - "traefik.http.services.${DEPLOY_NAME}.loadbalancer.healthcheck.path=/status"
     networks:
       - net
       - traefik-public
