@@ -3,3 +3,7 @@ zh-TW:
   home:
     index:
       start_game: 開始遊戲
+  game:
+    hangar:
+      index:
+        start_mission: 開始任務
