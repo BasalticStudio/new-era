@@ -24,7 +24,7 @@ RUN gem install bundler:2.2.33 \
 FROM ruby:${RUBY_VERSION}-alpine
 ARG APP_ROOT
 
-RUN apk add --no-cache shared-mime-info tzdata postgresql-libs
+RUN apk add --no-cache curl shared-mime-info tzdata postgresql-libs
 
 COPY --from=gem /usr/local/bundle/config /usr/local/bundle/config
 COPY --from=gem /usr/local/bundle /usr/local/bundle
@@ -54,5 +54,6 @@ USER ruby
 WORKDIR ${APP_ROOT}
 
 EXPOSE 3000
+HEALTHCHECK CMD curl -f http://localhost:3000/status || exit 1
 ENTRYPOINT ["bin/openbox"]
 CMD ["server"]

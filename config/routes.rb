@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :players
   root to: 'home#index'
 
+  mount Liveness::Status => '/status'
+
   namespace :game do
     root to: 'hangar#index'
   end
