@@ -38,6 +38,7 @@ gem 'flipper-active_record'
 gem 'flipper-active_support_cache_store'
 
 # Monitor
+gem 'liveness'
 gem 'sentry-rails'
 gem 'sentry-ruby'
 
