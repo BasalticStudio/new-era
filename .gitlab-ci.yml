@@ -78,7 +78,7 @@ deploy:
         POSTGRES_USER: $PRODUCTION_POSTGRES_USER
         POSTGRES_PASSWORD: $PRODUCTION_POSTGRES_PASSWORD
 
-sentry:
+sentry:releases:
   image: getsentry/sentry-cli
   stage: deploy
   variables:
@@ -88,3 +88,4 @@ sentry:
   script:
     - sentry-cli releases set-commits --auto $REVISION
     - sentry-cli releases finalize $REVISION
+    - sentry-cli releases deploys $REVISION new -e production
