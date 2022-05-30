@@ -24,6 +24,9 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Common
+gem 'devise'
+
 # Frontend
 gem 'jsbundling-rails'
 gem 'stimulus-rails'
