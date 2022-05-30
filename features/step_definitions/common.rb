@@ -5,7 +5,7 @@ When('I visit {string}') do |path|
   visit path
 end
 
-When('I oepn landing page') do
+When('I open landing page') do
   visit root_path
 end
 
