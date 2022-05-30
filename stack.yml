@@ -21,6 +21,7 @@ services:
       - AUTO_MIGRATION=yes
       - DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
       - RAILS_MASTER_KEY
+      - SENTRY_DSN
     deploy:
       placement:
         constraints:
