@@ -1,0 +1,27 @@
+# typed: false
+# == Schema Information
+#
+# Table name: players
+#
+#  id                     :bigint           not null, primary key
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+# Indexes
+#
+#  index_players_on_email                 (email) UNIQUE
+#  index_players_on_reset_password_token  (reset_password_token) UNIQUE
+#
+# frozen_string_literal: true
+
+class Player < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+end
