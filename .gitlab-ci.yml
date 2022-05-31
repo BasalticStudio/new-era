@@ -86,4 +86,7 @@ sentry:releases:
   needs:
     - deploy
   script:
+    - sentry-cli releases new $REVISION
+    - sentry-cli releases set-commits --auto $REVISION
+    - sentry-cli releases finalize $REVISION
     - sentry-cli releases deploys $REVISION new -e production
