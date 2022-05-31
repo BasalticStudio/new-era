@@ -64,6 +64,7 @@ deploy:
   stage: deploy
   environment:
     name: production
+  resource_group: production
   needs:
     - docker
   tags:
