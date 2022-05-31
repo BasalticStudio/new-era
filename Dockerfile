@@ -1,4 +1,4 @@
-ARG APP_ROOT=/srv/app
+ARG APP_ROOT=/src/app
 ARG RUBY_VERSION=3.0.4
 
 FROM ruby:${RUBY_VERSION}-alpine AS gem
@@ -41,8 +41,8 @@ COPY . ${APP_ROOT}
 
 ARG REVISION
 ENV REVISION $REVISION
-ENV SENTRY_RELEASE $REVISION
-RUN echo $REVISION > ${APP_ROOT}/REVISION
+ENV COMMIT_SHORT_SHA $REVISION
+RUN echo "${REVISION}" > ${APP_ROOT}/REVISION
 
 # Apply Execute Permission
 RUN adduser -h ${APP_ROOT} -D -s /bin/nologin ruby ruby && \
