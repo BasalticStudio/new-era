@@ -86,8 +86,10 @@ sentry:releases:
   needs:
     - deploy
   script:
-    - sentry-cli releases new ${REVISION}
     - sentry-cli releases set-commits --auto ${REVISION}
     - sentry-cli releases finalize ${REVISION}
     - sentry-cli releases deploys ${REVISION} new -e production
-  when: manual
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'schedule'
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
