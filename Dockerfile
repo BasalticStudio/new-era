@@ -41,7 +41,7 @@ COPY . ${APP_ROOT}
 
 ARG REVISION
 ENV REVISION $REVISION
-RUN echo $REVISION > ${SERVER_ROOT}/REVISION
+RUN echo $REVISION > ${APP_ROOT}/REVISION
 
 # Apply Execute Permission
 RUN adduser -h ${APP_ROOT} -D -s /bin/nologin ruby ruby && \
