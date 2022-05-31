@@ -90,3 +90,4 @@ sentry:releases:
     - sentry-cli releases set-commits --auto ${REVISION}
     - sentry-cli releases finalize ${REVISION}
     - sentry-cli releases deploys ${REVISION} new -e production
+  when: manual
