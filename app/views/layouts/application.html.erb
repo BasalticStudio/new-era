@@ -11,6 +11,7 @@
 
   <body>
     <main class="game-view bg-gray-200">
+      <div class="text-center">Version: newera@<%= ENV['REVISION'] || 'DEV' %></div>
       <%= yield %>
     </main>
   </body>
