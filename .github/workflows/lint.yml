@@ -1,0 +1,34 @@
+name: Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  rubocop:
+    name: Rubocop
+    uses: ./.github/workflows/lint-action.yml
+    with:
+      command: |
+        bash -c "
+          bundle exec rubocop --require code_scanning --format CodeScanning::SarifFormatter -o rubocop.sarif
+          [[ $? -ne 2 ]]
+        "
+
+  brakeman:
+    name: Brakeman
+    uses: ./.github/workflows/lint-action.yml
+    with:
+      command: bundle exec brakeman -f sarif -o output.sarif.json .
+
+  sorbet:
+    name: Sorbet
+    uses: ./.github/workflows/lint-action.yml
+    with:
+      upload-sarif: false
+      command: bundle exec srb tc

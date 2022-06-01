@@ -1,0 +1,42 @@
+name: Lint Action
+
+on:
+  workflow_call:
+    inputs:
+      ruby-version:
+        default: '3.0'
+        type: string
+      upload-sarif:
+        default: true
+        type: boolean
+      command:
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  run-lint:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ inputs.ruby-version }}
+        bundler-cache: true
+
+    - name: Linting
+      run: ${{ inputs.command }}
+
+    - name: Upload SARIF
+      if: inputs.upload-sarif == true
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: output.sarif.json
