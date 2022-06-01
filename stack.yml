@@ -20,6 +20,7 @@ services:
     environment:
       - AUTO_MIGRATION=yes
       - DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
+      - SECRET_KEY_BASE
       - RAILS_MASTER_KEY
       - SENTRY_DSN
     deploy:
