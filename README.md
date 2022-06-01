@@ -168,4 +168,4 @@ cp .env.example .env
 
 There are two license for source code and assets.
 
-The source code is released under [Apache 2.0](LICENSE.Apache-2.0) and assets is under [CC BY-NC-SA 4.0](LICENSE.BY-NC-SA-4.0).
+The source code is released under [Apache 2.0](LICENSE) and the assets is under [CC BY-NC-SA 4.0](LICENSE.BY-NC-SA-4.0).
