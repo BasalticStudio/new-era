@@ -1,0 +1,99 @@
+name: Package
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  RUBY_VERSION: '3.0'
+  NODE_VERSION: '16'
+  RAILS_ENV: production
+  SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ env.RUBY_VERSION }}
+        bundler-cache: true
+
+    - name: Setup Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'yarn'
+
+    - name: Install dependencies
+      run: |
+        bundle install
+        yarn install
+
+    - name: Precompile assets
+      run: bundle exec rake assets:precompile
+
+    - name: Archive assets
+      uses: actions/upload-artifact@v3
+      with:
+        name: assets
+        path: public/assets
+        retention-days: 7
+
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    needs: assets
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download assets
+        uses: actions/download-artifact@v3
+        with:
+          name: assets
+          path: public/assets
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=ref,event=branch
+
+      - name: Set Revision
+        id: revision
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
+          cache-to: type=inline
+          build-args: |
+            REVISION=${{ steps.revision.outputs.sha_short }}
