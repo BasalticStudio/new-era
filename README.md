@@ -1,10 +1,13 @@
 NewEra
 ===
 
-| Workflow                                                                                                                                                        |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [![Test](https://github.com/BasalticStudio/new-era/actions/workflows/test.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/test.yml) |
-| [![Lint](https://github.com/BasalticStudio/new-era/actions/workflows/lint.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/lint.yml) |
+The Robot Game written by Rails.
+
+## Workflow Status
+
+| Test                                                                                                                                                            | Lint                                                                                                                                                            | Package                                                                                                                                                                  |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [![Test](https://github.com/BasalticStudio/new-era/actions/workflows/test.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/test.yml) | [![Lint](https://github.com/BasalticStudio/new-era/actions/workflows/lint.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/lint.yml) | [![Package](https://github.com/BasalticStudio/new-era/actions/workflows/package.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/package.yml) |
 
 ## System Requirement
 
@@ -18,7 +21,7 @@ The development environment is based on macOS.
 
 ### Homebrew
 
-We use [Homebrew](https://brew.sh/index_zh-tw) to manage the packages on macOS.
+We use [Homebrew](https://brew.sh) to manage the packages on macOS.
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
