@@ -20,7 +20,6 @@ jobs:
   run-lint:
     permissions:
       contents: read
-      security-events: write
     runs-on: ubuntu-latest
 
     steps:
