@@ -9,11 +9,16 @@ class Rails::Conductor::ActionMailbox::IncineratesController
   def helpers; end
 
   module HelperMethods
+    include ::Turbo::DriveHelper
+    include ::Turbo::FramesHelper
+    include ::Turbo::IncludesHelper
+    include ::Turbo::StreamsHelper
+    include ::Turbo::Streams::ActionHelper
     include ::ActionText::ContentHelper
     include ::ActionText::TagHelper
-    include ::Webpacker::Helper
     include ::ActionController::Base::HelperMethods
     include ::ApplicationHelper
+    include ::DeviseHelper
   end
 
   class HelperProxy < ::ActionView::Base

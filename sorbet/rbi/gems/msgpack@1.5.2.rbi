@@ -48,7 +48,6 @@ class Hash
   def to_msgpack_with_packer(packer); end
 end
 
-# Enhance the Integer class with a XML escaped character conversion.
 class Integer < ::Numeric
   include ::ActiveSupport::NumericWithFormat
   include ::ActiveSupport::DeprecatedNumericWithFormat

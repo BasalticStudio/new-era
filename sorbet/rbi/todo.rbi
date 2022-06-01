@@ -6,7 +6,7 @@
 
 module ::Cucumber::Rails::Database; end
 module ::SassC; end
-module ::Webpacker::Helper; end
 module ActiveSupport::Cache::ConnectionPoolLike; end
 module RDoc::Task; end
 module T::Private::Methods::Signature; end
+module Turbo::Streams::ActionHelper; end

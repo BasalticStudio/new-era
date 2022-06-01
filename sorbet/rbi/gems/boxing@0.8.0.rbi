@@ -161,6 +161,12 @@ class Boxing::Config
   # @since 0.5.0
   def registry=(_arg0); end
 
+  # @since 0.5.0
+  def revision; end
+
+  # @since 0.5.0
+  def revision=(_arg0); end
+
   # @return [String] the application root
   def root; end
 
@@ -172,6 +178,12 @@ class Boxing::Config
 
   # @since 0.5.0
   def runtime_packages=(_arg0); end
+
+  # @since 0.5.0
+  def sentry_release; end
+
+  # @since 0.5.0
+  def sentry_release=(_arg0); end
 end
 
 # The template context

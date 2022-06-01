@@ -9,13 +9,49 @@ module GeneratedUrlHelpersModule
   include ::ActionDispatch::Routing::PolymorphicRoutes
 
   sig { params(args: T.untyped).returns(String) }
+  def cancel_player_registration_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def destroy_player_session_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def edit_player_password_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def edit_player_registration_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def edit_rails_conductor_inbound_email_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def game_root_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def liveness_status_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def new_player_password_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def new_player_registration_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def new_player_session_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def new_rails_conductor_inbound_email_source_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def new_rails_conductor_inbound_email_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def player_password_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def player_registration_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def player_session_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def rails_blob_representation_proxy_url(*args); end
@@ -91,6 +127,18 @@ module GeneratedUrlHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def rails_storage_redirect_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def root_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def turbo_recede_historical_location_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def turbo_refresh_historical_location_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def turbo_resume_historical_location_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def update_rails_disk_service_url(*args); end
