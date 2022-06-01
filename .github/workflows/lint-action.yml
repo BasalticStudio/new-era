@@ -14,7 +14,7 @@ on:
         type: string
     secrets:
       token:
-        default: ${{ github.token }}
+        required: false
 
 permissions:
   contents: read
