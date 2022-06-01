@@ -28,9 +28,9 @@ jobs:
     # If running on a self-hosted runner, check it meets the requirements
     # listed at https://github.com/ruby/setup-ruby#using-self-hosted-runners
     - name: Set up Ruby
-      uses: ruby/setup-ruby@f20f1eae726df008313d2e0d78c5e602562a1bcf
+      uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.0.4'
+        ruby-version: '3.0'
 
     - name: Install dependencies
       run: bundle install
