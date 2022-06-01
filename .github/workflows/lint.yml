@@ -14,6 +14,7 @@ jobs:
     name: Rubocop
     uses: ./.github/workflows/lint-action.yml
     with:
+      token: ${{ github.token }}
       command: |
         bash -c "
           bundle exec rubocop --require code_scanning --format CodeScanning::SarifFormatter -o rubocop.sarif
@@ -24,6 +25,7 @@ jobs:
     name: Brakeman
     uses: ./.github/workflows/lint-action.yml
     with:
+      token: ${{ github.token }}
       command: bundle exec brakeman -f sarif -o output.sarif.json .
 
   sorbet:
