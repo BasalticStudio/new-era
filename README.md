@@ -1,161 +1,160 @@
-New era
+NewEra
 ===
 
-## 系統需求
+## System Requirement
 
-* Ruby 3.0.3
-* PostgreSQL 9.6+
-* Node.js 8.0 (以上)
+* Ruby ~> 3.0.4
+* PostgreSQL ~> 14.0
+* Node.js ~> 16.0
 
-## 環境設定
+## Development
 
-以下的設定皆以 macOS 為主。
+The development environment is based on macOS.
 
 ### Homebrew
 
-在 macOS 需要有 [Homebrew](https://brew.sh/index_zh-tw) 來輔助安裝環境。
+We use [Homebrew](https://brew.sh/index_zh-tw) to manage the packages on macOS.
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-執行完畢後可以透過 `brew doctor` 確認是否可用。
+We can use `brew doctor` to ensure the Homebrew is available after installing it.
 
 ### Ruby
 
-為了配合多個版本的環境，建議使用 `rbenv` 或者 `rvm` 來管理 Ruby 環境。
+To smooth upgrade the Ruby version, we choose `rbenv` to manage the Ruby versions.
 
 ```bash
-# 選用 rbenv
 brew install rbenv
-
-# 選用 rvm
-brew install rvm
 ```
 
-完成後請參考終端機顯示的訊息設定 `.bashrc` 或者其他 Shell 設定檔。
+After installation, please follow the message to configure `.bashrc` or your shell config.
 
 ```bash
-# 選用 rbenv
-rbenv install 3.0.3
-
-# 選用 rvm
-rvm install 3.0.3
+rbenv install 3.0.4
 ```
 
-完成後需要先將 Bundler 安裝到新安裝的 Ruby 環境中（rvm 可能會先預裝完畢）
+You may need to install `bundler` by yourself if the `bundle` command is not found.
 
 ```bash
-# 先確認是否在正確的 Ruby 版本執行
+# Ensure already switch to correct Ruby version
 ruby -v
-# => ruby 2.5.3p105 (2018-10-18 revision 65156) [x86_64-darwin17]
+# => ruby 3.0.4p208 (2022-04-12 revision 3fa771dded) [x86_64-darwin21]
 
 gem install bundler
 ```
 ### PostgreSQL
 
-請注意不要直接輸入 `postgresql` 否則會安裝到最新版的 PostgreSQL
+Before install PostgreSQL, please check the version is pin with correct version.
 
 ```bash
-# 安裝
-brew install postgresql@9.6
+# Install
+brew install postgresql@13
 
-# 啟動伺服器
-brew services start postgresql@9.6
+# Start server
+brew services start postgresql@13
 ```
 
 ### Node.js
 
-Rails 需要 JavaScript Runtime 一般會使用 Node.js。
+We will need Node.js to compile JavaScript and CSS.
 
 ```bash
 brew install node
 ```
 
-Webpacker 使用 Yarn 管理安裝的 JavaScript 套件，我們還需要將 Yarn 安裝進來。
+The Rails use `yarn` as package manager for Node.js.
 
 ```bash
 brew install yarn
 ```
 
+> The Node.js version doesn't constraint to specify the version, the latest stable version is suggested.
+
 ### Rails
 
-請先透過 git 將專案下載到本地端。
+Use `git clone git@github.com:BasalticStudio/new-era.git` to your machine.
 
 ```bash
-# 切換到專案目錄
-cd new_era
+# Switch to project folder.
+cd new-era
 
-# 安裝 Rails 所需套件
+# Install ncessary packages
 bundle install
+yarn install
 
-# 設定 git hook
+# Setup the git hook
 bundle exec overcommit --install
 ```
 
-Overcommit 會做以下檢查：
+Overcommit will check for:
 
-1. commit 前：使用 rubocop 檢查語法
-2. push 前：使用 brakeman 檢查安全性問題
+1. pre-commit: rubocop for syntax, sorbet for type check
+2. pre-push: brakeman for security auditing
 
 ```bash
-# 設定資料庫
+# Initialize batabase
 bundle exec rake db:create
 
-# 更新資料庫到最新版
+# Update schema to latest version
 bundle exec rake db:migrate
 ```
 
-## 執行專案
+## Operate in local
 
-### Rails 伺服器
+### Dev Server
 
 ```bash
-# 這是 rails server 的縮寫
-rails s
+./bin/dev
 ```
 
-開啟後預設可以透過 `http://localhost:3000` 看到網站
+You can see the website at `http://localhost:3000`
 
-#### PendingMigration 錯誤
+#### PendingMigration Error
 
-這是因為最新版本的資料庫已經被更改，但是本機的資料庫還沒有被更新。
+Run `db:migrate` again to update the schema
 
 ```bash
 bundle exec rake db:migrate
 ```
 
-執行 `db:migrate` 指令更新資料庫即可。
+#### Foreman not found
 
-### 運行測試
+Our project use Foreman to run Rails server with JavaScript / CSS compiler.
 
-這個專案使用 RSpec 進行測試，可以透過執行以下指令運行
+```bash
+gem install foreman
+```
+
+### Running Unit Test
 
 ```bash
 bundle exec rspec
 ```
 
-### Ruby 語法檢查
+### Running E2E Test
 
-這個功能會在 commit 前自動執行，必要時可以手動進行
+```bash
+bundle exec cucumber
+```
+
+### Ruby Syntax Check
 
 ```bash
 bundle exec rubocop
 ```
 
-### Ruby 安全性檢查
-
-這個功能會在 push 前自動執行，必要時可以手動進行
+### Ruby Security Check
 
 ```bash
 bundle exec brakeman
 ```
 
-### 建立 .env 檔案
+### Setup `.env`
 
-建立 `.env` 檔案，並依據 local 開發環境需求修改設定內容。
+Create a `.env` will allow you change settings in local dev environment.
 
 ```bash
 cp .env.example .env
 ```
-
