@@ -13,13 +13,8 @@ on:
         required: true
         type: string
 
-permissions:
-  contents: read
-
 jobs:
   run-lint:
-    permissions:
-      contents: read
     runs-on: ubuntu-latest
 
     steps:
