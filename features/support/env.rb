@@ -1,8 +1,6 @@
 # typed: false
 # frozen_string_literal: true
 
-require 'cucumber/rails'
-
 if ENV.fetch('COVERAGE', false) || ENV.fetch('CI', false)
   require 'simplecov'
   require 'simplecov-cobertura'
@@ -13,6 +11,8 @@ if ENV.fetch('COVERAGE', false) || ENV.fetch('CI', false)
     add_filter 'vendor'
   end
 end
+
+require 'cucumber/rails'
 
 ActionController::Base.allow_rescue = false
 DatabaseRewinder.strategy = :transaction
