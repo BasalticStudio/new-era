@@ -1,6 +1,11 @@
 NewEra
 ===
 
+| Workflow                                                                                                                                                        |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [![Test](https://github.com/BasalticStudio/new-era/actions/workflows/test.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/test.yml) |
+| [![Lint](https://github.com/BasalticStudio/new-era/actions/workflows/lint.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/lint.yml) |
+
 ## System Requirement
 
 * Ruby ~> 3.0.4
