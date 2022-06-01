@@ -10,10 +10,8 @@ env:
   RUBY_VERSION: '3.0'
   NODE_VERSION: '16'
   RAILS_ENV: test
-  POSTGRES_USER: newera
   POSTGRES_PASSWORD: newera
-  POSTGRES_DB: newera
-  DATABASE_URL: "postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$POSTGRES_DB"
+  DATABASE_URL: "postgres://postgres:$POSTGRES_PASSWORD@localhost/postgres"
 
 permissions:
   contents: read
@@ -27,6 +25,8 @@ jobs:
     services:
       postgres:
         image: postgres
+        env:
+          POSTGRES_USER: $POSTGRES_PASSWORD
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
