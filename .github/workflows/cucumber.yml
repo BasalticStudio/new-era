@@ -1,0 +1,64 @@
+name: Cucumber
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  RUBY_VERSION: '3.0'
+  NODE_VERSION: '16'
+  RAILS_ENV: test
+  POSTGRES_USER: newera
+  POSTGRES_PASSWORD: newera
+  POSTGRES_DB: newera
+  DATABASE_URL: "postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$POSTGRES_DB"
+
+permissions:
+  contents: read
+
+jobs:
+  rspec:
+    permissions:
+      contents: read
+    name: RSpec
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: $RUBY_VERSION
+        bundler-cache: true
+
+    - name: Set up Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: $NODE_VERSION
+        cache: 'yarn'
+
+    - name: Install dependencies
+      run: |
+        bundle install
+        yarn install
+
+    - name: Prepare
+      run: |
+        bundle exec rake test:prepare
+        bundle exec rake db:migrate
+
+    - name: Test
+      run: bundle exec cucumber

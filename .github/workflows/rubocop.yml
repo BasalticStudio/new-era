@@ -17,6 +17,7 @@ on:
 
 jobs:
   rubocop:
+    name: Rubocop
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
