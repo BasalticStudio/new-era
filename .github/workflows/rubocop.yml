@@ -32,10 +32,6 @@ jobs:
       with:
         ruby-version: '3.0'
 
-    # This step is not necessary if you add the gem to your Gemfile
-    - name: Install Code Scanning integration
-      run: bundle add code-scanning-rubocop
-
     - name: Install dependencies
       run: bundle install
 
