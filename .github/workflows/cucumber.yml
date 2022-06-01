@@ -11,7 +11,7 @@ env:
   NODE_VERSION: '16'
   RAILS_ENV: test
   POSTGRES_PASSWORD: newera
-  DATABASE_URL: "postgres://postgres:$POSTGRES_PASSWORD@localhost/postgres"
+  DATABASE_URL: "postgres://postgres:newera@localhost/postgres"
 
 permissions:
   contents: read
@@ -26,7 +26,7 @@ jobs:
       postgres:
         image: postgres
         env:
-          POSTGRES_USER: ${{ env.POSTGRES_PASSWORD }}
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
         options: >-
           --health-cmd pg_isready
           --health-interval 10s

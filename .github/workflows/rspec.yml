@@ -11,7 +11,7 @@ env:
   NODE_VERSION: '16'
   RAILS_ENV: test
   POSTGRES_PASSWORD: newera
-  DATABASE_URL: "postgres://postgres:$POSTGRES_PASSWORD@localhost/postgres"
+  DATABASE_URL: "postgres://postgres:newera@localhost/postgres"
 
 permissions:
   contents: read
