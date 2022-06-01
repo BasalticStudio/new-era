@@ -13,7 +13,7 @@ permissions:
 jobs:
   rubocop:
     name: Rubocop
-    uses: ./.github/workflows/lint-action.yml
+    uses: ./.github/actions/lint.yml
     with:
       command: |
         bash -c "
@@ -23,13 +23,13 @@ jobs:
 
   brakeman:
     name: Brakeman
-    uses: ./.github/workflows/lint-action.yml
+    uses: ./.github/actions/lint.yml
     with:
       command: bundle exec brakeman -f sarif -o output.sarif.json .
 
   sorbet:
     name: Sorbet
-    uses: ./.github/workflows/lint-action.yml
+    uses: ./.github/actions/lint.yml
     with:
       upload-sarif: false
       command: bundle exec srb tc
