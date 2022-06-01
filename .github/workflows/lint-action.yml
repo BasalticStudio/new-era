@@ -12,9 +12,6 @@ on:
       command:
         required: true
         type: string
-    secrets:
-      token:
-        required: false
 
 permissions:
   contents: read
@@ -23,6 +20,7 @@ jobs:
   run-lint:
     permissions:
       contents: read
+      security-events: write
     runs-on: ubuntu-latest
 
     steps:
@@ -42,5 +40,4 @@ jobs:
       if: inputs.upload-sarif == true
       uses: github/codeql-action/upload-sarif@v2
       with:
-        token: ${{ secrets.token }}
         sarif_file: output.sarif.json
