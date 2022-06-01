@@ -12,12 +12,12 @@ permissions:
 jobs:
   rspec:
     name: RSpec
-    uses: ./.github/actions/test.yml
+    uses: ./.github/workflows/test-action.yml
     with:
       command: bundle exec rspec
 
   cucumber:
     name: Cucumber
-    uses: ./.github/actions/test.yml
+    uses: ./.github/workflows/test-action.yml
     with:
       command: bundle exec cucumber
