@@ -1,32 +1,35 @@
-name: RSpec
+name: Test Action
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_call:
+    inputs:
+      ruby-version:
+        default: '3.0'
+        type: string
+      node-version:
+        default: '16'
+        type: string
+      command:
+        required: true
+        type: string
 
 env:
-  RUBY_VERSION: '3.0'
-  NODE_VERSION: '16'
   RAILS_ENV: test
-  POSTGRES_PASSWORD: newera
   DATABASE_URL: "postgres://postgres:newera@localhost/postgres"
 
 permissions:
   contents: read
 
 jobs:
-  rspec:
+  run-test:
     permissions:
       contents: read
-    name: RSpec
     runs-on: ubuntu-latest
     services:
       postgres:
         image: postgres
         env:
-          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+          POSTGRES_PASSWORD: newera
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -41,13 +44,13 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: ${{ env.RUBY_VERSION }}
+        ruby-version: ${{ inputs.ruby-version }}
         bundler-cache: true
 
     - name: Set up Node
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ env.NODE_VERSION }}
+        node-version: ${{ inputs.node-version }}
         cache: 'yarn'
 
     - name: Install dependencies
@@ -61,4 +64,4 @@ jobs:
         bundle exec rake db:migrate
 
     - name: Test
-      run: bundle exec rspec
+      run: ${{ inputs.command }}

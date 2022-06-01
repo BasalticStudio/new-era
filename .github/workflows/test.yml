@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  RUBY_VERSION: '3.0'
+  NODE_VERSION: '16'
+
+permissions:
+  contents: read
+
+jobs:
+  rspec:
+    name: RSpec
+    uses: ./.github/workflows/test-action
+    with:
+      command: bundle exec rspec
+
+  cucumber:
+    name: Cucumber
+    uses: ./.github/workflows/test-action
+    with:
+      command: bundle exec cucumber
