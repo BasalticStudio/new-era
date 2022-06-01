@@ -1,4 +1,4 @@
-name: Lint Action
+name: Reuse Lint Base
 
 on:
   workflow_call:
