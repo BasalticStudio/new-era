@@ -29,6 +29,35 @@ module Liveness
   end
 end
 
+# Access Control
+#
+# @since 0.3.0
+class Liveness::Access
+  # @param request [Rack::Request]
+  # @param config [Liveness::Config]
+  # @return [Access] a new instance of Access
+  # @since 0.3.0
+  def initialize(request, config:); end
+
+  # Is allowed to access
+  #
+  # @return [Boolean]
+  # @since 0.3.0
+  def allowed?; end
+
+  # Is token valid
+  #
+  # @return [Boolean]
+  # @since 0.3.0
+  def valid_token?; end
+
+  # Is ip in whitelist
+  #
+  # @return [Boolean]
+  # @since 0.3.0
+  def whitelist?; end
+end
+
 # Config of liveness
 class Liveness::Config
   # @return [Liveness::Config]
@@ -45,6 +74,18 @@ class Liveness::Config
 
   # @since 0.1.0
   def dependencies; end
+
+  # @since 0.3.0
+  def ip_whitelist; end
+
+  # @since 0.3.0
+  def ip_whitelist=(_arg0); end
+
+  # @since 0.3.0
+  def token; end
+
+  # @since 0.3.0
+  def token=(_arg0); end
 end
 
 # The dependency provider container
@@ -160,6 +201,10 @@ class Liveness::Status
   # @since 0.1.0
   def initialize(env, config: T.unsafe(nil)); end
 
+  # @return [Rack::Response]
+  # @since 0.3.0
+  def forbidden; end
+
   # The Liveness status
   #
   # @return [Boolean]
@@ -181,5 +226,11 @@ class Liveness::Status
     def call(env); end
   end
 end
+
+# @since 0.3.0
+Liveness::Status::FORBIDDEN_MESSAGE = T.let(T.unsafe(nil), Hash)
+
+# @since 0.3.0
+Liveness::Status::HEADERS = T.let(T.unsafe(nil), Hash)
 
 Liveness::VERSION = T.let(T.unsafe(nil), String)
