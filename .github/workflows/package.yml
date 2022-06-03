@@ -86,6 +86,9 @@ jobs:
         id: revision
         run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
