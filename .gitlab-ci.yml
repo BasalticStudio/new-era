@@ -1,6 +1,7 @@
 include:
   - remote: https://github.com/elct9620/ruby-gitlab-ci/raw/main/rails.yml
   - remote: https://github.com/elct9620/ruby-gitlab-ci/raw/main/swarm.yml
+  - remote: https://github.com/elct9620/ruby-gitlab-ci/raw/main/sentry.yml
 
 variables:
   RUBY_VERSION: 3.0.4
@@ -38,8 +39,6 @@ brakeman:
 assets:precompile:
   needs:
     - rspec
-    - brakeman
-    - rubocop
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     - if: $CI_COMMIT_TAG
@@ -76,16 +75,9 @@ deploy:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
 sentry:releases:
-  image: getsentry/sentry-cli
-  stage: deploy
-  variables:
-    REVISION: $CI_COMMIT_SHORT_SHA
+  extends: .sentry:release
   needs:
     - deploy
-  script:
-    - sentry-cli releases set-commits --auto ${REVISION}
-    - sentry-cli releases finalize ${REVISION}
-    - sentry-cli releases deploys ${REVISION} new -e production
   rules:
     - if: $CI_PIPELINE_SOURCE == 'schedule'
       when: never
