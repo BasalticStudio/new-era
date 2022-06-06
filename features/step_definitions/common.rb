@@ -1,6 +1,20 @@
 # typed: false
 # frozen_string_literal: true
 
+Given('there are a player logged in') do
+  email = 'player@example.com'
+  password = '123456+999'
+
+  @player = Player.create(email: email, password: password)
+
+  visit new_player_session_path
+  fill_in 'player_email', with: email
+  fill_in 'player_password', with: password
+  click_on 'Log in'
+
+  visit game_root_path
+end
+
 When('I visit {string}') do |path|
   visit path
 end

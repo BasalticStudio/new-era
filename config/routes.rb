@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   namespace :game do
     root to: 'hangar#index'
+
+    resources :maps, only: %i[index]
   end
 end

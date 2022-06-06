@@ -1,1 +1,1 @@
-<span><%= t('.adventure') %></span>
+<%= link_to_if Flipper.enabled?(:preview, current_player), t('.adventure'), game_maps_path %>
