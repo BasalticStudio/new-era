@@ -11,6 +11,7 @@ PreCommit:
     enabled: true
     exclude:
       - '**/db/structure.sql' # Ignore trailing whitespace in generated files
+      - '**/*.txt'
   BundleAudit:
     enabled: true
 
