@@ -45,6 +45,12 @@ class Liveness::Access
   # @since 0.3.0
   def allowed?; end
 
+  # Is from localhost
+  #
+  # @return [Boolean]
+  # @since 0.3.2
+  def local?; end
+
   # Is token valid
   #
   # @return [Boolean]
@@ -57,6 +63,12 @@ class Liveness::Access
   # @since 0.3.0
   def whitelist?; end
 end
+
+# @since 0.3.2
+Liveness::Access::LOCAL_IPV4 = T.let(T.unsafe(nil), IPAddr)
+
+# @since 0.3.0
+Liveness::Access::LOCAL_IPV6 = T.let(T.unsafe(nil), IPAddr)
 
 # Config of liveness
 class Liveness::Config

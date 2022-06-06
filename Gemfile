@@ -36,6 +36,7 @@ gem 'turbo-rails'
 # Features
 gem 'flipper-active_record'
 gem 'flipper-active_support_cache_store'
+gem 'flipper-ui'
 
 # Monitor
 gem 'liveness'
