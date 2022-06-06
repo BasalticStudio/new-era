@@ -12,4 +12,14 @@ Rails.application.routes.draw do
 
     resources :maps, only: %i[index]
   end
+
+  namespace :admin do
+    flipper_app = Flipper::UI.app do |builder|
+      builder.use Rack::Auth::Basic do |username, password|
+        username == 'admin' && password == 'basaltic'
+      end
+    end
+
+    mount flipper_app, at: '/flipper'
+  end
 end
