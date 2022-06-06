@@ -10,7 +10,7 @@ Feature: Register
       | password              | example+1234       |
       | password_confirmation | example+1234       |
     And I click "Sign up"
-    Then I can see "開始任務"
+    Then I can see "開始冒險"
 
   Scenario: Player can login with an account
     Given there are some players
@@ -23,4 +23,4 @@ Feature: Register
       | email    | player@example.com |
       | password | example+1234       |
     And I click "Log in"
-    Then I can see "開始任務"
+    Then I can see "開始冒險"
