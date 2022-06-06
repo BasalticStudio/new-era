@@ -4,6 +4,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users
   devise_for :players
+
   root to: 'home#index'
 
   mount Liveness::Status => '/status'
@@ -14,13 +15,9 @@ Rails.application.routes.draw do
     resources :maps, only: %i[index]
   end
 
-  namespace :admin do
-    flipper_app = Flipper::UI.app do |builder|
-      builder.use Rack::Auth::Basic do |username, password|
-        username == 'admin' && password == 'basaltic'
-      end
+  authenticate(:admin_user) do
+    namespace :admin do
+      mount Flipper::UI.app(Flipper) => '/flipper', as: :flipper
     end
-
-    mount flipper_app, at: '/flipper'
   end
 end
