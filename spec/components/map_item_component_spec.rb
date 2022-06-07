@@ -4,13 +4,13 @@
 require 'rails_helper'
 
 RSpec.describe MapItemComponent, type: :component do
-  subject(:component) { described_class.new(map: map) }
+  subject { page }
 
+  let(:component) { described_class.new(map: map) }
   let(:map) { build(:map, name: '台北市') }
 
-  context 'when rendered' do
-    subject { render_inline(component).to_html }
+  before { render_inline(component) }
 
-    it { is_expected.to include('台北市') }
-  end
+  it { is_expected.to have_text('台北市') }
+  it { is_expected.to have_link('台北市') }
 end
