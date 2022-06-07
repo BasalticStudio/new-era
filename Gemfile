@@ -32,6 +32,7 @@ gem 'jsbundling-rails'
 gem 'stimulus-rails'
 gem 'tailwindcss-rails', '~> 2.0.0'
 gem 'turbo-rails'
+gem 'view_component'
 
 # Features
 gem 'flipper-active_record'

@@ -84,4 +84,16 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  config.view_component.generate_sidecar = true
+
+  config.generators do |generate|
+    generate.helper false
+    generate.javascripts false
+    generate.request_specs false
+    generate.routing_specs false
+    generate.stylesheets false
+    generate.test_framework :rspec
+    generate.view_specs false
+  end
 end
