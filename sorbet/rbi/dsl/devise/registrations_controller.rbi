@@ -18,6 +18,7 @@ class Devise::RegistrationsController
     include ::ActionText::TagHelper
     include ::ActionController::Base::HelperMethods
     include ::ApplicationHelper
+    include ::PreviewHelper
     include ::DeviseHelper
     include ::ApplicationController::HelperMethods
 

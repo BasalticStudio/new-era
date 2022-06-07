@@ -18,6 +18,7 @@ class Game::ApplicationController
     include ::ActionText::TagHelper
     include ::ActionController::Base::HelperMethods
     include ::ApplicationHelper
+    include ::PreviewHelper
     include ::DeviseHelper
   end
 

@@ -18,6 +18,7 @@ class Rails::Conductor::ActionMailbox::InboundEmails::SourcesController
     include ::ActionText::TagHelper
     include ::ActionController::Base::HelperMethods
     include ::ApplicationHelper
+    include ::PreviewHelper
     include ::DeviseHelper
   end
 

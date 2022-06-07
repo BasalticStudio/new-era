@@ -5,8 +5,10 @@
 # typed: false
 
 module ::Cucumber::Rails::Database; end
+module ::PreviewHelper; end
 module ::SassC; end
 module ActiveSupport::Cache::ConnectionPoolLike; end
+module Capybara::RSpecMatchers; end
 module RDoc::Task; end
 module T::Private::Methods::Signature; end
 module Turbo::Streams::ActionHelper; end

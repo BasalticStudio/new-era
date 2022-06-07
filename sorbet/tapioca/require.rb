@@ -1,13 +1,17 @@
 # typed: true
 # frozen_string_literal: true
 
+require 'active_support/cache'
 require 'active_support/core_ext/integer/time'
 require 'bootsnap/setup'
 require 'bundler/setup'
-require 'cucumber/rails'
+require 'capybara'
 require 'cucumber'
+require 'cucumber/rails'
+require 'devise/orm/active_record'
 require 'factory_bot'
 require 'faker'
+require 'flipper/adapters/active_support_cache_store'
 require 'rack-mini-profiler'
 require 'rails/all'
 require 'rspec/rails'
@@ -15,3 +19,4 @@ require 'shoulda'
 require 'shoulda/matchers'
 require 'simplecov'
 require 'simplecov-cobertura'
+require 'view_component/test_helpers'

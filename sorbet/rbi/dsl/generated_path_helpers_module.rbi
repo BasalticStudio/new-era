@@ -9,10 +9,28 @@ module GeneratedPathHelpersModule
   include ::ActionDispatch::Routing::PolymorphicRoutes
 
   sig { params(args: T.untyped).returns(String) }
+  def admin_flipper_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def admin_user_password_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def admin_user_session_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def admin_user_unlock_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def cancel_player_registration_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def destroy_admin_user_session_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def destroy_player_session_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def edit_admin_user_password_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def edit_player_password_path(*args); end
@@ -24,10 +42,25 @@ module GeneratedPathHelpersModule
   def edit_rails_conductor_inbound_email_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def game_map_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def game_maps_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def game_root_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def liveness_status_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def new_admin_user_password_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def new_admin_user_session_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def new_admin_user_unlock_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def new_player_password_path(*args); end
@@ -52,6 +85,12 @@ module GeneratedPathHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def player_session_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def preview_view_component_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def preview_view_components_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def rails_blob_path(*args); end
