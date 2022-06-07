@@ -1,14 +1,15 @@
 NewEra
 ===
-[![Maintainability](https://api.codeclimate.com/v1/badges/618de24748d472649354/maintainability)](https://codeclimate.com/github/BasalticStudio/new-era/maintainability)
 
 The Sci-Fi Robot Game which is written in Rails.
 
-## Workflow Status
-
-| Test                                                                                                                                                            | Lint                                                                                                                                                            | Package                                                                                                                                                                  |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [![Test](https://github.com/BasalticStudio/new-era/actions/workflows/test.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/test.yml) | [![Lint](https://github.com/BasalticStudio/new-era/actions/workflows/lint.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/lint.yml) | [![Package](https://github.com/BasalticStudio/new-era/actions/workflows/package.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/package.yml) |
+| Status                                                                                                                                                                   |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [![Test](https://github.com/BasalticStudio/new-era/actions/workflows/test.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/test.yml)          |
+| [![Lint](https://github.com/BasalticStudio/new-era/actions/workflows/lint.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/lint.yml)          |
+| [![Package](https://github.com/BasalticStudio/new-era/actions/workflows/package.yml/badge.svg)](https://github.com/BasalticStudio/new-era/actions/workflows/package.yml) |
+| [![Maintainability](https://api.codeclimate.com/v1/badges/618de24748d472649354/maintainability)](https://codeclimate.com/github/BasalticStudio/new-era/maintainability)  |
+| [![Uptime](https://badgen.net/uptime-robot/month/m791934786-2fc48fb1d3d8e782d16b7027)(https://uptimerobot.com/?rid=41f36a57ef28f2)]                                      |
 
 ## System Requirement
 
