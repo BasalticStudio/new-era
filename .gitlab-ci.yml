@@ -6,6 +6,8 @@ include:
 variables:
   RUBY_VERSION: 3.0.4
   SORBET_ENABLED: 'yes'
+  # Test
+  RSPEC_JUNIT_REPORT: 'yes'
   # Deploy
   DEPLOY_BASE_DOMAIN: basaltic.tw
   DEPLOY_DOMAIN: ne.basaltic.tw

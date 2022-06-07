@@ -103,6 +103,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec', require: false
+  gem 'rspec_junit_formatter', require: false
   gem 'rspec-rails', require: false
   gem 'shoulda', require: false
   gem 'shoulda-matchers', require: false
