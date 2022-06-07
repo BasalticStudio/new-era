@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     root to: 'hangar#index'
 
     resources :maps, only: %i[index show]
+    resources :quests, only: %i[index]
   end
 
   authenticate(:admin_user) do
