@@ -19,12 +19,7 @@
 #
 # frozen_string_literal: true
 
-class Player < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
-  has_many :player_quests, dependent: :restrict_with_error
-  has_many :quests, through: :player_quests
+RSpec.describe Player, type: :model do
+  it { is_expected.to have_many(:player_quests) }
+  it { is_expected.to have_many(:quests).through(:player_quests) }
 end

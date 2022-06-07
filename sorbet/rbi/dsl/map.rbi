@@ -5,6 +5,7 @@
 # Please instead update this file by running `bin/tapioca dsl Map`.
 
 class Map
+  include GeneratedAssociationMethods
   include GeneratedAttributeMethods
   extend CommonRelationMethods
   extend GeneratedRelationMethods
@@ -172,6 +173,20 @@ class Map
 
     sig { returns(::Map) }
     def third_to_last!; end
+  end
+
+  module GeneratedAssociationMethods
+    sig { returns(T::Array[T.untyped]) }
+    def area_ids; end
+
+    sig { params(ids: T::Array[T.untyped]).returns(T::Array[T.untyped]) }
+    def area_ids=(ids); end
+
+    sig { returns(::Area::PrivateCollectionProxy) }
+    def areas; end
+
+    sig { params(value: T::Enumerable[::Area]).void }
+    def areas=(value); end
   end
 
   module GeneratedAssociationRelationMethods

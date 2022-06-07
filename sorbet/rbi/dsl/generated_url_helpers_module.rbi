@@ -48,6 +48,9 @@ module GeneratedUrlHelpersModule
   def game_maps_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def game_quests_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def game_root_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_07_122423) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_07_133853) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,6 +65,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_122423) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "player_quests", force: :cascade do |t|
+    t.bigint "player_id", null: false
+    t.bigint "quest_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_player_quests_on_player_id"
+    t.index ["quest_id"], name: "index_player_quests_on_quest_id"
+  end
+
   create_table "players", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -77,5 +86,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_07_122423) do
     t.index ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true
   end
 
+  create_table "quests", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type", "id"], name: "index_quests_on_type_and_id"
+  end
+
   add_foreign_key "areas", "maps"
+  add_foreign_key "player_quests", "players"
+  add_foreign_key "player_quests", "quests"
 end

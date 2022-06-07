@@ -1,1 +1,3 @@
-救援作戰（一）
+<% @quests.each do |quest| %>
+  <div>【<%= t(".#{quest.type_name.downcase}") %>】<%= quest.name %></div>
+<% end %>

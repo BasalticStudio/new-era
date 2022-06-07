@@ -6,3 +6,8 @@ Given('there are some players') do |table|
     Player.create(player)
   end
 end
+
+Given('there are some quests current player owned') do |table|
+  quests = Quest.where(id: table.rows.map(&:first).map(&:to_i))
+  @player.quests << quests
+end
