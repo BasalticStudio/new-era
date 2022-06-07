@@ -11,4 +11,5 @@
 #  updated_at :datetime         not null
 #
 class Map < ApplicationRecord
+  has_many :areas, dependent: :restrict_with_exception
 end

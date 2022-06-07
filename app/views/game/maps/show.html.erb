@@ -1,1 +1,3 @@
-<div>中山區</div>
+<% @map.areas.each do |area| %>
+  <div><%= area.name %></div>
+<% end %>

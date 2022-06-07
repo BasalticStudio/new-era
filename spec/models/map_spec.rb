@@ -10,6 +10,8 @@
 #
 # frozen_string_literal: true
 
-FactoryBot.define do
-  factory :map
+require 'rails_helper'
+
+RSpec.describe Map, type: :model do
+  it { is_expected.to have_many(:areas) }
 end
