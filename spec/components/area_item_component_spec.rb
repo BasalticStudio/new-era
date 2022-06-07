@@ -7,7 +7,7 @@ RSpec.describe AreaItemComponent, type: :component do
   subject { page }
 
   let(:component) { described_class.new(area: area) }
-  let(:area) { build(:map, name: '板橋區') }
+  let(:area) { build(:area, name: '板橋區') }
 
   before { render_inline(component) }
 

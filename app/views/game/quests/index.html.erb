@@ -1,3 +1,1 @@
-<% @quests.each do |quest| %>
-  <div>【<%= t(".#{quest.type_name.downcase}") %>】<%= quest.name %></div>
-<% end %>
+<%= render QuestItemComponent.with_collection(@quests) %>
