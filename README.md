@@ -1,7 +1,8 @@
 NewEra
 ===
+[![Maintainability](https://api.codeclimate.com/v1/badges/618de24748d472649354/maintainability)](https://codeclimate.com/github/BasalticStudio/new-era/maintainability)
 
-The Robot Game written by Rails.
+The Sci-Fi Robot Game which is written in Rails.
 
 ## Workflow Status
 
