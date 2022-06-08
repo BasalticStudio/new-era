@@ -10,7 +10,6 @@ variables:
   RSPEC_JUNIT_REPORT: 'yes'
   # Deploy
   DEPLOY_BASE_DOMAIN: basaltic.tw
-  DEPLOY_DOMAIN: ne.basaltic.tw
   DEPLOY_STACK_FILE: stack.yml
 
 bundler-audit:
@@ -63,6 +62,9 @@ trivy:
 deploy:
   extends: .deploy
   stage: deploy
+  variables:
+    DEPLOY_DOMAIN: ne.basaltic.tw
+    SENTRY_ENVIRONMENT: production
   environment:
     name: production
   resource_group: production
@@ -80,6 +82,36 @@ sentry:releases:
   extends: .sentry:release
   needs:
     - deploy
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'schedule'
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+deploy:beta:
+  extends: .deploy
+  stage: deploy
+  variables:
+    DEPLOY_DOMAIN: ne-beta.basaltic.tw
+    SENTRY_ENVIRONMENT: beta
+  environment:
+    name: beta
+  resource_group: beta
+  needs:
+    - docker
+  tags:
+    - tyc
+    - swarm
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'schedule'
+      when: never
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+sentry:beta-releases:
+  extends: .sentry:release
+  variables:
+    SENTRY_ENVIRONMENT: beta
+  needs:
+    - deploy:beta
   rules:
     - if: $CI_PIPELINE_SOURCE == 'schedule'
       when: never

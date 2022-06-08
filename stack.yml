@@ -23,6 +23,7 @@ services:
       - SECRET_KEY_BASE
       - STATUS_CHECK_TOKEN
       - SENTRY_DSN
+      - SENTRY_ENVIRONMENT
     deploy:
       placement:
         constraints:
