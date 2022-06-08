@@ -33,6 +33,8 @@ class Player < ApplicationRecord
   private
 
   def restrict_beta_player_register
+    return if RegisterAllowlist.instance.include?(email)
+
     errors.add(:email, :not_in_beta_allowlist)
   end
 end
