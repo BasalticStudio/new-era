@@ -4,7 +4,23 @@
 require 'rails_helper'
 
 RSpec.describe RegisterAllowlist do
-  subject(:list) { described_class.instance }
+  subject(:list) { described_class.new }
+
+  context 'when allowlist source exists' do
+    subject { described_class.new(source.path) }
+
+    let(:source) { Tempfile.new('allowlist') }
+
+    before do
+      source.write("player@example.com\nplayer2@example.com")
+      source.rewind
+    end
+
+    after { source.unlink }
+
+    it { is_expected.to include('player@example.com') }
+    it { is_expected.to include('player2@example.com') }
+  end
 
   describe '.include?' do
     it { is_expected.not_to include('player@example.com') }

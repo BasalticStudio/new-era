@@ -33,7 +33,7 @@ class Player < ApplicationRecord
   private
 
   def restrict_beta_player_register
-    return if RegisterAllowlist.instance.include?(email)
+    return if RegisterAllowlist.new(Rails.root.join('tmp/allowlist.txt')).include?(email)
 
     errors.add(:email, :not_in_beta_allowlist)
   end
