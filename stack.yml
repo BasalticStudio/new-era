@@ -24,6 +24,9 @@ services:
       - STATUS_CHECK_TOKEN
       - SENTRY_DSN
       - SENTRY_ENVIRONMENT
+    secrets:
+      - source: new-era_beta_allowlist
+        target: /src/app/tmp/allowlist.txt
     deploy:
       placement:
         constraints:
@@ -66,4 +69,8 @@ networks:
     driver: overlay
     attachable: true
   traefik-public:
+    external: true
+
+secrets:
+  new-era_beta_allowlist:
     external: true
