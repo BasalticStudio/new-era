@@ -8,3 +8,7 @@ end
 Before('@preview') do
   Flipper.enable(:preview)
 end
+
+Before('@beta_mode') do
+  Flipper.enable(:beta_mode)
+end

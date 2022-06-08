@@ -27,4 +27,12 @@ class Player < ApplicationRecord
 
   has_many :player_quests, dependent: :restrict_with_error
   has_many :quests, through: :player_quests
+
+  validate :restrict_beta_player_register, if: -> { Flipper.enabled?(:beta_mode) }
+
+  private
+
+  def restrict_beta_player_register
+    errors.add(:email, :not_in_beta_allowlist)
+  end
 end

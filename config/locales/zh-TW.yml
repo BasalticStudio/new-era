@@ -8,3 +8,10 @@ zh-TW:
       index:
         adventure: 開始冒險
         quests: 任務列表
+  activerecord:
+    errors:
+      models:
+        player:
+          attributes:
+            email:
+              not_in_beta_allowlist: 不在測試人員列表
