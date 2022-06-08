@@ -26,6 +26,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Common
 gem 'devise'
+gem 'devise-i18n'
+gem 'rails-i18n'
 
 # Frontend
 gem 'jsbundling-rails'
@@ -89,6 +91,8 @@ group :development do
   gem 'pry-rails'
   gem 'rack-mini-profiler', require: false
   gem 'tapioca', require: false
+
+  gem 'i18n-debug'
 
   gem 'boxing'
 end
