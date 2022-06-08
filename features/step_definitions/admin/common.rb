@@ -10,7 +10,7 @@ Given('there are an admin user logged in') do
   visit new_admin_user_session_path
   fill_in 'admin_user_email', with: email
   fill_in 'admin_user_password', with: password
-  click_on 'Log in'
+  click_on '登入'
 end
 
 When('I open flipper manager page') do

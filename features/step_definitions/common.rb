@@ -10,7 +10,7 @@ Given('there are a player logged in') do
   visit new_player_session_path
   fill_in 'player_email', with: email
   fill_in 'player_password', with: password
-  click_on 'Log in'
+  click_on '登入'
 
   visit game_root_path
 end
