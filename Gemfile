@@ -47,6 +47,7 @@ gem 'sentry-rails'
 gem 'sentry-ruby'
 
 # Utils
+gem 'config'
 gem 'google-apis-sheets_v4', '~> 0.13.0'
 gem 'openbox'
 gem 'sorbet-rails'
@@ -86,7 +87,7 @@ group :development do
 
   gem 'annotate', require: false
   gem 'bullet'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
   gem 'letter_opener'
   gem 'overcommit', require: false
   gem 'pry-rails'
