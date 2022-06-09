@@ -13,11 +13,13 @@ jobs:
   rspec:
     name: RSpec
     uses: ./.github/workflows/test-action.yml
+    secrets: inherit
     with:
       command: bundle exec rspec
 
   cucumber:
     name: Cucumber
     uses: ./.github/workflows/test-action.yml
+    secrets: inherit
     with:
       command: bundle exec cucumber
