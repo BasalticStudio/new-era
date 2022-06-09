@@ -12,6 +12,12 @@ module GeneratedPathHelpersModule
   def admin_flipper_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def admin_refresh_allowlist_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def admin_root_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def admin_user_password_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }

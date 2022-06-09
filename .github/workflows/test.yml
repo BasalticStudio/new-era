@@ -19,5 +19,9 @@ jobs:
   cucumber:
     name: Cucumber
     uses: ./.github/workflows/test-action.yml
+    env:
+      SPREADSHEET_SERVICE_ACCOUNT: ${{ secret.SPREADSHEET_SERVICE_ACCOUNT }}
     with:
-      command: bundle exec cucumber
+      command: |
+        echo $SPREADSHEET_SERVICE_ACCOUNT > config/credentials/spreadsheet-service_account.json
+        bundle exec cucumber

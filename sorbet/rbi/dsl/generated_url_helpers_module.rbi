@@ -12,6 +12,12 @@ module GeneratedUrlHelpersModule
   def admin_flipper_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def admin_refresh_allowlist_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def admin_root_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def admin_user_password_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }

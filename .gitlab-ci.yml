@@ -37,6 +37,11 @@ brakeman:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     - if: $CI_MERGE_REQUEST_ID
 
+cucumber:
+  before_script:
+    - !reference [".rails:test", before_script]
+    - cat $SPREADSHEET_SERVICE_ACCOUNT > config/credentials/spreadsheet-service_account.json
+
 assets:precompile:
   needs:
     - rspec
