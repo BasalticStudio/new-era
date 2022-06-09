@@ -24,6 +24,7 @@ services:
       - STATUS_CHECK_TOKEN
       - SENTRY_DSN
       - SENTRY_ENVIRONMENT
+      - SETTINGS__REGISTER_ALLOWLIST__SPREADSHEET_KEY
     secrets:
       - source: new-era_spreadsheet-service_account
         target: /src/app/config/credentials/spreadsheet-service_account.json
