@@ -66,7 +66,7 @@ jobs:
     - name: Setup Spreadsheet Service Account
       run: echo $SPREADSHEET_SERVICE_ACCOUNT > config/credentials/spreadsheet-service_account.json
       env:
-        SPREADSHEET_SERVICE_ACCOUNT: ${{ secres.SPREADSHEET_SERVICE_ACCOUNT }}
+        SPREADSHEET_SERVICE_ACCOUNT: ${{ secrets.SPREADSHEET_SERVICE_ACCOUNT }}
 
     - name: Test
       run: ${{ inputs.command }}
