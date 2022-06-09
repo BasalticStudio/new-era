@@ -13,15 +13,11 @@ jobs:
   rspec:
     name: RSpec
     uses: ./.github/workflows/test-action.yml
-    steps:
-      - run: bundle exec rspec
+    with:
+      command: bundle exec rspec
 
   cucumber:
     name: Cucumber
     uses: ./.github/workflows/test-action.yml
-    steps:
-      - name: Setup Spreadsheet Service Account
-        run: echo $SPREADSHEET_SERVICE_ACCOUNT > config/credentials/spreadsheet-service_account.json
-        env:
-          SPREADSHEET_SERVICE_ACCOUNT: ${{ secrets.SPREADSHEET_SERVICE_ACCOUNT }}
-      - run: bundle exec cucumber
+    with:
+      command: bundle exec cucumber
