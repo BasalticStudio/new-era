@@ -1,4 +1,4 @@
-Feature: Admin/Flipper
+Feature: Admin Flipper
 
   Scenario: Admin user can see flipper pages
     Given there are an admin user logged in

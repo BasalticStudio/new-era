@@ -8,6 +8,10 @@ zh-TW:
       index:
         adventure: 開始冒險
         quests: 任務列表
+  admin:
+    dashboard:
+      refresh_allowlist:
+        allowlist_refreshed: 更新測試名單完畢
   activerecord:
     errors:
       models:

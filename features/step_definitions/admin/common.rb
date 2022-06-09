@@ -13,6 +13,10 @@ Given('there are an admin user logged in') do
   click_on '登入'
 end
 
+When('I open admin dashboard') do
+  visit admin_root_path
+end
+
 When('I open flipper manager page') do
   visit admin_flipper_path
 end

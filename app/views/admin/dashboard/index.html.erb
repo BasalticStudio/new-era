@@ -1,0 +1,6 @@
+<% if flash[:notice] %>
+<div><%= flash[:notice] %></div>
+<% end %>
+<div>
+  <%= link_to '更新測試名單', admin_refresh_allowlist_path, method: :post, class: 'px-4 py-2 text-white bg-blue-500' %>
+</div>

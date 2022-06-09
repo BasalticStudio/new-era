@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   authenticate(:admin_user) do
     namespace :admin do
+      root to: 'dashboard#index'
+      post '/refresh_allowlist', to: 'dashboard#refresh_allowlist'
+
       mount Flipper::UI.app(Flipper) => '/flipper', as: :flipper
     end
   end
