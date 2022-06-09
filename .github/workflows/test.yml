@@ -12,16 +12,14 @@ permissions:
 jobs:
   rspec:
     name: RSpec
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/test-action.yml
     steps:
-      - uses: ./.github/workflows/test-action.yml
       - run: bundle exec rspec
 
   cucumber:
     name: Cucumber
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/test-action.yml
     steps:
-      - uses: ./.github/workflows/test-action.yml
       - name: Setup Spreadsheet Service Account
         run: echo $SPREADSHEET_SERVICE_ACCOUNT > config/credentials/spreadsheet-service_account.json
         env:
