@@ -9,9 +9,6 @@ on:
       node-version:
         default: '16'
         type: string
-      command:
-        required: true
-        type: string
 
 env:
   RAILS_ENV: test
@@ -62,6 +59,3 @@ jobs:
       run: |
         bundle exec rake test:prepare
         bundle exec rake db:migrate
-
-    - name: Test
-      run: ${{ inputs.command }}
