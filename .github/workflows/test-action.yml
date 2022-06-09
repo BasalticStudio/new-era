@@ -64,7 +64,7 @@ jobs:
         bundle exec rake db:migrate
 
     - name: Setup Spreadsheet Service Account
-      run: echo $SPREADSHEET_SERVICE_ACCOUNT > config/credentials/spreadsheet-service_account.json
+      run: echo $SPREADSHEET_SERVICE_ACCOUNT | base64 --decode > config/credentials/spreadsheet-service_account.json
       env:
         SPREADSHEET_SERVICE_ACCOUNT: ${{ secrets.SPREADSHEET_SERVICE_ACCOUNT }}
 
