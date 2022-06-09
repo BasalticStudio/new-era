@@ -31,6 +31,9 @@ log/*
 tmp/*
 /config/master.key
 
+# Credentials
+/config/credentials/spreadsheet-service_account.json
+
 # Frontend
 node_modules/
 /app/assets/builds/*
