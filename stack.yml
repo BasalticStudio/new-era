@@ -25,8 +25,8 @@ services:
       - SENTRY_DSN
       - SENTRY_ENVIRONMENT
     secrets:
-      - source: new-era_beta_allowlist
-        target: /src/app/tmp/allowlist.txt
+      - source: new-era_spreadsheet-service_account
+        target: /src/app/config/credentials/spreadsheet-service_account.json
     deploy:
       placement:
         constraints:
@@ -72,5 +72,5 @@ networks:
     external: true
 
 secrets:
-  new-era_beta_allowlist:
+  new-era_spreadsheet-service_account:
     external: true
