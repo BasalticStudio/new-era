@@ -12,12 +12,14 @@ permissions:
 jobs:
   rspec:
     name: RSpec
+    runs-on: ubuntu-latest
     steps:
       - uses: ./.github/workflows/test-action.yml
       - run: bundle exec rspec
 
   cucumber:
     name: Cucumber
+    runs-on: ubuntu-latest
     steps:
       - uses: ./.github/workflows/test-action.yml
       - name: Setup Spreadsheet Service Account
