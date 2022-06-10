@@ -5,11 +5,12 @@ class LinkButtonComponent < ViewComponent::Base
   BASE_STYLE = %w[inline-block px-4 py-2 m-2 text-white bg-blue-500].freeze
   attr_reader :label, :target
 
-  def initialize(label:, target:, enabled: true)
+  def initialize(label:, target:, enabled: true, method: :get)
     super
     @label = label
     @target = target
     @enabled = enabled
+    @mehtod = method
   end
 
   def style
@@ -22,5 +23,11 @@ class LinkButtonComponent < ViewComponent::Base
 
   def linked?
     @enabled
+  end
+
+  def data
+    return if @method == :get
+
+    { turbo_method: @mehtod }
   end
 end

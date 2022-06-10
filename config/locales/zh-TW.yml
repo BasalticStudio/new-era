@@ -10,6 +10,8 @@ zh-TW:
         quests: 任務列表
   admin:
     dashboard:
+      index:
+        refresh_allowlist: 更新測試名單
       refresh_allowlist:
         allowlist_refreshed: 更新測試名單完畢
   activerecord:

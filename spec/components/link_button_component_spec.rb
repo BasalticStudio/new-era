@@ -13,6 +13,12 @@ RSpec.describe LinkButtonComponent, type: :component do
   it { is_expected.to have_link('開始遊戲', href: 'https://example.com') }
   it { is_expected.to have_text('開始遊戲') }
 
+  context 'when method is post' do
+    let(:component) { described_class.new(label: '開始遊戲', target: 'https://example.com', method: :post) }
+
+    it { is_expected.to have_selector('[data-turbo-method="post"]') }
+  end
+
   context 'when link disabled' do
     let(:component) { described_class.new(label: '開始遊戲', target: 'https://example.com', enabled: false) }
 

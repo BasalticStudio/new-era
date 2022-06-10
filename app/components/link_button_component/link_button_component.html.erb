@@ -1,5 +1,5 @@
 <% if linked? %>
-  <%= link_to label, target, class: style %>
+  <%= link_to label, target, class: style, data: data %>
 <% else %>
   <span class="<%= style %>"><%= label %></span>
 <% end %>
