@@ -43,6 +43,11 @@ rspec:
     - cat $SPREADSHEET_SERVICE_ACCOUNT > config/credentials/spreadsheet-service_account.json
 
 cucumber:
+  services:
+    - "postgres:$POSTGRES_VERSION"
+    - "redis:7-alpine"
+  variables:
+    REDIS_URL: redis://redis:6379
   before_script:
     - !reference [".rails:test", before_script]
     - cat $SPREADSHEET_SERVICE_ACCOUNT > config/credentials/spreadsheet-service_account.json

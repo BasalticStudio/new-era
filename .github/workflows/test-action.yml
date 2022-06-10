@@ -16,6 +16,7 @@ on:
 env:
   RAILS_ENV: test
   DATABASE_URL: "postgres://postgres:newera@localhost/postgres"
+  REDIS_URL: "redis://redis:6379"
 
 permissions:
   contents: read
@@ -27,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres
+        image: postgres:14-alpine
         env:
           POSTGRES_PASSWORD: newera
         options: >-
@@ -37,6 +38,8 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
+      redis:
+        image: redis:7-alpine
     steps:
     - name: Checkout
       uses: actions/checkout@v3
