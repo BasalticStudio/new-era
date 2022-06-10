@@ -76,6 +76,8 @@ services:
   sidekiq:
     <<: *application
     command: sidekiq
+    healthcheck:
+      disable: true
     networks:
       - net
     deploy:
