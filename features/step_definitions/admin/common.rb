@@ -20,3 +20,7 @@ end
 When('I open flipper manager page') do
   visit admin_flipper_path
 end
+
+When('I open sidekiq manager page') do
+  visit admin_sidekiq_web_path
+end
