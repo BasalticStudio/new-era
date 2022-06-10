@@ -36,6 +36,9 @@ gem 'tailwindcss-rails', '~> 2.0.0'
 gem 'turbo-rails'
 gem 'view_component'
 
+# Worker
+gem 'sidekiq'
+
 # Features
 gem 'flipper-active_record'
 gem 'flipper-active_support_cache_store'

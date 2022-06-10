@@ -10,5 +10,6 @@ module ::SassC; end
 module ActiveSupport::Cache::ConnectionPoolLike; end
 module Capybara::RSpecMatchers; end
 module RDoc::Task; end
+module Sidekiq::Web; end
 module T::Private::Methods::Signature; end
 module Turbo::Streams::ActionHelper; end

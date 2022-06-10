@@ -22,5 +22,6 @@ module NewEra
     config.i18n.default_locale = :'zh-TW'
     config.time_zone = 'Asia/Taipei'
     # config.eager_load_paths << Rails.root.join("extras")
+    config.active_job.queue_adapter = :sidekiq
   end
 end

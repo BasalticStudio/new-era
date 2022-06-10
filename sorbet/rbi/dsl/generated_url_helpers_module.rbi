@@ -18,6 +18,9 @@ module GeneratedUrlHelpersModule
   def admin_root_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def admin_sidekiq_web_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def admin_user_password_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }

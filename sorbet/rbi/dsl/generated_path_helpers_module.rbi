@@ -18,6 +18,9 @@ module GeneratedPathHelpersModule
   def admin_root_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def admin_sidekiq_web_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def admin_user_password_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
