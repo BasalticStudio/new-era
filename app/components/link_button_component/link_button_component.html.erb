@@ -1,1 +1,5 @@
-<%= link_to_if linked?, label, target, class: 'px-4 py-2 text-white bg-blue-500' %>
+<% if linked? %>
+  <%= link_to label, target, class: style %>
+<% else %>
+  <span class="<%= style %>"><%= label %></span>
+<% end %>

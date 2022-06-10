@@ -18,5 +18,6 @@ RSpec.describe LinkButtonComponent, type: :component do
 
     it { is_expected.not_to have_link('開始遊戲', href: 'https://example.com') }
     it { is_expected.to have_text('開始遊戲') }
+    it { is_expected.to have_css('.cursor-not-allowed') }
   end
 end

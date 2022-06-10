@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 class LinkButtonComponent < ViewComponent::Base
+  BASE_STYLE = %w[inline-block px-4 py-2 m-2 text-white bg-blue-500].freeze
   attr_reader :label, :target
 
   def initialize(label:, target:, enabled: true)
@@ -9,6 +10,14 @@ class LinkButtonComponent < ViewComponent::Base
     @label = label
     @target = target
     @enabled = enabled
+  end
+
+  def style
+    if linked?
+      BASE_STYLE
+    else
+      BASE_STYLE.dup.concat(%w[cursor-not-allowed]).uniq
+    end.join(' ')
   end
 
   def linked?
