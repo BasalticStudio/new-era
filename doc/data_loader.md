@@ -51,4 +51,4 @@ Or set it via environment variable with `SETTINGS__REGISTER_ALLOWLIST__SPREADSHE
 
 After the key exists, you can go to the admin dashboard and click the "refresh allowlist" button to update the list to the latest version.
 
-> Currently is design to single node
+> Currently is designed for single node
