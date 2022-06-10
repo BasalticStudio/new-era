@@ -16,7 +16,7 @@ on:
 env:
   RAILS_ENV: test
   DATABASE_URL: "postgres://postgres:newera@localhost/postgres"
-  REDIS_URL: "redis://redis:6379"
+  REDIS_URL: "redis://localhost:6379"
 
 permissions:
   contents: read
@@ -40,6 +40,11 @@ jobs:
           - 5432:5432
       redis:
         image: redis:7-alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
     - name: Checkout
       uses: actions/checkout@v3
