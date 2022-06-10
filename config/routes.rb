@@ -1,6 +1,8 @@
 # typed: false
 # frozen_string_literal: true
 
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :admin_users
   devise_for :players
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
       root to: 'dashboard#index'
       post '/refresh_allowlist', to: 'dashboard#refresh_allowlist'
 
+      mount Sidekiq::Web => '/sidekiq'
       mount Flipper::UI.app(Flipper) => '/flipper', as: :flipper
     end
   end
