@@ -1,5 +1,23 @@
 version: '3.8'
 
+x-application: &application
+  image: "${IMAGE_NAME}:${IMAGE_TAG}"
+  environment:
+    - AUTO_MIGRATION=yes
+    - DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
+    - REDIS_URL=redis://redis:6379 # NOTE: Create standalone Redis for cache for scale
+    - SECRET_KEY_BASE
+    - STATUS_CHECK_TOKEN
+    - SENTRY_DSN
+    - SENTRY_ENVIRONMENT
+    - SETTINGS__REGISTER_ALLOWLIST__SPREADSHEET_KEY
+  secrets:
+    - source: new-era_spreadsheet-service_account
+      target: /src/app/config/credentials/spreadsheet-service_account.json
+  depends_on:
+    - postgres
+    - redis
+
 services:
   postgres:
     image: postgres:14.3-alpine
@@ -15,19 +33,21 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - net
+  redis:
+    image: redis:7-alpine
+    deploy:
+      placement:
+        constraints:
+          - node.role != manager
+    volumes:
+      - redis_data:/data
+    networks:
+      - net
   application:
-    image: "${IMAGE_NAME}:${IMAGE_TAG}"
-    environment:
-      - AUTO_MIGRATION=yes
-      - DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres/$POSTGRES_DB
-      - SECRET_KEY_BASE
-      - STATUS_CHECK_TOKEN
-      - SENTRY_DSN
-      - SENTRY_ENVIRONMENT
-      - SETTINGS__REGISTER_ALLOWLIST__SPREADSHEET_KEY
-    secrets:
-      - source: new-era_spreadsheet-service_account
-        target: /src/app/config/credentials/spreadsheet-service_account.json
+    <<: *application
+    networks:
+      - net
+      - traefik-public
     deploy:
       placement:
         constraints:
@@ -52,18 +72,31 @@ services:
         - "traefik.http.services.${DEPLOY_NAME}.loadbalancer.server.port=3000"
         - "traefik.http.services.${DEPLOY_NAME}.loadbalancer.sticky.cookie=true"
         - "traefik.http.services.${DEPLOY_NAME}.loadbalancer.healthcheck.path=/status?token=${STATUS_CHECK_TOKEN}"
+  sidekiq:
+    <<: *application
     networks:
       - net
-      - traefik-public
-    depends_on:
-      - postgres
+    deploy:
+      placement:
+        constraints:
+          - node.role != manager
+      update_config:
+        parallelism: 2
+        delay: 3s
+        order: start-first
+        failure_action: rollback
 
 volumes:
   postgres_data:
     driver_opts:
       type: "nfs"
       o: "addr=$NFS_SERVER,rw,async,vers=4"
-      device: ":$NFS_VOLUME_PATH"
+      device: ":$POSTGRES_VOLUME_PATH"
+  redis_data:
+    driver_opts:
+      type: "nfs"
+      o: "addr=$NFS_SERVER,rw,async,vers=4"
+      device: ":$REDIS_VOLUME_PATH"
 
 networks:
   net:
