@@ -1,9 +1,9 @@
 name: Package
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: [ Test ]
+    types: [ completed ]
 
 env:
   RUBY_VERSION: '3.0'
@@ -16,6 +16,7 @@ env:
 jobs:
   assets:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -53,50 +54,49 @@ jobs:
     permissions:
       contents: read
       packages: write
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Download assets
-        uses: actions/download-artifact@v3
-        with:
-          name: assets
-          path: public/assets
+    - name: Download assets
+      uses: actions/download-artifact@v3
+      with:
+        name: assets
+        path: public/assets
 
-      - name: Log in to the Container registry
-        uses: docker/login-action@v1
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Log in to the Container registry
+      uses: docker/login-action@v1
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v3
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          tags: |
-            type=sha
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=ref,event=branch
+    - name: Extract metadata (tags, labels) for Docker
+      id: meta
+      uses: docker/metadata-action@v3
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        tags: |
+          type=sha
+          type=semver,pattern={{version}}
+          type=semver,pattern={{major}}.{{minor}}
+          type=ref,event=branch
 
-      - name: Set Revision
-        id: revision
-        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+    - name: Set Revision
+      id: revision
+      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
-      - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v2
+    - name: Setup Docker Buildx
+      uses: docker/setup-buildx-action@v2
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-          build-args: |
-            REVISION=${{ steps.revision.outputs.sha_short }}
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v3
+      with:
+        context: .
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+        build-args: |
+          REVISION=${{ steps.revision.outputs.sha_short }}
