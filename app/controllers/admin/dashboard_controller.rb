@@ -4,7 +4,8 @@
 module Admin
   class DashboardController < ApplicationController
     def refresh_allowlist
-      RegisterAllowlist.new.refresh!
+      service = SpreadsheetService.build(Settings.register_allowlist.spreadsheet_key)
+      RegisterAllowlist.new.write(service.load('A2:A'))
       redirect_to admin_root_path, notice: t('.allowlist_refreshed')
     end
 
