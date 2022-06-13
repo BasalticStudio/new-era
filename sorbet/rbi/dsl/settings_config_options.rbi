@@ -12,6 +12,12 @@ class SettingsConfigOptions < ::Config::Options
   Elem = type_member { { fixed: T.untyped } }
 
   sig { returns(T.untyped) }
+  def game_data; end
+
+  sig { params(value: T.untyped).returns(T.untyped) }
+  def game_data=(value); end
+
+  sig { returns(T.untyped) }
   def register_allowlist; end
 
   sig { params(value: T.untyped).returns(T.untyped) }

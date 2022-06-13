@@ -15,6 +15,9 @@ module GeneratedPathHelpersModule
   def admin_refresh_allowlist_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def admin_refresh_game_data_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def admin_root_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }

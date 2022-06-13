@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 module Admin
@@ -9,6 +9,9 @@ module Admin
     end
 
     def refresh_game_data
+      service = SpreadsheetService.build(Settings.game_data.spreadsheet_key)
+      GameData::Map.new(service.load('Map!A1:B')).import
+
       redirect_to admin_root_path, notice: t('.game_data_refresh_enqueued')
     end
   end

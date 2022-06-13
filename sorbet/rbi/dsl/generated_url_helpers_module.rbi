@@ -15,6 +15,9 @@ module GeneratedUrlHelpersModule
   def admin_refresh_allowlist_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def admin_refresh_game_data_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def admin_root_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
