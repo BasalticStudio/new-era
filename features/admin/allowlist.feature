@@ -1,4 +1,4 @@
-Feature: Admin Dashboard
+Feature: Admin Allowlist
 
   Scenario: I can refresh beta allowlist
     Given there are an admin user logged in
