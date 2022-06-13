@@ -11,6 +11,7 @@ x-application: &application
     - SENTRY_DSN
     - SENTRY_ENVIRONMENT
     - SETTINGS__REGISTER_ALLOWLIST__SPREADSHEET_KEY
+    - SETTINGS__GAME_DATA__SPREADSHEET_KEY
   secrets:
     - source: new-era_spreadsheet-service_account
       target: /src/app/config/credentials/spreadsheet-service_account.json
