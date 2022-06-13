@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     namespace :admin do
       root to: 'dashboard#index'
       post '/refresh_allowlist', to: 'dashboard#refresh_allowlist'
+      post '/refresh_game_data', to: 'dashboard#refresh_game_data'
 
       mount Sidekiq::Web => '/sidekiq'
       mount Flipper::UI.app(Flipper) => '/flipper', as: :flipper

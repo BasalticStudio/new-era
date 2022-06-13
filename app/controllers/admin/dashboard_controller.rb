@@ -7,5 +7,9 @@ module Admin
       RegisterAllowlist.new.refresh!
       redirect_to admin_root_path, notice: t('.allowlist_refreshed')
     end
+
+    def refresh_game_data
+      redirect_to admin_root_path, notice: t('.game_data_refresh_enqueued')
+    end
   end
 end

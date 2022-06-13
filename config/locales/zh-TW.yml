@@ -12,8 +12,11 @@ zh-TW:
     dashboard:
       index:
         refresh_allowlist: 更新測試名單
+        refresh_game_data: 更新遊戲資料
       refresh_allowlist:
         allowlist_refreshed: 更新測試名單完畢
+      refresh_game_data:
+        game_data_refresh_enqueued: 遊戲資料開始更新
   activerecord:
     errors:
       models:
