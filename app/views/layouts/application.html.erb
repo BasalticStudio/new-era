@@ -10,9 +10,11 @@
   </head>
 
   <body>
-    <main class="game-view bg-gray-200">
-      <div class="text-center">Version: newera@<%= ENV['REVISION'] || 'DEV' %></div>
-      <%= yield %>
-    </main>
+    <div class="absolute w-screen h-screen bg-gradient-to-b from-zinc-900 to-zinc-800">
+      <main class="overflow-hidden game-view bg-gray-50">
+        <div class="my-4 text-center">Version: newera@<%= ENV['REVISION'] || 'DEV' %></div>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
