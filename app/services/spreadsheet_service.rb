@@ -24,7 +24,7 @@ class SpreadsheetService
     @service = service
   end
 
-  def load(range)
+  def execute(range)
     @service
       .get_spreadsheet_values(@key, range)
       .values

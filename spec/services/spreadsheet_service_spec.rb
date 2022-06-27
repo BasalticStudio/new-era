@@ -25,8 +25,8 @@ RSpec.describe SpreadsheetService do
     end
   end
 
-  describe '#load' do
-    subject { sheet.load('A1:B') }
+  describe '#execute' do
+    subject { sheet.execute('A1:B') }
 
     before do
       range = instance_double(Google::Apis::SheetsV4::ValueRange, values: [%w[id name], %w[1 萊恩島]])
