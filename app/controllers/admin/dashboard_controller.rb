@@ -10,8 +10,9 @@ module Admin
     end
 
     def refresh_game_data
-      service = SpreadsheetService.build(Settings.game_data.spreadsheet_key)
-      GameData::Map.new(service.load('Map!A1:B')).import
+      data_load_service = SpreadsheetService.build(Settings.game_data.spreadsheet_key)
+      map_import_service = GameDataImportService.new(Map, conflict_keys: %i[name])
+      map_import_service.execute(data_load_service.load('Map!A1:B'))
 
       redirect_to admin_root_path, notice: t('.game_data_refresh_enqueued')
     end
