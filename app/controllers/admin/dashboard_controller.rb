@@ -3,6 +3,10 @@
 
 module Admin
   class DashboardController < ApplicationController
+    REPOSITORY_MAP = {
+      'Map' => Map
+    }.freeze
+
     def refresh_allowlist
       service = SpreadsheetService.build(Settings.register_allowlist.spreadsheet_key)
       RegisterAllowlist.new.write(service.execute('A2:A'))
@@ -11,8 +15,12 @@ module Admin
 
     def refresh_game_data
       data_load_service = SpreadsheetService.build(Settings.game_data.spreadsheet_key)
-      map_import_service = GameDataImportService.new(Map, conflict_keys: %i[name])
-      map_import_service.execute(data_load_service.execute('Map!A1:B'))
+
+      Settings.game_data.import.each do |config|
+        import_service = GameDataImportService.new(REPOSITORY_MAP[config['repository']],
+                                                   conflict_keys: config['fields'])
+        import_service.execute(data_load_service.execute(config['source']))
+      end
 
       redirect_to admin_root_path, notice: t('.game_data_refresh_enqueued')
     end

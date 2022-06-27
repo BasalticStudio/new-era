@@ -3,3 +3,8 @@ register_allowlist:
   spreadsheet_key:
 game_data:
   spreadsheet_key:
+  import:
+    - repository: 'Map'
+      fields: ['name']
+      source: 'Map!A1:B'
+
