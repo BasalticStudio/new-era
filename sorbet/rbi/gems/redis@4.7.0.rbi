@@ -45,6 +45,7 @@ class Redis
   # @option options
   # @option options
   # @option options
+  # @option options
   # @param options [Hash]
   # @return [Redis] a new client instance
   def initialize(options = T.unsafe(nil)); end
@@ -108,6 +109,10 @@ class Redis
   #
   # @deprecated Queues a command for pipelining.
   def queue(*command); end
+
+  # @yield [_self]
+  # @yieldparam _self [Redis] the object that the method was called on
+  def with; end
 
   # Run code with the client reconnecting
   def with_reconnect(val = T.unsafe(nil), &blk); end
@@ -363,7 +368,7 @@ module Redis::Cluster::CommandLoader
   def load(nodes); end
 
   class << self
-    # @raise [CannotConnectError]
+    # @raise [InitialSetupError]
     def load(nodes); end
 
     private
@@ -376,6 +381,14 @@ end
 class Redis::Cluster::CrossSlotPipeliningError < ::Redis::BaseError
   # @return [CrossSlotPipeliningError] a new instance of CrossSlotPipeliningError
   def initialize(keys); end
+end
+
+# Raised when client connected to redis as cluster mode
+# and failed to fetch cluster state information by commands.
+class Redis::Cluster::InitialSetupError < ::Redis::BaseError
+  # @param errors [Array<Redis::BaseError>]
+  # @return [InitialSetupError] a new instance of InitialSetupError
+  def initialize(errors); end
 end
 
 module Redis::Cluster::KeySlotConverter
@@ -464,7 +477,7 @@ module Redis::Cluster::NodeLoader
   def load_flags(nodes); end
 
   class << self
-    # @raise [CannotConnectError]
+    # @raise [InitialSetupError]
     def load_flags(nodes); end
 
     private
@@ -550,7 +563,7 @@ module Redis::Cluster::SlotLoader
   def stringify_node_key(arr, default_ip); end
 
   class << self
-    # @raise [CannotConnectError]
+    # @raise [InitialSetupError]
     def load(nodes); end
 
     private
@@ -2693,6 +2706,33 @@ module Redis::Commands::Transactions
   # @see #discard
   def exec; end
 
+  # Mark the start of a transaction block.
+  #
+  # Passing a block is optional.
+  #
+  # @example With a block
+  #   redis.multi do |multi|
+  #   multi.set("key", "value")
+  #   multi.incr("counter")
+  #   end # => ["OK", 6]
+  # @example Without a block
+  #   redis.multi
+  #   # => "OK"
+  #   redis.set("key", "value")
+  #   # => "QUEUED"
+  #   redis.incr("counter")
+  #   # => "QUEUED"
+  #   redis.exec
+  #   # => ["OK", 6]
+  # @return [String, Array<...>] - when a block is not given, `OK`
+  #   - when a block is given, an array with replies
+  # @see #watch
+  # @see #unwatch
+  # @yield [multi] the commands that are called inside this block are cached
+  #   and written to the server upon returning from it
+  # @yieldparam multi [Redis] `self`
+  def multi(&block); end
+
   # Forget about all watched keys.
   #
   # @return [String] `OK`
@@ -3460,6 +3500,13 @@ class Redis::InheritedError < ::Redis::BaseConnectionError; end
 # Raised when client options are invalid.
 class Redis::InvalidClientOptionError < ::Redis::BaseError; end
 
+class Redis::MultiFuture < ::Redis::Future
+  # @return [MultiFuture] a new instance of MultiFuture
+  def initialize(futures); end
+
+  def _set(replies); end
+end
+
 class Redis::Pipeline
   # @return [Pipeline] a new instance of Pipeline
   def initialize(client); end
@@ -3489,6 +3536,9 @@ class Redis::Pipeline
   # Returns the value of attribute futures.
   def futures; end
 
+  # Returns the value of attribute futures.
+  def materialized_futures; end
+
   # @return [Boolean]
   def shutdown?; end
 
@@ -3512,6 +3562,7 @@ end
 class Redis::Pipeline::Multi < ::Redis::Pipeline
   def commands; end
   def finish(replies); end
+  def materialized_futures; end
   def timeouts; end
 end
 
@@ -3543,6 +3594,7 @@ class Redis::PipelinedConnection
   # @return [PipelinedConnection] a new instance of PipelinedConnection
   def initialize(pipeline); end
 
+  def call_pipeline(pipeline); end
   def db; end
   def db=(db); end
 

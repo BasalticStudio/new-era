@@ -210,7 +210,7 @@ class Flipper::Adapters::ActiveRecord
 end
 
 # Private: Do not use outside of this adapter.
-class Flipper::Adapters::ActiveRecord::Feature < ::ActiveRecord::Base
+class Flipper::Adapters::ActiveRecord::Feature < ::Flipper::Adapters::ActiveRecord::Model
   include ::Flipper::Adapters::ActiveRecord::Feature::GeneratedAttributeMethods
   include ::Flipper::Adapters::ActiveRecord::Feature::GeneratedAssociationMethods
 
@@ -224,7 +224,7 @@ module Flipper::Adapters::ActiveRecord::Feature::GeneratedAssociationMethods; en
 module Flipper::Adapters::ActiveRecord::Feature::GeneratedAttributeMethods; end
 
 # Private: Do not use outside of this adapter.
-class Flipper::Adapters::ActiveRecord::Gate < ::ActiveRecord::Base
+class Flipper::Adapters::ActiveRecord::Gate < ::Flipper::Adapters::ActiveRecord::Model
   include ::Flipper::Adapters::ActiveRecord::Gate::GeneratedAttributeMethods
   include ::Flipper::Adapters::ActiveRecord::Gate::GeneratedAssociationMethods
 
@@ -236,6 +236,20 @@ end
 
 module Flipper::Adapters::ActiveRecord::Gate::GeneratedAssociationMethods; end
 module Flipper::Adapters::ActiveRecord::Gate::GeneratedAttributeMethods; end
+
+# Abstract base class for internal models
+class Flipper::Adapters::ActiveRecord::Model < ::ActiveRecord::Base
+  include ::Flipper::Adapters::ActiveRecord::Model::GeneratedAttributeMethods
+  include ::Flipper::Adapters::ActiveRecord::Model::GeneratedAssociationMethods
+
+  class << self
+    def _validators; end
+    def defined_enums; end
+  end
+end
+
+module Flipper::Adapters::ActiveRecord::Model::GeneratedAssociationMethods; end
+module Flipper::Adapters::ActiveRecord::Model::GeneratedAttributeMethods; end
 
 # Private: The namespace for all instrumented events.
 Flipper::InstrumentationNamespace = T.let(T.unsafe(nil), Symbol)

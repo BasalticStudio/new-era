@@ -1249,6 +1249,17 @@ class Tapioca::Gem::SymbolFound < ::Tapioca::Gem::Event
   def symbol; end
 end
 
+module Tapioca::GemHelper
+  sig { params(gemfile_dir: ::String, full_gem_path: ::String).returns(T::Boolean) }
+  def gem_in_app_dir?(gemfile_dir, full_gem_path); end
+
+  sig { params(full_gem_path: ::String).returns(T::Boolean) }
+  def gem_in_bundle_path?(full_gem_path); end
+
+  sig { params(path: T.any(::Pathname, ::String)).returns(::String) }
+  def to_realpath(path); end
+end
+
 class Tapioca::Gemfile
   sig { params(exclude: T::Array[::String]).void }
   def initialize(exclude); end
@@ -1311,6 +1322,8 @@ module Tapioca::Gemfile::AutoRequireHook
 end
 
 class Tapioca::Gemfile::GemSpec
+  include ::Tapioca::GemHelper
+
   sig { params(spec: T.any(::Bundler::StubSpecification, ::Gem::Specification)).void }
   def initialize(spec); end
 
@@ -1358,12 +1371,6 @@ class Tapioca::Gemfile::GemSpec
   sig { returns(T::Boolean) }
   def gem_ignored?; end
 
-  sig { params(gemfile_dir: ::String).returns(T::Boolean) }
-  def gem_in_app_dir?(gemfile_dir); end
-
-  sig { returns(T::Boolean) }
-  def gem_in_bundle_path?; end
-
   sig { params(path: ::String).returns(T::Boolean) }
   def has_parent_gemspec?(path); end
 
@@ -1372,9 +1379,6 @@ class Tapioca::Gemfile::GemSpec
 
   sig { params(file: ::String).returns(::Pathname) }
   def resolve_to_ruby_lib_dir(file); end
-
-  sig { params(path: T.any(::Pathname, ::String)).returns(::String) }
-  def to_realpath(path); end
 
   sig { returns(::String) }
   def version_string; end
@@ -1551,6 +1555,8 @@ module Tapioca::Runtime::GenericTypeRegistry
 end
 
 class Tapioca::Runtime::Loader
+  include ::Tapioca::GemHelper
+
   sig do
     params(
       gemfile: ::Tapioca::Gemfile,

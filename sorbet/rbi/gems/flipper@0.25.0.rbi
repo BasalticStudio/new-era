@@ -469,12 +469,6 @@ class Flipper::Configuration
   def default(&block); end
 end
 
-# Raised when accessing a configuration property that has been deprecated
-class Flipper::ConfigurationDeprecated < ::Flipper::Error
-  # @return [ConfigurationDeprecated] a new instance of ConfigurationDeprecated
-  def initialize(message = T.unsafe(nil)); end
-end
-
 class Flipper::DSL
   extend ::Forwardable
 
@@ -723,13 +717,6 @@ class Flipper::DSL
   #
   # Returns Flipper::Types::PercentageOfTime.
   def time(number); end
-end
-
-# Raised when default instance not configured but there is an attempt to
-# use it.
-class Flipper::DefaultNotSet < ::Flipper::Error
-  # @return [DefaultNotSet] a new instance of DefaultNotSet
-  def initialize(message = T.unsafe(nil)); end
 end
 
 # Raised when attempting to declare a group name that has already been used.

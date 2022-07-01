@@ -521,6 +521,8 @@ end
 Sidekiq::RedisConnection::RedisAdapter::BaseError = Redis::BaseError
 Sidekiq::RedisConnection::RedisAdapter::CommandError = Redis::CommandError
 
+# Server-side middleware must import this Module in order
+# to get access to server resources during `call`.
 module Sidekiq::ServerMiddleware
   # Returns the value of attribute config.
   def config; end

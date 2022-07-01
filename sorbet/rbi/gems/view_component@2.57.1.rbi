@@ -78,7 +78,10 @@ class ViewComponent::Base < ::ActionView::Base
   def helpers; end
 
   def i18n_backend; end
+
+  # @private
   def perform_render; end
+
   def preview_controller; end
   def preview_path; end
   def preview_paths; end
@@ -115,16 +118,17 @@ class ViewComponent::Base < ::ActionView::Base
   def render_monkey_patch_enabled; end
 
   # Subclass components that call `super` inside their template code will cause a
-  # double render if they accidentally emit the result:
+  # double render if they emit the result:
   #
-  # <%= super %> # double-renders
+  #     <%= super %> # double-renders
+  #     <% super %> # does not double-render
   #
-  # <% super %> # does not double-render
-  #
-  # Calls `super`, returning nil to avoid rendering the result twice.
+  # Calls `super`, returning `nil` to avoid rendering the result twice.
   def render_parent; end
 
   # :nocov:
+  #
+  # @private
   def render_template_for(variant = T.unsafe(nil)); end
 
   # The current request. Use sparingly as doing so introduces coupling that
@@ -132,6 +136,17 @@ class ViewComponent::Base < ::ActionView::Base
   #
   # @return [ActionDispatch::Request]
   def request; end
+
+  # Components render in their own view context. Helpers and other functionality
+  # require a reference to the original Rails view context, an instance of
+  # `ActionView::Base`. Use this method to set a reference to the original
+  # view context. Objects that implement this method will render in the component's
+  # view context, while objects that don't will render in the original view context
+  # so helpers, etc work as expected.
+  #
+  # @param view_context [ActionView::Base] The original view context.
+  # @return [void]
+  def set_original_view_context(view_context); end
 
   def show_previews; end
   def show_previews_source; end
@@ -350,6 +365,14 @@ class ViewComponent::Collection
   # @return [Collection] a new instance of Collection
   def initialize(component, object, **options); end
 
+  # Returns the value of attribute __vc_original_view_context.
+  def __vc_original_view_context; end
+
+  # Sets the attribute __vc_original_view_context
+  #
+  # @param value the value to set the attribute __vc_original_view_context to.
+  def __vc_original_view_context=(_arg0); end
+
   # Returns the value of attribute component.
   def component; end
 
@@ -357,6 +380,7 @@ class ViewComponent::Collection
   def each(&block); end
   def format(*_arg0, &_arg1); end
   def render_in(view_context, &block); end
+  def set_original_view_context(view_context); end
   def size(*_arg0, &_arg1); end
 
   private
@@ -564,6 +588,8 @@ class ViewComponent::Preview
     # Setter for layout name.
     def layout(layout_name); end
 
+    def load_previews; end
+
     # Returns the relative path (from preview_path) to the preview example template if the template exists
     def preview_example_template_path(example); end
 
@@ -578,7 +604,6 @@ class ViewComponent::Preview
 
     private
 
-    def load_previews; end
     def preview_paths; end
   end
 end
@@ -604,6 +629,25 @@ class ViewComponent::PreviewTemplateError < ::StandardError; end
 
 module ViewComponent::Previewable
   extend ::ActiveSupport::Concern
+end
+
+module ViewComponent::RenderPreviewHelper
+  # Render a preview inline. Internally sets `page` to be a `Capybara::Node::Simple`,
+  # allowing for Capybara assertions to be used:
+  #
+  # ```ruby
+  # render_preview(:default)
+  # assert_text("Hello, World!")
+  # ```
+  #
+  # Note: `#rendered_preview` expects a preview to be defined with the same class
+  # name as the calling test, but with `Test` replaced with `Preview`:
+  #
+  # MyComponentTest -> MyComponentPreview etc.
+  #
+  # @param preview [String] The name of the preview to be rendered.
+  # @return [Nokogiri::HTML]
+  def render_preview(name); end
 end
 
 class ViewComponent::Slot
@@ -808,8 +852,10 @@ module ViewComponent::TestHelpers
   # @return [Nokogiri::HTML]
   def render_inline(component, **args, &block); end
 
-  # @private
   def rendered_component; end
+
+  # @private
+  def rendered_content; end
 
   # @private
   def request; end

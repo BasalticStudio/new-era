@@ -452,6 +452,15 @@ class Google::Apis::Core::BaseService
   # @return [Google::Apis::Core::DownloadCommand]
   def make_simple_command(method, path, options); end
 
+  # Create a new storage download command. This is specifically for storage because
+  # we want to return response header too in the response.
+  #
+  # @param method [symbol] HTTP method for uploading (typically :get)
+  # @param path [String] Additional path to download endpoint, appended to API base path
+  # @param options [Hash, Google::Apis::RequestOptions] Request-specific options
+  # @return [Google::Apis::Core::StorageDownloadCommand]
+  def make_storage_download_command(method, path, options); end
+
   # Create a new upload command.
   #
   # @param method [symbol] HTTP method for uploading (typically :put or :post)
@@ -1136,6 +1145,25 @@ Google::Apis::Core::ResumableUploadCommand::UPLOAD_OFFSET_HEADER = T.let(T.unsaf
 Google::Apis::Core::ResumableUploadCommand::UPLOAD_STATUS_HEADER = T.let(T.unsafe(nil), String)
 Google::Apis::Core::ResumableUploadCommand::UPLOAD_URL_HEADER = T.let(T.unsafe(nil), String)
 
+# Streaming/resumable media download support specifically for storage API so that
+# we can respond with response headers too.
+class Google::Apis::Core::StorageDownloadCommand < ::Google::Apis::Core::DownloadCommand
+  # Execute the upload request once. Overrides the default implementation to handle streaming/chunking
+  # of file content.
+  # Note: This method is overriden from DownloadCommand in order to respond back with
+  # http header. All changes made to `execute_once` of DownloadCommand, should be made
+  # here too.
+  #
+  # @param client [HTTPClient] HTTP client
+  # @private
+  # @raise [Google::Apis::ServerError] An error occurred on the server and the request can be retried
+  # @raise [Google::Apis::ClientError] The request is invalid and should not be retried without modification
+  # @raise [Google::Apis::AuthorizationError] Authorization is required
+  # @return [Object]
+  # @yield [result, err] Result or error if block supplied
+  def execute_once(client, &block); end
+end
+
 # Core version
 Google::Apis::Core::VERSION = T.let(T.unsafe(nil), String)
 
@@ -1168,7 +1196,7 @@ class Google::Apis::ProjectNotLinkedError < ::Google::Apis::Error; end
 
 Google::Apis::ROOT = T.let(T.unsafe(nil), String)
 
-# A 4xx class HTTP error occurred.
+# A 429 HTTP error occurred.
 class Google::Apis::RateLimitError < ::Google::Apis::Error; end
 
 # An exception that is raised if a redirect is required
@@ -1277,6 +1305,9 @@ class Google::Apis::RequestOptions < ::Struct
     def new(*_arg0); end
   end
 end
+
+# A 408 HTTP error occurred.
+class Google::Apis::RequestTimeOutError < ::Google::Apis::ClientError; end
 
 # A 5xx class HTTP error occurred.
 class Google::Apis::ServerError < ::Google::Apis::Error; end
