@@ -11,7 +11,7 @@ Feature: Register
       | password              | example+1234       |
       | password_confirmation | example+1234       |
     And I click "註冊"
-    Then I can see "開始冒險"
+    Then I can see "你的名字是？"
 
   Scenario: Player can login with an account
     Given there are some players
@@ -22,7 +22,7 @@ Feature: Register
       | email    | player@example.com |
       | password | example+1234       |
     And I click "登入"
-    Then I can see "開始冒險"
+    Then I can see "你的名字是？"
 
   @beta_mode
   Scenario: Player is limited to register with whitelist in beta mode
