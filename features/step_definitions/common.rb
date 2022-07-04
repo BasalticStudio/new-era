@@ -5,7 +5,7 @@ Given('there are a player logged in') do
   email = 'player@example.com'
   password = '123456+999'
 
-  @player = Player.create(email: email, password: password)
+  @player = Player.create(email: email, password: password, name: '蒼時弦也')
 
   visit new_player_session_path
   fill_in 'player_email', with: email
