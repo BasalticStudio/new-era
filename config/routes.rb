@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   namespace :game do
     root to: 'hangar#index'
 
+    scope :tutorial, as: :tutorial do
+      get '/', to: 'tutorial#setup_name_view'
+      post '/', to: 'tutorial#setup_name'
+    end
+
     resources :maps, only: %i[index show]
     resources :quests, only: %i[index]
   end
