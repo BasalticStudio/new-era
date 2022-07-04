@@ -1,4 +1,3 @@
-@preview
 Feature: Tutorial
   Background:
     Given there are some players

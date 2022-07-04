@@ -14,7 +14,6 @@ module Game
     end
 
     def tutorial_check
-      return unless Flipper.enabled?(:preview, current_player)
       return if current_player.name.present?
 
       redirect_to game_tutorial_path
