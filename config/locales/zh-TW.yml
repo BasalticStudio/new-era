@@ -6,8 +6,13 @@ zh-TW:
   game:
     hangar:
       index:
+        welcome: "歡迎回來，%{name}"
         adventure: 開始冒險
         quests: 任務列表
+    tutorial:
+      setup_name_view:
+        what_your_name: 你的名字是？
+        continue: 繼續
   admin:
     dashboard:
       index:

@@ -1,6 +1,5 @@
 <% if Flipper.enabled?(:preview, current_player) %>
-  <div>歡迎回來，<%= current_player.name %></div>
+  <div><%= t('.welcome', name: current_player.name) %></div>
 <% end %>
-
 <div><%= render LinkButtonComponent.new(enabled: Flipper.enabled?(:preview, current_player), label: t('.adventure'), target: game_maps_path) %></div>
 <div><%= render LinkButtonComponent.new(enabled: Flipper.enabled?(:preview, current_player), label: t('.quests'), target: game_quests_path) %></div>
