@@ -16,7 +16,6 @@ Feature: Tutorial
   Scenario: Player should setup player name
     Then I can see "你的名字是？"
 
-  @wip
   Scenario: Player can fill player name and enter the game
     When I fill "player" form
       | field | value    |

@@ -1,1 +1,5 @@
-你的名字是？
+<%= form_with model: current_player, url: game_tutorial_path do |form| %>
+  <div>你的名字是？</div>
+  <div><%= form.text_field :name %></div>
+  <div><%= form.submit "繼續" %></div>
+<% end %>

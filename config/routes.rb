@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
     scope :tutorial, as: :tutorial do
       get '/', to: 'tutorial#setup_name_view'
-      post '/', to: 'tutorial#setup_name'
+      patch '/', to: 'tutorial#setup_name'
     end
 
     resources :maps, only: %i[index show]
