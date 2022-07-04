@@ -1,5 +1,5 @@
 <%= form_with model: current_player, url: game_tutorial_path, class: 'my-4 text-center' do |form| %>
   <div class="my-2"><%= t('.what_your_name') %></div>
-  <div class="my-2"><%= form.text_field :name, class: 'px-4 py-2 bg-transparent border-none border-b-2 border-black focus:ring-0' %></div>
+  <div class="my-2"><%= form.text_field :name, class: 'px-4 py-2 bg-transparent border-0 border-b-2 border-black focus:ring-0' %></div>
   <div class="my-2"><%= form.submit t('.continue'), class: 'inline-block px-4 py-2 text-white bg-blue-500' %></div>
 <% end %>
