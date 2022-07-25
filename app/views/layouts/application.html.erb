@@ -10,8 +10,8 @@
   </head>
 
   <body>
-    <div class="absolute w-screen h-screen bg-gradient-to-b from-zinc-900 to-zinc-800">
-      <main class="relative overflow-hidden game-view bg-gray-50">
+    <div class="flex items-stretch justify-center w-screen h-screen bg-gradient-to-b from-zinc-900 to-zinc-800">
+      <main class="grow max-w-lg overflow-hidden bg-gray-50">
         <div class="my-4 text-center">Version: newera@<%= ENV['REVISION'] || 'DEV' %></div>
         <%= yield %>
       </main>
