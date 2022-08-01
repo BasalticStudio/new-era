@@ -8,6 +8,6 @@ game_data:
       fields: ['name']
       source: 'Map!A1:B'
     - repository: 'Area'
-      fields: ['name', 'map_id']
+      fields: ['name', 'map_id', 'terrain']
       source: 'Area!A1:E'
 
