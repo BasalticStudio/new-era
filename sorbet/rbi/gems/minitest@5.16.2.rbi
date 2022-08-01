@@ -853,7 +853,7 @@ class Minitest::Test < ::Minitest::Runnable
 
   def class_name; end
   def neuter_exception(e); end
-  def new_exception(klass, msg, bt); end
+  def new_exception(klass, msg, bt, kill = T.unsafe(nil)); end
 
   # Runs a single test with setup/teardown hooks.
   def run; end

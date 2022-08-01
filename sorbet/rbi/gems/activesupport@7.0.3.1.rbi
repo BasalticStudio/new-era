@@ -5,6 +5,7 @@
 # Please instead update this file by running `bin/tapioca gem activesupport`.
 
 ::RUBY19 = T.let(T.unsafe(nil), TrueClass)
+::Settings = T.let(T.unsafe(nil), Config::Options)
 
 module ActiveSupport
   extend ::ActiveSupport::LazyLoadHooks
@@ -373,6 +374,12 @@ module ActiveSupport::Cache::Coders::Rails70Coder
   def dump_compressed(entry, threshold); end
 end
 
+module ActiveSupport::Cache::ConnectionPoolLike
+  # @yield [_self]
+  # @yieldparam _self [ActiveSupport::Cache::ConnectionPoolLike] the object that the method was called on
+  def with; end
+end
+
 ActiveSupport::Cache::DEFAULT_COMPRESS_LIMIT = T.let(T.unsafe(nil), Integer)
 
 # This class is used to represent cache entries. Cache entries have a value, an optional
@@ -630,6 +637,202 @@ end
 
 # Mapping of canonical option names to aliases that a store will recognize.
 ActiveSupport::Cache::OPTION_ALIASES = T.let(T.unsafe(nil), Hash)
+
+# Redis cache store.
+#
+# Deployment note: Take care to use a *dedicated Redis cache* rather
+# than pointing this at your existing Redis server. It won't cope well
+# with mixed usage patterns and it won't expire cache entries by default.
+#
+# Redis cache server setup guide: https://redis.io/topics/lru-cache
+#
+# * Supports vanilla Redis, hiredis, and Redis::Distributed.
+# * Supports Memcached-like sharding across Redises with Redis::Distributed.
+# * Fault tolerant. If the Redis server is unavailable, no exceptions are
+#   raised. Cache fetches are all misses and writes are dropped.
+# * Local cache. Hot in-memory primary cache within block/middleware scope.
+# * +read_multi+ and +write_multi+ support for Redis mget/mset. Use Redis::Distributed
+#   4.0.1+ for distributed mget support.
+# * +delete_matched+ support for Redis KEYS globs.
+class ActiveSupport::Cache::RedisCacheStore < ::ActiveSupport::Cache::Store
+  include ::ActiveSupport::Cache::Strategy::LocalCache
+
+  # Creates a new Redis cache store.
+  #
+  # Handles four options: :redis block, :redis instance, single :url
+  # string, and multiple :url strings.
+  #
+  #   Option  Class       Result
+  #   :redis  Proc    ->  options[:redis].call
+  #   :redis  Object  ->  options[:redis]
+  #   :url    String  ->  Redis.new(url: …)
+  #   :url    Array   ->  Redis::Distributed.new([{ url: … }, { url: … }, …])
+  #
+  # No namespace is set by default. Provide one if the Redis cache
+  # server is shared with other apps: <tt>namespace: 'myapp-cache'</tt>.
+  #
+  # Compression is enabled by default with a 1kB threshold, so cached
+  # values larger than 1kB are automatically compressed. Disable by
+  # passing <tt>compress: false</tt> or change the threshold by passing
+  # <tt>compress_threshold: 4.kilobytes</tt>.
+  #
+  # No expiry is set on cache entries by default. Redis is expected to
+  # be configured with an eviction policy that automatically deletes
+  # least-recently or -frequently used keys when it reaches max memory.
+  # See https://redis.io/topics/lru-cache for cache server setup.
+  #
+  # Race condition TTL is not set by default. This can be used to avoid
+  # "thundering herd" cache writes when hot cache entries are expired.
+  # See ActiveSupport::Cache::Store#fetch for more.
+  #
+  # @return [RedisCacheStore] a new instance of RedisCacheStore
+  def initialize(namespace: T.unsafe(nil), compress: T.unsafe(nil), compress_threshold: T.unsafe(nil), coder: T.unsafe(nil), expires_in: T.unsafe(nil), race_condition_ttl: T.unsafe(nil), error_handler: T.unsafe(nil), **redis_options); end
+
+  # Cache Store API implementation.
+  #
+  # Removes expired entries. Handled natively by Redis least-recently-/
+  # least-frequently-used expiry, so manual cleanup is not supported.
+  def cleanup(**options); end
+
+  # Clear the entire cache on all Redis servers. Safe to use on
+  # shared servers if the cache is namespaced.
+  #
+  # Failsafe: Raises errors.
+  def clear(**options); end
+
+  # Cache Store API implementation.
+  #
+  # Decrement a cached value. This method uses the Redis decr atomic
+  # operator and can only be used on values written with the +:raw+ option.
+  # Calling it on a value not stored with +:raw+ will initialize that value
+  # to zero.
+  #
+  # Failsafe: Raises errors.
+  def decrement(name, amount = T.unsafe(nil), **options); end
+
+  # Cache Store API implementation.
+  #
+  # Supports Redis KEYS glob patterns:
+  #
+  #   h?llo matches hello, hallo and hxllo
+  #   h*llo matches hllo and heeeello
+  #   h[ae]llo matches hello and hallo, but not hillo
+  #   h[^e]llo matches hallo, hbllo, ... but not hello
+  #   h[a-b]llo matches hallo and hbllo
+  #
+  # Use \ to escape special characters if you want to match them verbatim.
+  #
+  # See https://redis.io/commands/KEYS for more.
+  #
+  # Failsafe: Raises errors.
+  def delete_matched(matcher, options = T.unsafe(nil)); end
+
+  # Cache Store API implementation.
+  #
+  # Increment a cached value. This method uses the Redis incr atomic
+  # operator and can only be used on values written with the +:raw+ option.
+  # Calling it on a value not stored with +:raw+ will initialize that value
+  # to zero.
+  #
+  # Failsafe: Raises errors.
+  def increment(name, amount = T.unsafe(nil), **options); end
+
+  def inspect; end
+
+  # Returns the value of attribute max_key_bytesize.
+  def max_key_bytesize; end
+
+  # @return [Boolean]
+  def mget_capable?; end
+
+  # @return [Boolean]
+  def mset_capable?; end
+
+  # Cache Store API implementation.
+  #
+  # Read multiple values at once. Returns a hash of requested keys ->
+  # fetched values.
+  def read_multi(*names); end
+
+  def redis; end
+
+  # Returns the value of attribute redis_options.
+  def redis_options; end
+
+  # Get info from redis servers.
+  def stats; end
+
+  private
+
+  # Delete an entry from the cache.
+  def delete_entry(key, **_arg1); end
+
+  # Deletes multiple entries in the cache. Returns the number of entries deleted.
+  def delete_multi_entries(entries, **_options); end
+
+  def deserialize_entry(payload, raw: T.unsafe(nil), **_arg2); end
+  def failsafe(method, returning: T.unsafe(nil)); end
+
+  # Truncate keys that exceed 1kB.
+  def normalize_key(key, options); end
+
+  # Store provider interface:
+  # Read an entry from the cache.
+  def read_entry(key, **options); end
+
+  def read_multi_entries(keys, **options); end
+  def read_multi_mget(*names); end
+  def read_serialized_entry(key, raw: T.unsafe(nil), **options); end
+  def serialize_entries(entries, **options); end
+  def serialize_entry(entry, raw: T.unsafe(nil), **options); end
+  def set_redis_capabilities; end
+  def truncate_key(key); end
+
+  # Write an entry to the cache.
+  #
+  # Requires Redis 2.6.12+ for extended SET options.
+  def write_entry(key, entry, raw: T.unsafe(nil), **options); end
+
+  def write_key_expiry(client, key, options); end
+
+  # Nonstandard store provider API to write multiple values at once.
+  def write_multi_entries(entries, expires_in: T.unsafe(nil), **options); end
+
+  def write_serialized_entry(key, payload, **_arg2); end
+
+  class << self
+    # Factory method to create a new Redis instance.
+    #
+    # Handles four options: :redis block, :redis instance, single :url
+    # string, and multiple :url strings.
+    #
+    #   Option  Class       Result
+    #   :redis  Proc    ->  options[:redis].call
+    #   :redis  Object  ->  options[:redis]
+    #   :url    String  ->  Redis.new(url: …)
+    #   :url    Array   ->  Redis::Distributed.new([{ url: … }, { url: … }, …])
+    def build_redis(redis: T.unsafe(nil), url: T.unsafe(nil), **redis_options); end
+
+    # Advertise cache versioning support.
+    #
+    # @return [Boolean]
+    def supports_cache_versioning?; end
+
+    private
+
+    def build_redis_client(url:, **redis_options); end
+    def build_redis_distributed_client(urls:, **redis_options); end
+  end
+end
+
+ActiveSupport::Cache::RedisCacheStore::DEFAULT_ERROR_HANDLER = T.let(T.unsafe(nil), Proc)
+ActiveSupport::Cache::RedisCacheStore::DEFAULT_REDIS_OPTIONS = T.let(T.unsafe(nil), Hash)
+
+# Keys are truncated with the ActiveSupport digest if they exceed 1kB
+ActiveSupport::Cache::RedisCacheStore::MAX_KEY_BYTESIZE = T.let(T.unsafe(nil), Integer)
+
+# The maximum number of entries to receive per SCAN call.
+ActiveSupport::Cache::RedisCacheStore::SCAN_BATCH_SIZE = T.let(T.unsafe(nil), Integer)
 
 # An abstract cache store class. There are multiple cache store
 # implementations, each having its own additional features. See the classes
@@ -9217,6 +9420,7 @@ end
 module ActiveSupport::VERSION; end
 ActiveSupport::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveSupport::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
+ActiveSupport::VERSION::PRE = T.let(T.unsafe(nil), String)
 ActiveSupport::VERSION::STRING = T.let(T.unsafe(nil), String)
 ActiveSupport::VERSION::TINY = T.let(T.unsafe(nil), Integer)
 
@@ -11202,6 +11406,7 @@ class Hash
   include ::Enumerable
   include ::JSON::Ext::Generator::GeneratorMethods::Hash
   include ::MessagePack::CoreExt
+  include ::DeepMerge::DeepMergeHash
 
   def as_json(options = T.unsafe(nil)); end
 
@@ -13540,6 +13745,16 @@ class String
   # See also +deconstantize+.
   def demodulize; end
 
+  # The inverse of <tt>String#include?</tt>. Returns true if the string
+  # does not include the other string.
+  #
+  #   "hello".exclude? "lo" # => false
+  #   "hello".exclude? "ol" # => true
+  #   "hello".exclude? ?h   # => false
+  #
+  # @return [Boolean]
+  def exclude?(string); end
+
   # Returns the first character. If a limit is supplied, returns a substring
   # from the beginning of the string until it reaches the limit value. If the
   # given limit is greater than or equal to the string length, returns a copy of self.
@@ -14025,6 +14240,7 @@ end
 Struct::Group = Etc::Group
 Struct::HTMLElementDescription = Struct
 Struct::Passwd = Etc::Passwd
+Struct::UnameStruct = Struct
 
 class Symbol
   include ::Comparable

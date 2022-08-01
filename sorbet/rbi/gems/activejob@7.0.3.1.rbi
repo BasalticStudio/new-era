@@ -1060,6 +1060,53 @@ class ActiveJob::QueueAdapters::InlineAdapter
   def enqueue_at(*_arg0); end
 end
 
+# == Sidekiq adapter for Active Job
+#
+# Simple, efficient background processing for Ruby. Sidekiq uses threads to
+# handle many jobs at the same time in the same process. It does not
+# require Rails but will integrate tightly with it to make background
+# processing dead simple.
+#
+# Read more about Sidekiq {here}[http://sidekiq.org].
+#
+# To use Sidekiq set the queue_adapter config to +:sidekiq+.
+#
+#   Rails.application.config.active_job.queue_adapter = :sidekiq
+class ActiveJob::QueueAdapters::SidekiqAdapter
+  def enqueue(job); end
+  def enqueue_at(job, timestamp); end
+end
+
+class ActiveJob::QueueAdapters::SidekiqAdapter::JobWrapper
+  include ::Sidekiq::Worker
+  include ::Sidekiq::Worker::Options
+  extend ::Sidekiq::Worker::Options::ClassMethods
+  extend ::Sidekiq::Worker::ClassMethods
+
+  def perform(job_data); end
+  def sidekiq_options_hash; end
+  def sidekiq_options_hash=(_arg0); end
+  def sidekiq_retries_exhausted_block; end
+  def sidekiq_retries_exhausted_block=(_arg0); end
+  def sidekiq_retry_in_block; end
+  def sidekiq_retry_in_block=(_arg0); end
+
+  class << self
+    def sidekiq_options_hash; end
+    def sidekiq_options_hash=(val); end
+    def sidekiq_retries_exhausted_block; end
+    def sidekiq_retries_exhausted_block=(val); end
+    def sidekiq_retry_in_block; end
+    def sidekiq_retry_in_block=(val); end
+
+    private
+
+    def __synchronized_sidekiq_options_hash; end
+    def __synchronized_sidekiq_retries_exhausted_block; end
+    def __synchronized_sidekiq_retry_in_block; end
+  end
+end
+
 # == Test adapter for Active Job
 #
 # The test adapter should be used only in testing. Along with
@@ -1944,5 +1991,6 @@ end
 module ActiveJob::VERSION; end
 ActiveJob::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveJob::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
+ActiveJob::VERSION::PRE = T.let(T.unsafe(nil), String)
 ActiveJob::VERSION::STRING = T.let(T.unsafe(nil), String)
 ActiveJob::VERSION::TINY = T.let(T.unsafe(nil), Integer)

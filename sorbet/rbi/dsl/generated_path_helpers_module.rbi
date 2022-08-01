@@ -66,6 +66,9 @@ module GeneratedPathHelpersModule
   def game_root_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def game_tutorial_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def liveness_status_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }

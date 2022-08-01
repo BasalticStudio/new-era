@@ -733,6 +733,23 @@ class ActionView::FileSystemResolver < ::ActionView::Resolver
   def unbound_templates_from_path(path); end
 end
 
+# Use FixtureResolver in your tests to simulate the presence of files on the
+# file system. This is used internally by Rails' own test suite, and is
+# useful for testing extensions that have no way of knowing what the file
+# system will look like at runtime.
+class ActionView::FixtureResolver < ::ActionView::FileSystemResolver
+  # @return [FixtureResolver] a new instance of FixtureResolver
+  def initialize(hash = T.unsafe(nil)); end
+
+  def data; end
+  def to_s; end
+
+  private
+
+  def source_for_template(template); end
+  def template_glob(glob); end
+end
+
 module ActionView::Helpers
   include ::ActiveSupport::Benchmarkable
   include ::ActionView::Helpers::ActiveModelHelper
@@ -9906,6 +9923,10 @@ module ActionView::ModelNaming
   def model_name_from_record_or_class(record_or_class); end
 end
 
+class ActionView::NullResolver < ::ActionView::Resolver
+  def find_templates(name, prefix, partial, details, locals = T.unsafe(nil)); end
+end
+
 class ActionView::ObjectRenderer < ::ActionView::PartialRenderer
   include ::ActionView::AbstractRenderer::ObjectRendering
 
@@ -11791,6 +11812,7 @@ end
 module ActionView::VERSION; end
 ActionView::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActionView::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
+ActionView::VERSION::PRE = T.let(T.unsafe(nil), String)
 ActionView::VERSION::STRING = T.let(T.unsafe(nil), String)
 ActionView::VERSION::TINY = T.let(T.unsafe(nil), Integer)
 

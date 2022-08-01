@@ -60,6 +60,8 @@ module ActiveRecord
     def suppress_multiple_database_warning=(_arg0); end
     def timestamped_migrations; end
     def timestamped_migrations=(_arg0); end
+    def use_yaml_unsafe_load; end
+    def use_yaml_unsafe_load=(_arg0); end
     def verbose_query_logs; end
     def verbose_query_logs=(_arg0); end
     def verify_foreign_keys_for_fixtures; end
@@ -72,6 +74,8 @@ module ActiveRecord
     def warn_on_records_fetched_greater_than=(_arg0); end
     def writing_role; end
     def writing_role=(_arg0); end
+    def yaml_column_permitted_classes; end
+    def yaml_column_permitted_classes=(_arg0); end
   end
 end
 
@@ -2510,6 +2514,7 @@ end
 class ActiveRecord::Associations::CollectionAssociation < ::ActiveRecord::Associations::Association
   def add_to_target(record, skip_callbacks: T.unsafe(nil), replace: T.unsafe(nil), &block); end
   def build(attributes = T.unsafe(nil), &block); end
+  def bulk_import(*args, &block); end
 
   # Add +records+ to this association. Since +<<+ flattens its argument list
   # and inserts each record, +push+ and +concat+ behave identically.
@@ -2573,6 +2578,8 @@ class ActiveRecord::Associations::CollectionAssociation < ::ActiveRecord::Associ
 
   # Implements the ids writer method, e.g. foo.item_ids= for Foo.has_many :items
   def ids_writer(ids); end
+
+  def import(*args, &block); end
 
   # @return [Boolean]
   def include?(record); end
@@ -2791,6 +2798,8 @@ class ActiveRecord::Associations::CollectionProxy < ::ActiveRecord::Relation
   #   person.pets.size  # => 5 # size of the collection
   #   person.pets.count # => 0 # count from database
   def build(attributes = T.unsafe(nil), &block); end
+
+  def bulk_import(*args, &block); end
 
   # --
   def calculate(operation, column_name); end
@@ -3249,6 +3258,7 @@ class ActiveRecord::Associations::CollectionProxy < ::ActiveRecord::Relation
   def having!(*_arg0, &_arg1); end
   def having_clause(*_arg0, &_arg1); end
   def having_clause=(arg); end
+  def import(*args, &block); end
   def in_order_of(*_arg0, &_arg1); end
 
   # Returns +true+ if the given +record+ is present in the collection.
@@ -6226,6 +6236,9 @@ class ActiveRecord::Base
   extend ::ActiveRecord::SignedId::ClassMethods
   extend ::ActiveRecord::Suppressor::ClassMethods
   extend ::ActiveRecord::Encryption::EncryptableRecord::ClassMethods
+  extend ::OrmAdapter::ToAdapter
+  extend ::Devise::Models
+  extend ::ActiveRecord::Import::Connection
 
   def __callbacks; end
   def __callbacks?; end
@@ -6314,6 +6327,7 @@ class ActiveRecord::Base
   def store_full_class_name?; end
   def store_full_sti_class; end
   def store_full_sti_class?; end
+  def synchronize(instances, key = T.unsafe(nil)); end
   def table_name_prefix; end
   def table_name_prefix?; end
   def table_name_suffix; end
@@ -6402,6 +6416,8 @@ class ActiveRecord::Base
     def belongs_to_required_by_default; end
     def belongs_to_required_by_default=(value); end
     def belongs_to_required_by_default?; end
+    def bulk_import(*args); end
+    def bulk_import!(*args); end
     def cache_timestamp_format; end
     def cache_timestamp_format=(value); end
     def cache_timestamp_format?; end
@@ -6458,6 +6474,11 @@ class ActiveRecord::Base
     def implicit_order_column; end
     def implicit_order_column=(value); end
     def implicit_order_column?; end
+    def import(*args); end
+    def import!(*args); end
+    def import_helper(*args); end
+    def import_with_validations(column_names, array_of_attributes, options = T.unsafe(nil)); end
+    def import_without_validations_or_callbacks(column_names, array_of_attributes, options = T.unsafe(nil)); end
     def include_root_in_json; end
     def include_root_in_json=(value); end
     def include_root_in_json?; end
@@ -6515,6 +6536,10 @@ class ActiveRecord::Base
     def strict_loading_by_default=(value); end
     def strict_loading_by_default?; end
     def strict_loading_violation!(owner:, reflection:); end
+    def supports_import?(*args); end
+    def supports_on_duplicate_key_update?; end
+    def supports_setting_primary_key_of_imported_objects?; end
+    def synchronize(instances, keys = T.unsafe(nil)); end
     def table_name_prefix; end
     def table_name_prefix=(value); end
     def table_name_prefix?; end
@@ -6531,11 +6556,20 @@ class ActiveRecord::Base
     private
 
     def _inheritance_column=(value); end
+    def add_special_rails_stamps(column_names, array_of_attributes, options); end
+    def find_associated_objects_for_import(associated_objects_by_class, model); end
+    def import_associations(models, options); end
+    def load_association_ids(model); end
+    def set_attributes_and_mark_clean(models, import_result, timestamps, options); end
+    def validate_hash_import(hash, required_keys, allow_extra_keys); end
+    def validations_array_for_column_names_and_attributes(column_names, array_of_attributes); end
+    def values_sql_for_columns_and_attributes(columns, array_of_attributes); end
   end
 end
 
 module ActiveRecord::Base::GeneratedAssociationMethods; end
 module ActiveRecord::Base::GeneratedAttributeMethods; end
+ActiveRecord::Base::OrmAdapter = OrmAdapter::ActiveRecord
 
 module ActiveRecord::Batches
   # Looping through a collection of records from the database
@@ -7387,6 +7421,7 @@ class ActiveRecord::ConnectionAdapters::AbstractAdapter
   include ::ActiveRecord::ConnectionAdapters::DatabaseLimits
   include ::ActiveRecord::ConnectionAdapters::QueryCache
   include ::ActiveRecord::ConnectionAdapters::Savepoints
+  include ::ActiveRecord::Import::AbstractAdapter::InstanceMethods
   extend ::ActiveSupport::Callbacks::ClassMethods
   extend ::ActiveSupport::DescendantsTracker
 
@@ -24608,6 +24643,7 @@ end
 module ActiveRecord::VERSION; end
 ActiveRecord::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveRecord::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
+ActiveRecord::VERSION::PRE = T.let(T.unsafe(nil), String)
 ActiveRecord::VERSION::STRING = T.let(T.unsafe(nil), String)
 ActiveRecord::VERSION::TINY = T.let(T.unsafe(nil), Integer)
 

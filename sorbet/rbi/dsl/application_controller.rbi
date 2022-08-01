@@ -23,6 +23,9 @@ class ApplicationController
     include ::ApplicationHelper
     include ::PreviewHelper
     include ::DeviseHelper
+
+    sig { returns(T.untyped) }
+    def preview?; end
   end
 
   class HelperProxy < ::ActionView::Base

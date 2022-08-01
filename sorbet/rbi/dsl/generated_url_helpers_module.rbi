@@ -66,6 +66,9 @@ module GeneratedUrlHelpersModule
   def game_root_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def game_tutorial_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def liveness_status_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
