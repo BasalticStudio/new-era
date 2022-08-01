@@ -1,1 +1,3 @@
-<div><%= link_to name, [:game, @map] %></div>
+<div>
+  <%= render LinkButtonComponent.new(label: name, target: [:game, @map]) %>
+</div>
