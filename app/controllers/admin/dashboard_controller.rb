@@ -4,7 +4,8 @@
 module Admin
   class DashboardController < ApplicationController
     REPOSITORY_MAP = {
-      'Map' => Map
+      'Map' => Map,
+      'Area' => Area
     }.freeze
 
     def refresh_allowlist

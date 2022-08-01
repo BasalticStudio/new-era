@@ -7,4 +7,7 @@ game_data:
     - repository: 'Map'
       fields: ['name']
       source: 'Map!A1:B'
+    - repository: 'Area'
+      fields: ['name', 'map_id']
+      source: 'Area!A1:E'
 
