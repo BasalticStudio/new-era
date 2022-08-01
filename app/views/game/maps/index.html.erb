@@ -1,4 +1,6 @@
-<%= render MapItemComponent.with_collection(@maps) %>
-<div>
-  <%= render LinkButtonComponent.new(label: t('common.back'), target: game_root_path) %>
+<div class="text-center">
+  <%= render MapItemComponent.with_collection(@maps) %>
+  <div>
+    <%= render LinkButtonComponent.new(label: t('common.back'), target: game_root_path) %>
+  </div>
 </div>
