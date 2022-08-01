@@ -1,5 +1,7 @@
 zh-TW:
   site_name: 新紀元
+  common:
+    back: 返回
   home:
     index:
       start_game: 開始遊戲
