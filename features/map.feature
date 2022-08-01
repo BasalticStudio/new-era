@@ -19,13 +19,21 @@ Feature: Map
       | 台北市 |
       | 新北市 |
 
-  Scenario:
+  Scenario: Can back to main view
+    When I click "返回"
+    Then I can see "開始冒險"
+
+  Scenario: Can open a map to see areas
     When I click "新北市"
     Then I can see the areas
       | name   |
       | 板橋區 |
       | 中和區 |
 
-  Scenario:
-    When I click "返回"
-    Then I can see "開始冒險"
+  Scenario: Can back to map list
+    When I click "新北市"
+    And I click "返回"
+    Then I can see the map list with
+      | name   |
+      | 台北市 |
+      | 新北市 |

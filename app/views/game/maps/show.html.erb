@@ -1,1 +1,6 @@
-<%= render AreaItemComponent.with_collection(@map.areas) %>
+<div class="text-center">
+  <%= render AreaItemComponent.with_collection(@map.areas) %>
+  <div>
+    <%= render LinkButtonComponent.new(label: t('common.back'), target: game_maps_path) %>
+  </div>
+</div>
