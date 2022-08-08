@@ -30,7 +30,7 @@ class Area < ApplicationRecord
 
   def parse_terrain
     self.terrain = JSON.parse(self[:terrain])
-  rescue JSON::ParserError
-    self.terrain = self[:terrain]
+  rescue JSON::ParserError, TypeError
+    self.terrain = Array.new(25 * 25, {})
   end
 end
