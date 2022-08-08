@@ -27,6 +27,7 @@ class Area < ApplicationRecord
 
   belongs_to :map
 
+  validates :terrain, presence: true
   validate :terrain_format
 
   def terrain=(data)

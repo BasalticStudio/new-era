@@ -24,5 +24,6 @@
 FactoryBot.define do
   factory :area do
     association :map
+    terrain { [{}] }
   end
 end
