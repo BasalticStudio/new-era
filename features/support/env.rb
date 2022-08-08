@@ -15,5 +15,6 @@ end
 require 'cucumber/rails'
 
 ActionController::Base.allow_rescue = false
+ActiveSupport::TestCase.file_fixture_path = Rails.root.join('features/support/files')
 DatabaseRewinder.strategy = :transaction
 Cucumber::Rails::Database.javascript_strategy = :truncation

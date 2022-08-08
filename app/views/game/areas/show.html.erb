@@ -1,1 +1,7 @@
-(1, 1)
+<% @area.terrain.each_slice(25).with_index do |row, y| %>
+  <div>
+    <% row.each_with_index do |tile, x| %>
+      <div>(<%= x + 1 %>, <%= y + 1 %>)</div>
+    <% end %>
+  </div>
+<% end %>

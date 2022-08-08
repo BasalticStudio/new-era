@@ -23,4 +23,14 @@
 
 class Area < ApplicationRecord
   belongs_to :map
+
+  before_validation :parse_terrain
+
+  private
+
+  def parse_terrain
+    self.terrain = JSON.parse(self[:terrain])
+  rescue JSON::ParserError
+    self.terrain = self[:terrain]
+  end
 end

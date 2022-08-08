@@ -3,6 +3,7 @@
 
 Given('there are some areas') do |table|
   table.hashes.each do |area|
+    area['terrain'] = file_fixture(area.delete('terrain_file_path')).read
     Area.create(area)
   end
 end
