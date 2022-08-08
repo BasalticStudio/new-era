@@ -22,6 +22,9 @@
 #
 
 class Area < ApplicationRecord
+  MAX_WIDTH = 25
+  MAX_HEIGHT = 25
+
   belongs_to :map
 
   before_validation :parse_terrain
@@ -31,6 +34,6 @@ class Area < ApplicationRecord
   def parse_terrain
     self.terrain = JSON.parse(self[:terrain])
   rescue JSON::ParserError, TypeError
-    self.terrain = Array.new(25 * 25, {})
+    self.terrain = Array.new(MAX_WIDTH * MAX_HEIGHT, {})
   end
 end

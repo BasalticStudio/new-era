@@ -2,9 +2,6 @@
 # frozen_string_literal: true
 
 class TileComponent < ViewComponent::Base
-  WIDTH = 25
-  HEIGHT = 25
-
   with_collection_parameter :tile
 
   def initialize(tile:, tile_counter:)
@@ -17,8 +14,8 @@ class TileComponent < ViewComponent::Base
 
   def calculate_position(index)
     [
-      index % WIDTH + 1,
-      index / WIDTH + 1
+      index % Area::MAX_WIDTH + 1,
+      index / Area::MAX_WIDTH + 1
     ]
   end
 end
