@@ -21,6 +21,11 @@ class ActionMailbox::InboundEmail
   sig { returns(NilClass) }
   def to_ary; end
 
+  class << self
+    sig { returns(T::Hash[T.any(String, Symbol), Integer]) }
+    def statuses; end
+  end
+
   module CommonRelationMethods
     sig do
       params(
@@ -242,7 +247,37 @@ class ActionMailbox::InboundEmail
     def third_to_last!; end
   end
 
-  module EnumMethodsModule; end
+  module EnumMethodsModule
+    sig { void }
+    def bounced!; end
+
+    sig { returns(T::Boolean) }
+    def bounced?; end
+
+    sig { void }
+    def delivered!; end
+
+    sig { returns(T::Boolean) }
+    def delivered?; end
+
+    sig { void }
+    def failed!; end
+
+    sig { returns(T::Boolean) }
+    def failed?; end
+
+    sig { void }
+    def pending!; end
+
+    sig { returns(T::Boolean) }
+    def pending?; end
+
+    sig { void }
+    def processing!; end
+
+    sig { returns(T::Boolean) }
+    def processing?; end
+  end
 
   module GeneratedAssociationMethods
     sig { params(args: T.untyped, blk: T.untyped).returns(T.untyped) }
@@ -293,7 +328,13 @@ class ActionMailbox::InboundEmail
     def annotate(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def bounced(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def create_with(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def delivered(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def distinct(*args, &blk); end
@@ -312,6 +353,9 @@ class ActionMailbox::InboundEmail
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def extract_associated(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def failed(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def from(*args, &blk); end
@@ -387,6 +431,21 @@ class ActionMailbox::InboundEmail
     def none(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def not_bounced(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def not_delivered(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def not_failed(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def not_pending(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def not_processing(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def offset(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
@@ -402,7 +461,13 @@ class ActionMailbox::InboundEmail
     def order(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def pending(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def preload(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
+    def processing(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateAssociationRelation) }
     def readonly(*args, &blk); end
@@ -476,7 +541,13 @@ class ActionMailbox::InboundEmail
     def annotate(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def bounced(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def create_with(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def delivered(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def distinct(*args, &blk); end
@@ -495,6 +566,9 @@ class ActionMailbox::InboundEmail
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def extract_associated(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def failed(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def from(*args, &blk); end
@@ -536,6 +610,21 @@ class ActionMailbox::InboundEmail
     def none(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def not_bounced(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def not_delivered(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def not_failed(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def not_pending(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def not_processing(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def offset(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
@@ -551,7 +640,13 @@ class ActionMailbox::InboundEmail
     def order(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def pending(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def preload(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
+    def processing(*args, &blk); end
 
     sig { params(args: T.untyped, blk: T.untyped).returns(PrivateRelation) }
     def readonly(*args, &blk); end

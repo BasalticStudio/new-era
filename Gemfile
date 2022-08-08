@@ -54,7 +54,6 @@ gem 'activerecord-import'
 gem 'config'
 gem 'google-apis-sheets_v4', '~> 0.13.0'
 gem 'openbox'
-gem 'sorbet-rails'
 gem 'sorbet-runtime'
 
 group :development, :test do

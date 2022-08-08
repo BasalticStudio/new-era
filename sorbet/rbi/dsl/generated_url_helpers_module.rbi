@@ -54,6 +54,9 @@ module GeneratedUrlHelpersModule
   def edit_rails_conductor_inbound_email_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def game_area_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def game_map_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }

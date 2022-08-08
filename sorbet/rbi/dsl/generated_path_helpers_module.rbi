@@ -54,6 +54,9 @@ module GeneratedPathHelpersModule
   def edit_rails_conductor_inbound_email_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def game_area_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def game_map_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }

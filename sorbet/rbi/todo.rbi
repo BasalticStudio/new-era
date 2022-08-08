@@ -6,9 +6,9 @@
 
 module ::Cucumber::Rails::Database; end
 module ::PreviewHelper; end
+module ::SafeType::BooleanMixin; end
 module Capybara::DSLRSpecProxyInstaller; end
 module Capybara::RSpecMatchers; end
 module Sidekiq::Web; end
 module Sprockets::SassProcessor::Functions; end
-module T::Private::Methods::Signature; end
 module Turbo::Streams::ActionHelper; end
