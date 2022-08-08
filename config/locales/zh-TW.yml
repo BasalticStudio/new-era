@@ -24,6 +24,7 @@ zh-TW:
         allowlist_refreshed: 更新測試名單完畢
       refresh_game_data:
         game_data_refresh_enqueued: 遊戲資料開始更新
+        game_data_refresh_failed: 遊戲資料更新失敗
   activerecord:
     errors:
       models:

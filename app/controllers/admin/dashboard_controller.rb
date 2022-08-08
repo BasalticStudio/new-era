@@ -3,6 +3,12 @@
 
 module Admin
   class DashboardController < ApplicationController
+    rescue_from ActiveRecord::RecordInvalid do |e|
+      Sentry.capture_exception(e)
+
+      redirect_to admin_root_path, notice: t('.game_data_refresh_failed')
+    end
+
     REPOSITORY_MAP = {
       'Map' => Map,
       'Area' => Area
