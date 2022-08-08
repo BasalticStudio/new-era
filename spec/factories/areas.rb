@@ -22,5 +22,7 @@
 #
 
 FactoryBot.define do
-  factory :area
+  factory :area do
+    association :map
+  end
 end
