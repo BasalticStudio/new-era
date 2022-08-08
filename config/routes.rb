@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
 
     resources :maps, only: %i[index show]
+    resources :areas, only: %i[show]
     resources :quests, only: %i[index]
   end
 

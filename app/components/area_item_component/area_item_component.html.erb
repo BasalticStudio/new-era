@@ -1,1 +1,3 @@
-<div><%= name %></div>
+<div>
+  <%= render LinkButtonComponent.new(label: name, target: [:game, @area]) %>
+</div>
