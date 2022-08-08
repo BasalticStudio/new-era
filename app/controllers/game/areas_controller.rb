@@ -3,6 +3,8 @@
 
 module Game
   class AreasController < ApplicationController
+    before_action :ensure_previewable!
+
     def show
       @area = Area.find(params[:id])
     end

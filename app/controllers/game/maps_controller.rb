@@ -3,6 +3,8 @@
 
 module Game
   class MapsController < ApplicationController
+    before_action :ensure_previewable!
+
     def index
       @maps = Map.all
     end
