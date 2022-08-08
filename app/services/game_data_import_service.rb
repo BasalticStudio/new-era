@@ -9,7 +9,10 @@ class GameDataImportService
 
   def execute(rows)
     columns = rows[0]
-    entities = rows[1..].map { |row| columns.zip(row).to_h.slice('id', *@conflict_keys) }
+    entities =
+      rows[1..].map do |row|
+        @repository.new(columns.zip(row).to_h.slice('id', *@conflict_keys))
+      end
     @repository.import! entities, on_duplicate_key_update: @conflict_keys
   end
 end

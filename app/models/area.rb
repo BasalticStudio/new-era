@@ -27,16 +27,20 @@ class Area < ApplicationRecord
 
   belongs_to :map
 
-  before_validation :parse_terrain
   validate :terrain_format
 
-  private
-
-  def parse_terrain
-    self.terrain = JSON.parse(self[:terrain])
+  def terrain=(data)
+    self[:terrain] =
+      case data
+      when String then JSON.parse(data)
+      else
+        data
+      end
   rescue JSON::ParserError, TypeError
-    self.terrain = Array.new(MAX_WIDTH * MAX_HEIGHT, {})
+    self[:terrain] = Array.new(MAX_WIDTH * MAX_HEIGHT, {})
   end
+
+  private
 
   def terrain_format
     return if terrain.is_a?(Array)
