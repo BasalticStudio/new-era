@@ -167,6 +167,8 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    dry-auto_inject (0.9.0)
+      dry-container (>= 0.3.4)
     dry-configurable (0.15.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.6)
@@ -180,6 +182,10 @@ GEM
     dry-logic (1.2.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.5, >= 0.5)
+    dry-rails (0.5.0)
+      dry-schema (~> 1.7)
+      dry-system (~> 0.23, >= 0.23)
+      dry-validation (~> 1.5)
     dry-schema (1.9.3)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.13, >= 0.13.0)
@@ -187,6 +193,13 @@ GEM
       dry-initializer (~> 3.0)
       dry-logic (~> 1.0)
       dry-types (~> 1.5)
+    dry-system (0.24.0)
+      concurrent-ruby (~> 1.0)
+      dry-auto_inject (>= 0.4.0)
+      dry-configurable (~> 0.14, >= 0.14.0)
+      dry-container (~> 0.9, >= 0.9.0)
+      dry-core (~> 0.5, >= 0.5)
+      dry-inflector (~> 0.1, >= 0.1.2)
     dry-types (1.5.1)
       concurrent-ruby (~> 1.0)
       dry-container (~> 0.3)
@@ -575,6 +588,7 @@ DEPENDENCIES
   devise
   devise-i18n
   dotenv-rails
+  dry-rails (~> 0.1)
   factory_bot_rails
   faker
   flipper-active_record

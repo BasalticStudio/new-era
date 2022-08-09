@@ -9,6 +9,16 @@ module ::PreviewHelper; end
 module ::SafeType::BooleanMixin; end
 module Capybara::DSLRSpecProxyInstaller; end
 module Capybara::RSpecMatchers; end
+module Dry::Configurable; end
+module Dry::Configurable::ClassMethods; end
+module Dry::Configurable::Initializer; end
+module Dry::Configurable::InstanceMethods; end
+module Dry::Configurable::Methods; end
+module Dry::Container::Mixin; end
+module Dry::Core::ClassAttributes; end
+module Dry::Core::Constants; end
+module Dry::Core::Deprecations::Interface; end
+module Dry::Core::Equalizer::Methods; end
 module Sidekiq::Web; end
 module Sprockets::SassProcessor::Functions; end
 module Turbo::Streams::ActionHelper; end
