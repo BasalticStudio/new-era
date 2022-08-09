@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 # == Schema Information
 #
 # Table name: admin_users
