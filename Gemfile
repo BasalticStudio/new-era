@@ -95,6 +95,7 @@ group :development do
   gem 'overcommit', require: false
   gem 'pry-rails'
   gem 'rack-mini-profiler', require: false
+  gem 'spoom', require: false
   gem 'tapioca', require: false
 
   gem 'i18n-debug'
