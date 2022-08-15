@@ -14,8 +14,8 @@ class TileComponent < ViewComponent::Base
 
   def calculate_position(index)
     [
-      index % Area::MAX_WIDTH + 1,
-      index / Area::MAX_WIDTH + 1
+      index % Terrain::MAX_WIDTH + 1,
+      index / Terrain::MAX_WIDTH + 1
     ]
   end
 end

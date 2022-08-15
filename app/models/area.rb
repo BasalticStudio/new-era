@@ -22,30 +22,10 @@
 #
 
 class Area < ApplicationRecord
-  MAX_WIDTH = 25
-  MAX_HEIGHT = 25
-
   belongs_to :map
 
-  validates :terrain, presence: true
-  validate :terrain_format
-
-  def terrain=(data)
-    self[:terrain] =
-      case data
-      when String then JSON.parse(data)
-      else
-        data
-      end
-  rescue JSON::ParserError, TypeError
-    self[:terrain] = Array.new(MAX_WIDTH * MAX_HEIGHT, {})
-  end
-
-  private
-
-  def terrain_format
-    return if terrain.is_a?(Array)
-
-    errors.add(:terrain, :not_array)
-  end
+  composed_of :terrain,
+              class_name: 'Terrain',
+              mapping: %w[terrain tiles],
+              converter: proc { |data| Terrain.from(data) }
 end

@@ -20,7 +20,7 @@ RSpec.describe GameDataImportService do
 
       before { create(:area, id: 1, terrain: '') }
 
-      it { expect { execute }.to change { Area.find(1).terrain }.to([{}]) }
+      it { expect { execute }.to change { Area.find(1).terrain.tiles }.to([{}]) }
     end
   end
 end
