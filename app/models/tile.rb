@@ -5,6 +5,6 @@ class Tile
   include ActiveModel::API
   include ActiveModel::Attributes
 
-  attribute :x, :integer
-  attribute :y, :integer
+  attribute :x, :integer, default: 0
+  attribute :y, :integer, default: 0
 end
