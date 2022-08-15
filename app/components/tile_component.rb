@@ -6,7 +6,7 @@ class TileComponent < ViewComponent::Base
 
   delegate :x, :y, to: :@tile
 
-  def initialize(tile:, tile_counter:)
+  def initialize(tile:)
     super
     @tile = tile
   end
