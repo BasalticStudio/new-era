@@ -34,7 +34,10 @@ class Terrain
     return enum_for(:each) unless block
 
     TILE_SIZE.times do |index|
-      yield @tiles[index] || {}
+      attributes = @tiles[index] || {}
+      x = index % MAX_WIDTH + 1
+      y = index / MAX_WIDTH + 1
+      yield Tile.new(attributes.merge('x' => x, 'y' => y))
     end
   end
 
