@@ -16,12 +16,17 @@ class TileComponent < ViewComponent::Base
 
   def tile_style
     styles = case @tile.type
-             when 0 then %w[bg-gray-400 hover:bg-gray-200]
+             when 0
+               current? ? %w[bg-gray-200] : %w[bg-gray-400 hover:bg-gray-200]
              when 1 then %w[bg-stone-500]
              when 2 then %w[bg-red-500 hover:bg-red-700]
              else []
              end
 
     styles.concat(SHARED_STYLE).join(' ')
+  end
+
+  def current?
+    params.values_at(:x, :y).map(&:to_i) == [x, y]
   end
 end
