@@ -1,0 +1,7 @@
+<table class="w-full">
+  <tbody>
+    <% @terrain.each_row do |tiles| %>
+      <tr><%= render TileComponent.with_collection(tiles) %></tr>
+    <% end %>
+  </tbody>
+</table>

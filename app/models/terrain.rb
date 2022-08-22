@@ -42,4 +42,10 @@ class Terrain
   end
 
   alias to_ary to_a
+
+  def each_row(&block)
+    return enum_for(:each_row) unless block
+
+    each_slice(MAX_WIDTH, &block)
+  end
 end
