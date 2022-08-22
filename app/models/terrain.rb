@@ -37,7 +37,7 @@ class Terrain
       attributes = @tiles[index] || {}
       x = index % MAX_WIDTH + 1
       y = index / MAX_WIDTH + 1
-      yield Tile.new(attributes.merge('x' => x, 'y' => y))
+      yield Tile.new(attributes.merge('x' => x, 'y' => y).slice(*Tile.attribute_names))
     end
   end
 
