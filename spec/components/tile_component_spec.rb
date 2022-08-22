@@ -6,14 +6,14 @@ require 'rails_helper'
 RSpec.describe TileComponent, type: :component do
   subject { page }
 
-  let(:component) { described_class.new(tile: Tile.new(x: 1, y: 1)) }
+  let(:component) { described_class.new(tile: Tile.new(x: 1, y: 1), area: create(:area)) }
 
   before { render_inline(component) }
 
   it { is_expected.to have_text('(1, 1)') }
 
   context 'when type is Wall (1)' do
-    let(:component) { described_class.new(tile: Tile.new(x: 1, y: 1, type: 1)) }
+    let(:component) { described_class.new(tile: Tile.new(x: 1, y: 1, type: 1), area: create(:area)) }
 
     it { is_expected.to have_css('.bg-stone-500') }
   end

@@ -6,7 +6,7 @@ require 'rails_helper'
 RSpec.describe TerrainComponent, type: :component do
   subject { page }
 
-  let(:component) { described_class.new(terrain: Terrain.new) }
+  let(:component) { described_class.new(terrain: Terrain.new, area: create(:area)) }
 
   before { render_inline(component) }
 

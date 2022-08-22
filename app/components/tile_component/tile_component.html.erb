@@ -1,6 +1,6 @@
 <td class="<%= tile_style %>">
   <% if moveable? %>
-    <%= link_to({x: x, y: y}, class: 'absolute block w-full h-full') do %>
+    <%= link_to game_area_path(@area, x: x, y: y), class: 'absolute block w-full h-full' do %>
       <span class="invisible">(<%= x %>, <%= y %>)</span>
     <% end %>
   <% else %>

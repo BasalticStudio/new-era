@@ -8,8 +8,9 @@ class TileComponent < ViewComponent::Base
 
   delegate :x, :y, :moveable?, to: :@tile
 
-  def initialize(tile:)
+  def initialize(tile:, area:)
     super
+    @area = area
     @tile = tile
   end
 
