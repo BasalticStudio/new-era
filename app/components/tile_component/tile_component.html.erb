@@ -1,3 +1,9 @@
 <td class="<%= tile_style %>">
-  <span class="absolute invisible">(<%= x %>, <%= y %>)</span>
+  <% if moveable? %>
+    <%= link_to({x: x, y: y}, class: 'absolute block w-full h-full') do %>
+      <span class="invisible">(<%= x %>, <%= y %>)</span>
+    <% end %>
+  <% else %>
+    <span class="absolute invisible">(<%= x %>, <%= y %>)</span>
+  <% end %>
 </td>

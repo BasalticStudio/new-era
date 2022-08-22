@@ -5,6 +5,7 @@
 # Please instead update this file by running `bin/tapioca dsl Area`.
 
 class Area
+  include GeneratedAssociationMethods
   include GeneratedAttributeMethods
   extend CommonRelationMethods
   extend GeneratedRelationMethods
@@ -72,8 +73,8 @@ class Area
     sig { params(attributes: T.untyped, block: T.nilable(T.proc.params(object: ::Area).void)).returns(::Area) }
     def find_or_initialize_by(attributes, &block); end
 
-    sig { returns(T.nilable(::Area)) }
-    def find_sole_by; end
+    sig { params(arg: T.untyped, args: T.untyped).returns(::Area) }
+    def find_sole_by(arg, *args); end
 
     sig { params(limit: T.untyped).returns(T.untyped) }
     def first(limit = nil); end
@@ -144,7 +145,7 @@ class Area
     sig { returns(::Area) }
     def second_to_last!; end
 
-    sig { returns(T.nilable(::Area)) }
+    sig { returns(::Area) }
     def sole; end
 
     sig do
@@ -172,6 +173,26 @@ class Area
 
     sig { returns(::Area) }
     def third_to_last!; end
+  end
+
+  module GeneratedAssociationMethods
+    sig { params(args: T.untyped, blk: T.untyped).returns(::Map) }
+    def build_map(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(::Map) }
+    def create_map(*args, &blk); end
+
+    sig { params(args: T.untyped, blk: T.untyped).returns(::Map) }
+    def create_map!(*args, &blk); end
+
+    sig { returns(T.nilable(::Map)) }
+    def map; end
+
+    sig { params(value: T.nilable(::Map)).void }
+    def map=(value); end
+
+    sig { returns(T.nilable(::Map)) }
+    def reload_map; end
   end
 
   module GeneratedAssociationRelationMethods

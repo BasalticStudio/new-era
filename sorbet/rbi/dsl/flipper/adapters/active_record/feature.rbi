@@ -116,8 +116,8 @@ class Flipper::Adapters::ActiveRecord::Feature
     end
     def find_or_initialize_by(attributes, &block); end
 
-    sig { returns(T.nilable(::Flipper::Adapters::ActiveRecord::Feature)) }
-    def find_sole_by; end
+    sig { params(arg: T.untyped, args: T.untyped).returns(::Flipper::Adapters::ActiveRecord::Feature) }
+    def find_sole_by(arg, *args); end
 
     sig { params(limit: T.untyped).returns(T.untyped) }
     def first(limit = nil); end
@@ -205,7 +205,7 @@ class Flipper::Adapters::ActiveRecord::Feature
     sig { returns(::Flipper::Adapters::ActiveRecord::Feature) }
     def second_to_last!; end
 
-    sig { returns(T.nilable(::Flipper::Adapters::ActiveRecord::Feature)) }
+    sig { returns(::Flipper::Adapters::ActiveRecord::Feature) }
     def sole; end
 
     sig do

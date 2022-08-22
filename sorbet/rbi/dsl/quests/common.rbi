@@ -112,8 +112,8 @@ class Quests::Common
     end
     def find_or_initialize_by(attributes, &block); end
 
-    sig { returns(T.nilable(::Quests::Common)) }
-    def find_sole_by; end
+    sig { params(arg: T.untyped, args: T.untyped).returns(::Quests::Common) }
+    def find_sole_by(arg, *args); end
 
     sig { params(limit: T.untyped).returns(T.untyped) }
     def first(limit = nil); end
@@ -189,7 +189,7 @@ class Quests::Common
     sig { returns(::Quests::Common) }
     def second_to_last!; end
 
-    sig { returns(T.nilable(::Quests::Common)) }
+    sig { returns(::Quests::Common) }
     def sole; end
 
     sig do

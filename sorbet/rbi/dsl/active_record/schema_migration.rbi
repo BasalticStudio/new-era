@@ -116,8 +116,8 @@ class ActiveRecord::SchemaMigration
     end
     def find_or_initialize_by(attributes, &block); end
 
-    sig { returns(T.nilable(::ActiveRecord::SchemaMigration)) }
-    def find_sole_by; end
+    sig { params(arg: T.untyped, args: T.untyped).returns(::ActiveRecord::SchemaMigration) }
+    def find_sole_by(arg, *args); end
 
     sig { params(limit: T.untyped).returns(T.untyped) }
     def first(limit = nil); end
@@ -205,7 +205,7 @@ class ActiveRecord::SchemaMigration
     sig { returns(::ActiveRecord::SchemaMigration) }
     def second_to_last!; end
 
-    sig { returns(T.nilable(::ActiveRecord::SchemaMigration)) }
+    sig { returns(::ActiveRecord::SchemaMigration) }
     def sole; end
 
     sig do

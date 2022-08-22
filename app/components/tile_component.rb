@@ -6,7 +6,7 @@ class TileComponent < ViewComponent::Base
 
   with_collection_parameter :tile
 
-  delegate :x, :y, to: :@tile
+  delegate :x, :y, :moveable?, to: :@tile
 
   def initialize(tile:)
     super

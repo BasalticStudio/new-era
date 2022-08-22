@@ -10,12 +10,18 @@ module ViewComponent::SlotableV2
   mixes_in_class_methods GeneratedClassMethods
 
   module GeneratedClassMethods
+    def _warn_on_deprecated_slot_setter; end
+    def _warn_on_deprecated_slot_setter=(value); end
+    def _warn_on_deprecated_slot_setter?; end
     def registered_slots; end
     def registered_slots=(value); end
     def registered_slots?; end
   end
 
   module GeneratedInstanceMethods
+    def _warn_on_deprecated_slot_setter; end
+    def _warn_on_deprecated_slot_setter=(value); end
+    def _warn_on_deprecated_slot_setter?; end
     def registered_slots; end
     def registered_slots=(value); end
     def registered_slots?; end

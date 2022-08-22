@@ -14,4 +14,8 @@ class Tile
   attribute :x, :integer, default: 0
   attribute :y, :integer, default: 0
   attribute :type, :integer, default: 0
+
+  def moveable?
+    type != TYPES[:wall]
+  end
 end
