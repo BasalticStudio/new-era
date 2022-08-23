@@ -6,22 +6,38 @@
 
 # Simple class for turning a flipper_id into an actor that can be based
 # to Flipper::Feature#enabled?.
+#
+# source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:3
 module Flipper
-  extend ::Flipper
-  extend ::Forwardable
-
+  # source://RUBY_ROOT/forwardable.rb:229
   def [](*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def actor(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def actors(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def adapter(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def add(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def bool(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def boolean(*args, &block); end
 
   # Public: Returns Flipper::Configuration instance.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:28
   def configuration; end
 
   # Public: Sets Flipper::Configuration instance.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:33
   def configuration=(configuration); end
 
   # Public: Configure flipper.
@@ -33,21 +49,50 @@ module Flipper
   # Yields Flipper::Configuration instance.
   #
   # @yield [configuration]
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:23
   def configure; end
 
+  # source://RUBY_ROOT/forwardable.rb:229
   def disable(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def disable_actor(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def disable_group(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def disable_percentage_of_actors(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def disable_percentage_of_time(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def enable(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def enable_actor(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def enable_group(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def enable_percentage_of_actors(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def enable_percentage_of_time(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def enabled?(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def exist?(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def feature(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def features(*args, &block); end
 
   # Public: Fetches a group by name.
@@ -59,6 +104,8 @@ module Flipper
   #   Flipper.group(:admins)
   #
   # Returns Flipper::Group.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:128
   def group(name); end
 
   # Public: Check if a group exists
@@ -66,22 +113,33 @@ module Flipper
   # Returns boolean
   #
   # @return [Boolean]
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:115
   def group_exists?(name); end
 
   # Public: Returns a Set of symbols where each symbol is a registered
   # group name. If you just want the names, this is more efficient than doing
   # `Flipper.groups.map(&:name)`.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:101
   def group_names; end
 
   # Public: Returns a Set of registered Types::Group instances.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:94
   def groups; end
 
   # Internal: Registry of all groups_registry.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:133
   def groups_registry; end
 
   # Internal: Change the groups_registry registry.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:138
   def groups_registry=(registry); end
 
+  # source://RUBY_ROOT/forwardable.rb:229
   def import(*args, &block); end
 
   # Public: Default per thread flipper instance if configured. You should not
@@ -90,23 +148,39 @@ module Flipper
   # you can use Flipper.enabled?(:search) for the same result.
   #
   # Returns Flipper::DSL instance.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:45
   def instance; end
 
   # Public: Set the flipper instance. It is most common to use the
   # Configuration#default to set this instance, but for things like the test
   # environment, this writer is actually useful.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:52
   def instance=(flipper); end
 
+  # source://RUBY_ROOT/forwardable.rb:229
   def memoize=(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def memoizing?(*args, &block); end
 
   # Public: Start here. Given an adapter returns a handy DSL to all the flipper
   # goodness. To see supported options, check out dsl.rb.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:12
   def new(adapter, options = T.unsafe(nil)); end
 
+  # source://RUBY_ROOT/forwardable.rb:229
   def percentage_of_actors(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def percentage_of_time(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def preload(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def preload_all(*args, &block); end
 
   # Public: Use this to register a group by name.
@@ -123,23 +197,37 @@ module Flipper
   #
   # Returns a Flipper::Group.
   # Raises Flipper::DuplicateGroup if the group is already registered.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:85
   def register(name, &block); end
 
+  # source://RUBY_ROOT/forwardable.rb:229
   def remove(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def sync(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def sync_secret(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def time(*args, &block); end
 
   # Public: Clears the group registry.
   #
   # Returns nothing.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:108
   def unregister_groups; end
 end
 
+# source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:4
 module Flipper::Adapters; end
 
 # Public: Adapter that wraps another adapter with the ability to cache
 # adapter calls in ActiveSupport::ActiveSupportCacheStore caches.
+#
+# source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:8
 class Flipper::Adapters::ActiveSupportCacheStore
   include ::Flipper::Adapter
   extend ::Flipper::Adapter::ClassMethods
@@ -147,59 +235,98 @@ class Flipper::Adapters::ActiveSupportCacheStore
   # Public
   #
   # @return [ActiveSupportCacheStore] a new instance of ActiveSupportCacheStore
+  #
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:28
   def initialize(adapter, cache, expires_in: T.unsafe(nil), write_through: T.unsafe(nil)); end
 
   # Public
+  #
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:43
   def add(feature); end
 
   # Internal
+  #
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:22
   def cache; end
 
   # Public
+  #
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:64
   def clear(feature); end
 
   # Public
+  #
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:109
   def disable(feature, gate, thing); end
 
   # Public
+  #
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:96
   def enable(feature, gate, thing); end
 
   # Public
+  #
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:38
   def features; end
 
   # Public
+  #
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:71
   def get(feature); end
 
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:81
   def get_all; end
+
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:77
   def get_multi(features); end
 
   # Public: The name of the adapter.
+  #
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:25
   def name; end
 
   # Public
+  #
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:50
   def remove(feature); end
 
   private
 
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:123
   def key_for(key); end
 
   # Internal: Returns an array of the known feature keys.
+  #
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:128
   def read_feature_keys; end
 
   # Internal: Given an array of features, attempts to read through cache in
   # as few network calls as possible.
+  #
+  # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:134
   def read_many_features(features); end
 
   class << self
     # Private
+    #
+    # source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:17
     def key_for(key); end
   end
 end
 
+# source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:13
 Flipper::Adapters::ActiveSupportCacheStore::FeaturesKey = T.let(T.unsafe(nil), String)
+
+# source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:14
 Flipper::Adapters::ActiveSupportCacheStore::GetAllKey = T.let(T.unsafe(nil), String)
+
+# source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:12
 Flipper::Adapters::ActiveSupportCacheStore::Namespace = T.let(T.unsafe(nil), String)
+
+# source://flipper-active_support_cache_store-0.25.1/lib/flipper/adapters/active_support_cache_store.rb:11
 Flipper::Adapters::ActiveSupportCacheStore::Version = T.let(T.unsafe(nil), String)
 
 # Private: The namespace for all instrumented events.
+#
+# source://flipper-0.25.1/lib/flipper.rb:8
 Flipper::InstrumentationNamespace = T.let(T.unsafe(nil), Symbol)

@@ -53,7 +53,7 @@ gem 'sentry-ruby'
 gem 'activerecord-import'
 gem 'config'
 gem 'dry-rails', '~> 0.1'
-gem 'google-apis-sheets_v4', '~> 0.13.0'
+gem 'google-apis-sheets_v4', '~> 0.17.0'
 gem 'openbox'
 gem 'sorbet-runtime'
 

@@ -6,22 +6,38 @@
 
 # Simple class for turning a flipper_id into an actor that can be based
 # to Flipper::Feature#enabled?.
+#
+# source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:5
 module Flipper
-  extend ::Flipper
-  extend ::Forwardable
-
+  # source://RUBY_ROOT/forwardable.rb:229
   def [](*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def actor(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def actors(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def adapter(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def add(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def bool(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def boolean(*args, &block); end
 
   # Public: Returns Flipper::Configuration instance.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:28
   def configuration; end
 
   # Public: Sets Flipper::Configuration instance.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:33
   def configuration=(configuration); end
 
   # Public: Configure flipper.
@@ -33,21 +49,50 @@ module Flipper
   # Yields Flipper::Configuration instance.
   #
   # @yield [configuration]
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:23
   def configure; end
 
+  # source://RUBY_ROOT/forwardable.rb:229
   def disable(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def disable_actor(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def disable_group(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def disable_percentage_of_actors(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def disable_percentage_of_time(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def enable(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def enable_actor(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def enable_group(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def enable_percentage_of_actors(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def enable_percentage_of_time(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def enabled?(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def exist?(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def feature(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def features(*args, &block); end
 
   # Public: Fetches a group by name.
@@ -59,6 +104,8 @@ module Flipper
   #   Flipper.group(:admins)
   #
   # Returns Flipper::Group.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:128
   def group(name); end
 
   # Public: Check if a group exists
@@ -66,22 +113,33 @@ module Flipper
   # Returns boolean
   #
   # @return [Boolean]
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:115
   def group_exists?(name); end
 
   # Public: Returns a Set of symbols where each symbol is a registered
   # group name. If you just want the names, this is more efficient than doing
   # `Flipper.groups.map(&:name)`.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:101
   def group_names; end
 
   # Public: Returns a Set of registered Types::Group instances.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:94
   def groups; end
 
   # Internal: Registry of all groups_registry.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:133
   def groups_registry; end
 
   # Internal: Change the groups_registry registry.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:138
   def groups_registry=(registry); end
 
+  # source://RUBY_ROOT/forwardable.rb:229
   def import(*args, &block); end
 
   # Public: Default per thread flipper instance if configured. You should not
@@ -90,23 +148,39 @@ module Flipper
   # you can use Flipper.enabled?(:search) for the same result.
   #
   # Returns Flipper::DSL instance.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:45
   def instance; end
 
   # Public: Set the flipper instance. It is most common to use the
   # Configuration#default to set this instance, but for things like the test
   # environment, this writer is actually useful.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:52
   def instance=(flipper); end
 
+  # source://RUBY_ROOT/forwardable.rb:229
   def memoize=(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def memoizing?(*args, &block); end
 
   # Public: Start here. Given an adapter returns a handy DSL to all the flipper
   # goodness. To see supported options, check out dsl.rb.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:12
   def new(adapter, options = T.unsafe(nil)); end
 
+  # source://RUBY_ROOT/forwardable.rb:229
   def percentage_of_actors(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def percentage_of_time(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def preload(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def preload_all(*args, &block); end
 
   # Public: Use this to register a group by name.
@@ -123,21 +197,34 @@ module Flipper
   #
   # Returns a Flipper::Group.
   # Raises Flipper::DuplicateGroup if the group is already registered.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:85
   def register(name, &block); end
 
+  # source://RUBY_ROOT/forwardable.rb:229
   def remove(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def sync(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def sync_secret(*args, &block); end
+
+  # source://RUBY_ROOT/forwardable.rb:229
   def time(*args, &block); end
 
   # Public: Clears the group registry.
   #
   # Returns nothing.
+  #
+  # source://flipper-0.25.1/lib/flipper.rb:108
   def unregister_groups; end
 end
 
+# source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:6
 module Flipper::Adapters; end
 
+# source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:7
 class Flipper::Adapters::ActiveRecord
   include ::Flipper::Adapter
   extend ::Flipper::Adapter::ClassMethods
@@ -156,12 +243,18 @@ class Flipper::Adapters::ActiveRecord
   # can roll your own tables and what not, if you so desire.
   #
   # @return [ActiveRecord] a new instance of ActiveRecord
+  #
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:48
   def initialize(options = T.unsafe(nil)); end
 
   # Public: Adds a feature to the set of known features.
+  #
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:60
   def add(feature); end
 
   # Public: Clears the gate values for a feature.
+  #
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:85
   def clear(feature); end
 
   # Public: Disables a gate for a given thing.
@@ -171,6 +264,8 @@ class Flipper::Adapters::ActiveRecord
   # thing - The Flipper::Type being disabled for the gate.
   #
   # Returns true.
+  #
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:154
   def disable(feature, gate, thing); end
 
   # Public: Enables a gate for a given thing.
@@ -180,76 +275,122 @@ class Flipper::Adapters::ActiveRecord
   # thing - The Flipper::Type being enabled for the gate.
   #
   # Returns true.
+  #
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:132
   def enable(feature, gate, thing); end
 
   # Public: The set of known features.
+  #
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:55
   def features; end
 
   # Public: Gets the values for all gates for a given feature.
   #
   # Returns a Hash of Flipper::Gate#key => value.
+  #
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:93
   def get(feature); end
 
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:108
   def get_all; end
+
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:98
   def get_multi(features); end
 
   # Public: The name of the adapter.
+  #
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:34
   def name; end
 
   # Public: Removes a feature from the set of known features.
+  #
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:76
   def remove(feature); end
 
   # Private
+  #
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:170
   def unsupported_data_type(data_type); end
 
   private
 
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:196
   def enable_multi(feature, gate, thing); end
+
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:208
   def result_for_feature(feature, db_gates); end
+
+  # source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:176
   def set(feature, gate, thing, options = T.unsafe(nil)); end
 end
 
 # Private: Do not use outside of this adapter.
+#
+# source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:16
 class Flipper::Adapters::ActiveRecord::Feature < ::Flipper::Adapters::ActiveRecord::Model
   include ::Flipper::Adapters::ActiveRecord::Feature::GeneratedAttributeMethods
   include ::Flipper::Adapters::ActiveRecord::Feature::GeneratedAssociationMethods
 
   class << self
+    # source://activemodel-7.0.3.1/lib/active_model/validations.rb:52
     def _validators; end
+
+    # source://activerecord-7.0.3.1/lib/active_record/enum.rb:116
     def defined_enums; end
   end
 end
 
+# source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:0
 module Flipper::Adapters::ActiveRecord::Feature::GeneratedAssociationMethods; end
+
+# source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:0
 module Flipper::Adapters::ActiveRecord::Feature::GeneratedAttributeMethods; end
 
 # Private: Do not use outside of this adapter.
+#
+# source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:25
 class Flipper::Adapters::ActiveRecord::Gate < ::Flipper::Adapters::ActiveRecord::Model
   include ::Flipper::Adapters::ActiveRecord::Gate::GeneratedAttributeMethods
   include ::Flipper::Adapters::ActiveRecord::Gate::GeneratedAssociationMethods
 
   class << self
+    # source://activemodel-7.0.3.1/lib/active_model/validations.rb:52
     def _validators; end
+
+    # source://activerecord-7.0.3.1/lib/active_record/enum.rb:116
     def defined_enums; end
   end
 end
 
+# source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:0
 module Flipper::Adapters::ActiveRecord::Gate::GeneratedAssociationMethods; end
+
+# source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:0
 module Flipper::Adapters::ActiveRecord::Gate::GeneratedAttributeMethods; end
 
 # Abstract base class for internal models
+#
+# source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:11
 class Flipper::Adapters::ActiveRecord::Model < ::ActiveRecord::Base
   include ::Flipper::Adapters::ActiveRecord::Model::GeneratedAttributeMethods
   include ::Flipper::Adapters::ActiveRecord::Model::GeneratedAssociationMethods
 
   class << self
+    # source://activemodel-7.0.3.1/lib/active_model/validations.rb:52
     def _validators; end
+
+    # source://activerecord-7.0.3.1/lib/active_record/enum.rb:116
     def defined_enums; end
   end
 end
 
+# source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:0
 module Flipper::Adapters::ActiveRecord::Model::GeneratedAssociationMethods; end
+
+# source://flipper-active_record-0.25.1/lib/flipper/adapters/active_record.rb:0
 module Flipper::Adapters::ActiveRecord::Model::GeneratedAttributeMethods; end
 
 # Private: The namespace for all instrumented events.
+#
+# source://flipper-0.25.1/lib/flipper.rb:8
 Flipper::InstrumentationNamespace = T.let(T.unsafe(nil), Symbol)

@@ -5,6 +5,7 @@ include:
 
 variables:
   RUBY_VERSION: 3.0.4
+  BUNDLER_VERSION: 2.2.33
   SORBET_ENABLED: 'yes'
   # Test
   RSPEC_JUNIT_REPORT: 'yes'
