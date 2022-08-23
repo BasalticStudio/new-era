@@ -3,5 +3,5 @@
 
 Liveness.config do |c|
   c.add :postgres, timeout: 10
-  c.token = ENV['STATUS_CHECK_TOKEN']
+  c.token = ENV.fetch('STATUS_CHECK_TOKEN', nil)
 end
