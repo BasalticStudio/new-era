@@ -17,6 +17,7 @@ class Terrain
     end
   end
 
+  T.unsafe(self).include NewEra::Deps['game.coordinate_service']
   include Enumerable
 
   attr_reader :tiles
@@ -26,7 +27,8 @@ class Terrain
 
   TILE_SIZE = MAX_WIDTH * MAX_HEIGHT
 
-  def initialize(tiles = nil)
+  def initialize(tiles = nil, **args)
+    super(**args)
     @tiles = tiles || []
   end
 
@@ -35,8 +37,7 @@ class Terrain
 
     TILE_SIZE.times do |index|
       attributes = @tiles[index] || {}
-      x = (index % MAX_WIDTH) + 1
-      y = (index / MAX_WIDTH) + 1
+      x, y = coordinate_service.index_to_coord(index: index, width: MAX_WIDTH)
       yield Tile.new(attributes.merge('x' => x, 'y' => y).slice(*Tile.attribute_names))
     end
   end
