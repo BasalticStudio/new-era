@@ -2,9 +2,8 @@
 # frozen_string_literal: true
 
 class TerrainComponent < ViewComponent::Base
-  def initialize(terrain:, area:)
+  def initialize(terrain:)
     super
-    @area = area
     @terrain = terrain
   end
 end
