@@ -3,6 +3,8 @@
 
 module Admin
   class DashboardController < ApplicationController
+    T.unsafe(self).include NewEra::Deps['register_allowlist']
+
     rescue_from ActiveRecord::RecordInvalid do |e|
       Sentry.capture_exception(e)
 
@@ -16,7 +18,7 @@ module Admin
 
     def refresh_allowlist
       service = SpreadsheetService.build(Settings.register_allowlist.spreadsheet_key)
-      RegisterAllowlist.new.write(service.execute('A2:A'))
+      register_allowlist.write(service.execute('A2:A'))
       redirect_to admin_root_path, notice: t('.allowlist_refreshed')
     end
 

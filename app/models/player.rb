@@ -35,7 +35,7 @@ class Player < ApplicationRecord
   private
 
   def restrict_beta_player_register
-    return if RegisterAllowlist.new.include?(email)
+    return if NewEra::Container.resolve('register_allowlist').include?(email)
 
     errors.add(:email, :not_in_beta_allowlist)
   end
