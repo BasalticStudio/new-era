@@ -9,4 +9,10 @@ class SpreadsheetService
       .get_spreadsheet_values(spreadsheet_id, range)
       .values
   end
+
+  def entities_from(spreadsheet_id, range:, &block)
+    header, *rows = values_from(spreadsheet_id, range: range)
+    factory = block || ->(entity) { entity }
+    rows.map { |row| factory.call(header.zip(row).to_h) }
+  end
 end
