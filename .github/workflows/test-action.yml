@@ -68,15 +68,15 @@ jobs:
         bundle install
         yarn install
 
-    - name: Prepare
-      run: |
-        bundle exec rake test:prepare
-        bundle exec rake db:migrate
-
     - name: Setup Spreadsheet Service Account
       run: echo $SPREADSHEET_SERVICE_ACCOUNT | base64 --decode > config/credentials/spreadsheet-service_account.json
       env:
         SPREADSHEET_SERVICE_ACCOUNT: ${{ secrets.SPREADSHEET_SERVICE_ACCOUNT }}
+
+    - name: Prepare
+      run: |
+        bundle exec rake test:prepare
+        bundle exec rake db:migrate
 
     - name: Test
       run: ${{ inputs.command }}
