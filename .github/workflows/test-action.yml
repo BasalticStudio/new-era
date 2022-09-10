@@ -78,7 +78,7 @@ jobs:
         bundle exec rake test:prepare
         bundle exec rake db:migrate
 
-   - name: Run Test
+    - name: Run Test
       uses: paambaati/codeclimate-action@v3.0.0
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
