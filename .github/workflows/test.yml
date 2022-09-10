@@ -22,4 +22,5 @@ jobs:
     uses: ./.github/workflows/test-action.yml
     secrets: inherit
     with:
+      upload-coverage: true
       command: bundle exec cucumber

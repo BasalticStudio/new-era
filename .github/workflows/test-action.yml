@@ -6,6 +6,9 @@ on:
       ruby-version:
         default: '3.0'
         type: string
+      upload-coverage:
+        default: false
+        type: boolean
       node-version:
         default: '16'
         type: string
@@ -79,7 +82,12 @@ jobs:
         bundle exec rake db:migrate
 
     - name: Run Test
+      if: inputs.upload-coverage == false
+      run: ${{ inputs.command }}
+
+    - name: Run Test with CodeClimate
       uses: paambaati/codeclimate-action@v3.0.0
+      if: inputs.upload-coverage == true
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:
