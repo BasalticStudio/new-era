@@ -1,0 +1,36 @@
+<section class="relative w-full h-full py-40">
+  <div class="container mx-auto px-4 h-full">
+    <div class="flex content-center items-center justify-center h-full">
+      <div class="w-full lg:w-4/12 px-4">
+        <div class="relative flex flex-col min-w-0 w-full mb-6 px-4 py-10 lg:px-10 break-words shadow-lg rounded-lg bg-slate-200 border-0">
+          <h1 class="text-slate-400 text-center mb-3 font-bold"><small>Sign in with credentials</small></h1>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="relative w-full mb-3">
+            <%= f.label :email, class: 'block uppercase text-slate-600 text-xs font-bold mb-2' %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150' %>
+          </div>
+
+          <div class="relative w-full mb-3">
+            <%= f.label :password, class: 'block uppercase text-slate-600 text-xs font-bold mb-2' %>
+            <%= f.password_field :password, autocomplete: "current-password", class: 'border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150' %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div>
+              <%= f.label :remember_me, class: 'inline-flex items-center cursor-pointer' do %>
+                <%= f.check_box :remember_me, class: 'form-checkbox border-0 rounded text-slate-700 ml-1 w-5 h-5 ease-linear transition-all duration-150' %>
+                <span class="ml-2 text-sm font-semibold text-slate-600">Remember me</span>
+              <% end %>
+            </div>
+          <% end %>
+
+          <div class="text-center mt-6">
+            <%= f.submit t('devise.sessions.new.sign_in'), class: 'bg-slate-800 text-white active:bg-slate-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150' %>
+          </div>
+        <% end %>
+        <div>
+      </div>
+    </div>
+  </div>
+</section>

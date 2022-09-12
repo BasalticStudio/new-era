@@ -9,12 +9,15 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <div class="flex items-stretch justify-center w-screen h-screen bg-gradient-to-b from-zinc-900 to-zinc-800">
-      <main class="grow max-w-lg overflow-hidden bg-gray-50 font-8bit">
-        <div class="my-4 text-center"><%= release_version %></div>
-        <%= yield %>
-      </main>
-    </div>
+  <body class="bg-slate-800 text-slate-700 antialiased font-normal-sans">
+    <main>
+      <%= yield %>
+      <footer class="w-full bg-slate-800 pb-6">
+        <div class="container mx-auto px-4">
+          <hr class="mb-6 border-b-1 border-slate-600">
+          <div class="text-sm text-white font-semibold py-1 text-center"><%= release_version %></div>
+        </div>
+      </footer>
+    </main>
   </body>
 </html>

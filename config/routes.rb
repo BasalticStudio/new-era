@@ -4,7 +4,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  devise_for :admin_users
+  devise_for :admin_users, controllers: {
+    sessions: 'admin/sessions'
+  }
   devise_for :players
 
   root to: 'home#index'
