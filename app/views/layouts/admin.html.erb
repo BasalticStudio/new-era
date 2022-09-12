@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= t('site_name') %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "cubic11", "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body class="text-slate-700 antialiased">
+    <div id="root">
+      <nav class="md:left-0 md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap items-center justify-between relative md:w-64 z-10 py-4 px-6"></nav>
+      <div class="relative md:ml-64 bg-slate-50">
+        <nav class="absolute top-0 left-0 w-full z-10 bg-transparent md:flex-row md:flex-nowrap md:justify-start flex items-center p-4">
+          <div class="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
+            <span class="text-white text-sm uppercase hidden lg:inline-block font-semibold">Dashboard</span>
+          </div>
+        </nav>
+        <div class="relative bg-pink-600 md:pt-32 pb-32 pt-12"></div>
+        <div class="px-4 md:px-10 mx-auto w-full -m-24">
+          <div class="flex flex-wrap mt-4">
+            <%= yield %>
+          </div>
+          <footer class="block py-4">
+            <div class="container mx-auto px-4">
+              <hr class="mb-6 border-b-1 border-slate-200">
+              <div class="py-1 text-sm font-semibold text-slate-500 text-center"><%= release_version %></div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

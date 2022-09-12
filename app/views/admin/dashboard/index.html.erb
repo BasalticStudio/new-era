@@ -1,10 +1,16 @@
-<% if flash[:notice] %>
-<div><%= flash[:notice] %></div>
-<% end %>
-<div>
-  <%= render LinkButtonComponent.new(label: t('.refresh_allowlist'), target: admin_refresh_allowlist_path, method: :post) %>
-</div>
+<div class="w-full mb-12 px-4">
+  <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
+    <div class="rounded-t mb-0 px-4 py-3 border-0">
+      <% if flash[:notice] %>
+        <div><%= flash[:notice] %></div>
+      <% end %>
+      <div>
+        <%= render LinkButtonComponent.new(label: t('.refresh_allowlist'), target: admin_refresh_allowlist_path, method: :post) %>
+      </div>
 
-<div>
-  <%= render LinkButtonComponent.new(label: t('.refresh_game_data'), target: admin_refresh_game_data_path, method: :post) %>
+      <div>
+        <%= render LinkButtonComponent.new(label: t('.refresh_game_data'), target: admin_refresh_game_data_path, method: :post) %>
+      </div>
+    </div>
+  </div>
 </div>
