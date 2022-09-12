@@ -12,7 +12,7 @@
   <body>
     <div class="flex items-stretch justify-center w-screen h-screen bg-gradient-to-b from-zinc-900 to-zinc-800">
       <main class="grow max-w-lg overflow-hidden bg-gray-50">
-        <div class="my-4 text-center">Version: newera@<%= ENV['REVISION'] || 'DEV' %></div>
+        <div class="my-4 text-center"><%= release_version %></div>
         <%= yield %>
       </main>
     </div>
