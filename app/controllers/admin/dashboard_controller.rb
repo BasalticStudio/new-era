@@ -15,7 +15,7 @@ module Admin
     end
 
     def index
-      @mau = Player.all.size
+      @mau = Player.where(last_sign_in_at: 30.days.ago..Time.zone.today).size
       @player_count = Player.all.size
     end
 
