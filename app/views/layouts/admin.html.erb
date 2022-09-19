@@ -30,12 +30,7 @@
           <div class="flex flex-wrap mt-4">
             <%= yield %>
           </div>
-          <footer class="block py-4">
-            <div class="container mx-auto px-4">
-              <hr class="mb-6 border-b-1 border-slate-200">
-              <div class="py-1 text-sm font-semibold text-slate-500 text-center"><%= release_version %></div>
-            </div>
-          </footer>
+          <%= render Admin::FooterComponent.new(version: release_version) %>
         </div>
       </div>
     </div>
