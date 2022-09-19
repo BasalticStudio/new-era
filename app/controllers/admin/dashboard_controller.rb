@@ -14,6 +14,11 @@ module Admin
       redirect_to admin_root_path, notice: t('.game_data_refresh_failed')
     end
 
+    def index
+      @mau = Player.all.size
+      @player_count = Player.all.size
+    end
+
     def refresh_allowlist
       registrable_players = spreadsheet_service.values_from(Settings.register_allowlist.spreadsheet_key, range: 'A2:A')
       register_allowlist.write(registrable_players)

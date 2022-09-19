@@ -1,3 +1,9 @@
+<% content_for :header do %>
+<div class="flex flex-wrap">
+  <%= render Admin::MetricsCardComponent.new(title: 'MAU', value: @mau) %>
+  <%= render Admin::MetricsCardComponent.new(title: 'Players', value: @player_count) %>
+</div>
+<% end %>
 <div class="w-full mb-12 px-4">
   <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
     <div class="rounded-t mb-0 px-4 py-3 border-0">
