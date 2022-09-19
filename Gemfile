@@ -60,8 +60,6 @@ gem 'sorbet-runtime'
 group :development, :test do
   # Call 'byebug' anywhere in the code to
   # stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
   gem 'code-scanning-rubocop', '~> 0.6.1'
