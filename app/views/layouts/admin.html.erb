@@ -26,6 +26,9 @@
         </nav>
         <div class="relative bg-pink-600 md:pt-32 pb-32 pt-12">
           <div class="px-4 md:px-10 mx-auto w-full">
+            <% flash.each do |type, message| %>
+              <%= render Admin::AlertComponent.new(type: type, message: message) %>
+            <% end %>
             <%= content_for :header %>
           </div>
         </div>
