@@ -1,4 +1,7 @@
 <hr class="my-4 md:min-w-full">
 <h6 class="md:min-w-full text-slate-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"><%= @title %></h6>
 <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+  <% @routes.each do |controller, action| %>
+    <%= render Admin::MainMenuItemComponent.new(label: t("admin.nav.#{controller.gsub('/', '_')}"), link: url_for(controller: "/admin/#{controller}", action: action)) %>
+  <% end %>
 </ul>

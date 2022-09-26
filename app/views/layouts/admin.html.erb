@@ -16,7 +16,8 @@
         <% c.with_header do %>
           <%= link_to t('.newera'), admin_root_path, class: "md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0" %>
         <% end %>
-        <% c.with_group(title: t('.game_data')) %>
+
+        <% c.with_group(title: t('.game_data'), routes: c.resources_with_index_route.select { |controller, _| controller.start_with?('data') }) %>
       <% end %>
       <div class="relative md:ml-64 bg-slate-50">
         <nav class="absolute top-0 left-0 w-full z-10 bg-transparent md:flex-row md:flex-nowrap md:justify-start flex items-center p-4">

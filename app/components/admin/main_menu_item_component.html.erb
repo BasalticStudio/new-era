@@ -1,0 +1,6 @@
+<li class="items-center">
+  <%= link_to @link, class: link_style do %>
+    <i class="fas fa-<%= @icon %> mr-2 text-sm <%= icon_color %>"></i>
+    <%= @label %>
+  <% end %>
+</li>

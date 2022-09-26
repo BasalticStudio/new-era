@@ -16,6 +16,9 @@ zh-TW:
         what_your_name: 你的名字是？
         continue: 繼續
   admin:
+    nav:
+      data_maps: 地圖資料
+      data_areas: 地區資料
     dashboard:
       index:
         refresh_allowlist: 更新測試名單
