@@ -3,7 +3,7 @@
 
 require 'sidekiq/web'
 
-Rails.application.routes.draw do
+Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   devise_for :admin_users, controllers: {
     sessions: 'admin/sessions'
   }
@@ -34,6 +34,11 @@ Rails.application.routes.draw do
 
       mount Sidekiq::Web => '/sidekiq'
       mount Flipper::UI.app(Flipper) => '/flipper', as: :flipper
+
+      namespace :data do
+        resources :maps, only: %i[index show]
+        resources :areas, only: %i[index show]
+      end
     end
   end
 end
