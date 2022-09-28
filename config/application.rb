@@ -5,6 +5,8 @@ require_relative 'boot'
 
 require 'rails/all'
 
+require 'debug/open_nonstop' if defined?(Rails::Server) && Rails.env.development?
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
