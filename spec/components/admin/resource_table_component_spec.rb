@@ -11,7 +11,13 @@ RSpec.describe Admin::ResourceTableComponent, type: :component do
   before do
     create(:map, id: 1, name: '東方大陸')
 
-    render_inline(component)
+    warden = instance_double(Warden::Manager)
+    allow(warden).to receive(:send).with(:authenticate!, { scope: :admin_user }).and_return(true)
+    request.env['warden'] = warden
+
+    with_request_url '/admin/data/maps' do
+      render_inline(component)
+    end
   end
 
   it { is_expected.to have_text('Id') }

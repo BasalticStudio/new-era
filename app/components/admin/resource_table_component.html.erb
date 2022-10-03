@@ -2,9 +2,7 @@
   <% c.with_header(columns: column_names, action: true) %>
   <% @collection.each do |item| %>
     <% c.with_row(values: item.values_at(*@columns)) do %>
-      <a class="cursor-not-allowed text-blueGray-500 block py-1 px-3">
-        <i class="fas fa-ellipsis-v"></i>
-      </a>
+      <%= link_to t('.view'), build_link_for(item), class: 'bg-sky-500 text-white active:bg-sky-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150' %>
     <% end %>
   <% end %>
 <% end %>

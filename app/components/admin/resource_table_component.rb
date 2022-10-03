@@ -14,5 +14,12 @@ module Admin
         @collection.human_attribute_name(column)
       end
     end
+
+    def build_link_for(resource)
+      [
+        *request.path.split('/')[0..-2].compact_blank.map(&:to_sym),
+        resource
+      ]
+    end
   end
 end
