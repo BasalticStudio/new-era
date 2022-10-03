@@ -1,16 +1,3 @@
-<div class="w-full mb-12 px-4">
-  <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
-    <div class="rounded-t mb-0 px-4 py-3 border-0">
-      <div class="flex flex-wrap items-center">
-        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-          <h3 class="font-semibold text-lg text-slate-700">
-            <%= t('.maps') %>
-          </h3>
-        </div>
-      </div>
-    </div>
-    <div class="block w-full overflow-x-auto">
-      <%= render Admin::ResourceTableComponent.new(collection: @maps, columns: %i[id name]) %>
-    </div>
-  </div>
-</div>
+<%= render Admin::CardComponent.new(title: t('.maps')) do %>
+  <%= render Admin::ResourceTableComponent.new(collection: @maps, columns: %i[id name]) %>
+<% end %>
