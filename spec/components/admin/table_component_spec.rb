@@ -11,7 +11,7 @@ RSpec.describe Admin::TableComponent, type: :component do
   before do
     render_inline(component) do |c|
       c.with_header(columns: %w[ID Name])
-      c.with_row(columns: %w[1 東方大陸])
+      c.with_row(values: %w[1 東方大陸])
     end
   end
 
