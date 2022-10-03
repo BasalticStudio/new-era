@@ -1,0 +1,3 @@
+<%= render Admin::CardComponent.new(title: t('.areas')) do %>
+  <%= render Admin::ResourceTableComponent.new(collection: @areas, columns: %i[id name map_id]) %>
+<% end %>
