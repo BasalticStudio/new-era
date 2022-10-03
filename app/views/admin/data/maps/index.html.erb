@@ -10,14 +10,12 @@
       </div>
     </div>
     <div class="block w-full overflow-x-auto">
-      <table class="items-center w-full bg-transparent border-collapse">
-        <%= render Admin::Table::HeaderComponent.new(columns: %w[id name]) %>
-        <tbody>
-          <% @maps.each do |map| %>
-            <%= render Admin::Table::RowComponent.new(columns: map.values_at(:id, :name)) %>
-          <% end %>
-        </tbody>
-      </table>
+      <%= render Admin::TableComponent.new do |c| %>
+        <% c.with_header(columns: %w[id name]) %>
+        <% @maps.each do |map| %>
+          <% c.with_row(columns: map.values_at(:id, :name)) %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
