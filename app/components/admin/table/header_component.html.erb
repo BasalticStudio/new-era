@@ -1,0 +1,12 @@
+<thead>
+  <tr>
+    <% @columns.each do |column| %>
+      <th class="<%= style %>">
+        <%= t(".#{column}") %>
+      </th>
+    <% end %>
+    <% if action? %>
+      <th class="<%= style %>"></th>
+    <% end %>
+  </tr>
+</thead>
