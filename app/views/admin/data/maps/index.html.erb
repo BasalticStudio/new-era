@@ -10,12 +10,7 @@
       </div>
     </div>
     <div class="block w-full overflow-x-auto">
-      <%= render Admin::TableComponent.new do |c| %>
-        <% c.with_header(columns: %w[id name]) %>
-        <% @maps.each do |map| %>
-          <% c.with_row(columns: map.values_at(:id, :name)) %>
-        <% end %>
-      <% end %>
+      <%= render Admin::ResourceTableComponent.new(collection: @maps, columns: %i[id name]) %>
     </div>
   </div>
 </div>

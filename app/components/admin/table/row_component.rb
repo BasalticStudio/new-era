@@ -4,14 +4,9 @@
 module Admin
   module Table
     class RowComponent < ViewComponent::Base
-      def initialize(columns: [], action: false)
+      def initialize(values: [])
         super
-        @columns = columns
-        @action = action
-      end
-
-      def action?
-        @action == true
+        @values = values
       end
     end
   end

@@ -1,0 +1,6 @@
+<%= render Admin::TableComponent.new do |c| %>
+  <% c.with_header(columns: column_names) %>
+  <% @collection.each do |item| %>
+    <% c.with_row(values: item.values_at(*@columns)) %>
+  <% end %>
+<% end %>
