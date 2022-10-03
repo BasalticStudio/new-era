@@ -9,6 +9,18 @@ module GeneratedUrlHelpersModule
   include ::ActionDispatch::Routing::PolymorphicRoutes
 
   sig { params(args: T.untyped).returns(String) }
+  def admin_data_area_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def admin_data_areas_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def admin_data_map_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def admin_data_maps_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def admin_flipper_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
