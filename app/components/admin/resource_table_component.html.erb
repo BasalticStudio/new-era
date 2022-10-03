@@ -1,6 +1,10 @@
 <%= render Admin::TableComponent.new do |c| %>
-  <% c.with_header(columns: column_names) %>
+  <% c.with_header(columns: column_names, action: true) %>
   <% @collection.each do |item| %>
-    <% c.with_row(values: item.values_at(*@columns)) %>
+    <% c.with_row(values: item.values_at(*@columns)) do %>
+      <a class="cursor-not-allowed text-blueGray-500 block py-1 px-3">
+        <i class="fas fa-ellipsis-v"></i>
+      </a>
+    <% end %>
   <% end %>
 <% end %>
