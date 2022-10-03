@@ -30,7 +30,14 @@
             <% flash.each do |type, message| %>
               <%= render Admin::AlertComponent.new(type: type, message: message) %>
             <% end %>
-            <%= content_for :header %>
+            <% if content_for?(:header) %>
+              <%= yield :header %>
+            <% else %>
+              <div class="flex flex-wrap">
+                <%= render Admin::MetricsCardComponent.new(title: 'MAU', value: 0) %>
+                <%= render Admin::MetricsCardComponent.new(title: 'Players', value: 0) %>
+              </div>
+            <% end %>
           </div>
         </div>
         <div class="px-4 md:px-10 mx-auto w-full -m-24">
