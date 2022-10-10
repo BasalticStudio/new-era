@@ -4,12 +4,10 @@
 module Admin
   module Data
     class AreasController < Admin::ApplicationController
-      def index
-        @areas = Area.all
-      end
+      include Admin::DataView
 
-      def show
-        @area = Area.find(params[:id])
+      def resource_class
+        Area
       end
     end
   end

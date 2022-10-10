@@ -4,12 +4,10 @@
 module Admin
   module Data
     class MapsController < Admin::ApplicationController
-      def index
-        @maps = Map.all
-      end
+      include Admin::DataView
 
-      def show
-        @map = Map.find(params[:id])
+      def resource_class
+        Map
       end
     end
   end

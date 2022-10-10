@@ -17,3 +17,9 @@ Feature: Admin Map Data
       | name   |
       | 板橋區 |
       | 中和區 |
+
+  Scenario: I can see the area detial
+    When I click "地區資料"
+    And I click "View" in table row "板橋區"
+    Then I can see "板橋區"
+    And I can see "1"

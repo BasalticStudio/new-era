@@ -14,3 +14,8 @@ Feature: Admin Map Data
       | name   |
       | 台北市 |
       | 新北市 |
+
+  Scenario: I can see the map detial
+    When I click "地圖資料"
+    And I click "View" in table row "台北市"
+    Then I can see "台北市"

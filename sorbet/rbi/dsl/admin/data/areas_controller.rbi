@@ -20,9 +20,10 @@ class Admin::Data::AreasController
     include ::ApplicationHelper
     include ::PreviewHelper
     include ::DeviseHelper
+    include ::ApplicationController::HelperMethods
 
     sig { returns(T.untyped) }
-    def preview?; end
+    def resource_class; end
   end
 
   class HelperProxy < ::ActionView::Base
