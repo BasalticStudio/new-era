@@ -7,6 +7,10 @@ module Admin
       def index
         @areas = Area.all
       end
+
+      def show
+        @area = Area.find(params[:id])
+      end
     end
   end
 end

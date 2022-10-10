@@ -1,0 +1,7 @@
+<%= render Admin::CardComponent.new(title: @area.name) do %>
+  <%= render Admin::TableComponent.new do |c| %>
+    <% c.with_row(values: [@area.class.human_attribute_name(:name), @area.name])%>
+    <% c.with_row(values: [@area.class.human_attribute_name(:map), @area.map_id])%>
+    <% c.with_row(values: [@area.class.human_attribute_name(:terrain), @area.terrain])%>
+  <% end %>
+<% end %>
