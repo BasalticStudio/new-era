@@ -4,10 +4,7 @@
 module Admin
   module Table
     class RowComponent < ViewComponent::Base
-      def initialize(values: [])
-        super
-        @values = values
-      end
+      renders_many :cells
     end
   end
 end

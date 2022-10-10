@@ -1,9 +1,18 @@
 <%= render Admin::TableComponent.new do |c| %>
-  <% c.with_header(values: column_names) do %>
+  <% c.with_header do |head| %>
+    <% column_names.each do |name| %>
+      <% head.with_cell.with_content(name) %>
+    <% end %>
+    <% head.with_cell.with_content('') %>
   <% end %>
   <% @collection.each do |item| %>
-    <% c.with_row(values: item.values_at(*@columns)) do %>
-      <%= link_to t('.view'), build_link_for(item), class: 'bg-sky-500 text-white active:bg-sky-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150' %>
+    <% c.with_row do |row| %>
+      <% item.values_at(*@columns).each do |value| %>
+        <% row.with_cell.with_content(value) %>
+      <% end %>
+      <% row.with_cell do %>
+        <%= link_to t('.view'), build_link_for(item), class: 'bg-sky-500 text-white active:bg-sky-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150' %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
