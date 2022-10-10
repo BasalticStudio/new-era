@@ -1,8 +1,8 @@
 <%= render Admin::CardComponent.new(title: @map.name) do %>
   <%= render Admin::TableComponent.new do |c| %>
     <% c.with_row do |row| %>
-      <% row.with_cell.with_content(@map.class.human_attribute_name(:name)) %>
-      <% row.with_cell.with_content(@map.name) %>
+      <% row.with_cell_head.with_content(@map.class.human_attribute_name(:name)) %>
+      <% row.with_cell_data.with_content(@map.name) %>
     <% end %>
   <% end %>
 <% end %>
