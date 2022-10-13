@@ -39,7 +39,7 @@ module Admin
     def import_data(config)
       entities = spreadsheet_service
                  .entities_from(Settings.game_data.spreadsheet_key, range: config.source) do |attrs|
-        config.entity.new(attrs.slice('id', *config.fields))
+        config.entity.new(attrs.slice('id', *config.fields).compact)
       end
       config.repository.import! entities, on_duplicate_key_update: config.fields
     end
