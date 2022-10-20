@@ -4,7 +4,7 @@ include:
   - remote: https://github.com/elct9620/ruby-gitlab-ci/raw/main/sentry.yml
 
 variables:
-  RUBY_VERSION: 3.0.4
+  RUBY_VERSION: 3.1.2
   BUNDLER_VERSION: 2.2.33
   SORBET_ENABLED: 'yes'
   # Test
