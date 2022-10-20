@@ -22,7 +22,7 @@ gem 'redis', '~> 4.0'
 # gem 'mini_magick', '~> 4.8'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', require: false
 
 # Common
 gem 'devise'
@@ -32,7 +32,7 @@ gem 'rails-i18n'
 # Frontend
 gem 'jsbundling-rails'
 gem 'stimulus-rails'
-gem 'tailwindcss-rails', '~> 2.0.0'
+gem 'tailwindcss-rails'
 gem 'turbo-rails'
 gem 'view_component'
 
@@ -53,8 +53,8 @@ gem 'sentry-ruby'
 gem 'activerecord-import'
 gem 'config'
 gem 'dry-core', '~> 0.8.1'
-gem 'dry-rails', '~> 0.1'
-gem 'google-apis-sheets_v4', '~> 0.17.0'
+gem 'dry-rails', '~> 0.5'
+gem 'google-apis-sheets_v4', '~> 0.19'
 gem 'openbox'
 gem 'sorbet-runtime'
 
@@ -64,7 +64,7 @@ group :development, :test do
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
   gem 'code-scanning-rubocop', '~> 0.6.1'
-  gem 'rubocop', '~> 1.35.1', require: false
+  gem 'rubocop', '~> 1.36.0', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
@@ -77,10 +77,9 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.3'
   # Access an interactive console on exception pages or
   # by calling 'console' anywhere in the code.
-  gem 'debug', '>= 1.0.0'
+  gem 'debug'
   gem 'web-console', '>= 3.3.0'
 
   gem 'foreman'
