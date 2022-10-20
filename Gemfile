@@ -52,6 +52,7 @@ gem 'sentry-ruby'
 # Utils
 gem 'activerecord-import'
 gem 'config'
+gem 'dry-core', '~> 0.8.1'
 gem 'dry-rails', '~> 0.1'
 gem 'google-apis-sheets_v4', '~> 0.17.0'
 gem 'openbox'
