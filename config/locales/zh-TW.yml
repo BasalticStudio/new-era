@@ -15,6 +15,9 @@ zh-TW:
       setup_name_view:
         what_your_name: 你的名字是？
         continue: 繼續
+    battle_events:
+      create:
+        applied_damage: "造成 %{amount} 點傷害"
   admin:
     nav:
       data_maps: 地圖資料

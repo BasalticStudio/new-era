@@ -1,1 +1,6 @@
-戰鬥開始戰鬥開始戰鬥開始戰鬥開始戰鬥開始
+<div class="text-center">
+  <%= flash[:battle] || '戰鬥開始' %>
+  <div>
+    <%= render LinkButtonComponent.new(label: '攻擊', target: game_battle_actions_path(params[:id]), method: :post) %>
+  </div>
+</div>

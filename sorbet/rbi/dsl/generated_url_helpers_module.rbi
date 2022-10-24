@@ -69,6 +69,9 @@ module GeneratedUrlHelpersModule
   def game_area_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def game_battle_actions_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def game_battle_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
