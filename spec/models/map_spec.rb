@@ -12,6 +12,6 @@
 
 require 'rails_helper'
 
-RSpec.describe Map, type: :model do
+RSpec.describe Map do
   it { is_expected.to have_many(:areas) }
 end

@@ -29,7 +29,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Player, type: :model do
+RSpec.describe Player do
   it { is_expected.to have_many(:player_quests) }
   it { is_expected.to have_many(:quests).through(:player_quests) }
 end

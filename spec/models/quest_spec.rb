@@ -17,7 +17,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Quest, type: :model do
+RSpec.describe Quest do
   describe '#type_name' do
     it { is_expected.to have_attributes(type_name: nil) }
 

@@ -23,6 +23,6 @@
 
 require 'rails_helper'
 
-RSpec.describe Area, type: :model do
+RSpec.describe Area do
   it { is_expected.to belong_to(:map) }
 end

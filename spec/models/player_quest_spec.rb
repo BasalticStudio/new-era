@@ -23,7 +23,7 @@
 
 require 'rails_helper'
 
-RSpec.describe PlayerQuest, type: :model do
+RSpec.describe PlayerQuest do
   it { is_expected.to belong_to(:player) }
   it { is_expected.to belong_to(:quest) }
 end
