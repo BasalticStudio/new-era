@@ -9,5 +9,9 @@ module Game
         (index / width) + 1
       ]
     end
+
+    def coord_to_index(x:, y:, width:) # rubocop:disable Naming/MethodParameterName
+      (x - 1) + ((y - 1) * width)
+    end
   end
 end

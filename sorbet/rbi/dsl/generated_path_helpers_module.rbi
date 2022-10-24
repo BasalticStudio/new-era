@@ -69,6 +69,9 @@ module GeneratedPathHelpersModule
   def game_area_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def game_battle_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def game_map_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }

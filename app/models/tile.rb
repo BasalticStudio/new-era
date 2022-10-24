@@ -15,6 +15,10 @@ class Tile
   attribute :y, :integer, default: 0
   attribute :type, :integer, default: 0
 
+  def npc?
+    type == TYPES[:npc]
+  end
+
   def moveable?
     type != TYPES[:wall]
   end

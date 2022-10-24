@@ -49,4 +49,10 @@ class Terrain
 
     each_slice(MAX_WIDTH, &block)
   end
+
+  def tile(x:, y:) # rubocop:disable Naming/MethodParameterName
+    index = coordinate_service.coord_to_index(x: x, y: y, width: MAX_WIDTH)
+    attributes = @tiles[index] || {}
+    Tile.new(attributes.merge('x' => y, 'y' => y).slice(*Tile.attribute_names))
+  end
 end

@@ -24,6 +24,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     resources :maps, only: %i[index show]
     resources :areas, only: %i[show]
     resources :quests, only: %i[index]
+    resources :battles, only: %i[show]
   end
 
   authenticate(:admin_user) do
