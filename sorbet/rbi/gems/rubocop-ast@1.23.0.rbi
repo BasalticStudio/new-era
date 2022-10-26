@@ -608,514 +608,517 @@ module RuboCop::AST::CollectionNode
   extend ::Forwardable
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def &(*args, &block); end
+  def &(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def *(*args, &block); end
+  def *(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def +(*args, &block); end
+  def +(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def -(*args, &block); end
+  def -(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def <<(*args, &block); end
+  def <<(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def [](*args, &block); end
+  def [](*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def []=(*args, &block); end
+  def []=(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def all?(*args, &block); end
+  def all?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def any?(*args, &block); end
+  def any?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def append(*args, &block); end
+  def append(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def assoc(*args, &block); end
+  def assoc(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def at(*args, &block); end
+  def at(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def bsearch(*args, &block); end
+  def bsearch(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def bsearch_index(*args, &block); end
+  def bsearch_index(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def chain(*args, &block); end
+  def chain(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def chunk(*args, &block); end
+  def chunk(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def chunk_while(*args, &block); end
+  def chunk_while(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def clear(*args, &block); end
+  def clear(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def collect(*args, &block); end
+  def collect(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def collect!(*args, &block); end
+  def collect!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def collect_concat(*args, &block); end
+  def collect_concat(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def combination(*args, &block); end
+  def combination(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def compact(*args, &block); end
+  def compact(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def compact!(*args, &block); end
+  def compact!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def compact_blank(*args, &block); end
+  def compact_blank(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def compact_blank!(*args, &block); end
+  def compact_blank!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def concat(*args, &block); end
+  def concat(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def count(*args, &block); end
+  def count(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def cycle(*args, &block); end
+  def cycle(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def deconstruct(*args, &block); end
+  def deconstruct(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def delete(*args, &block); end
+  def delete(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def delete_at(*args, &block); end
+  def delete_at(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def delete_if(*args, &block); end
+  def delete_if(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def detect(*args, &block); end
+  def detect(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def difference(*args, &block); end
+  def difference(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def dig(*args, &block); end
+  def dig(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def drop(*args, &block); end
+  def drop(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def drop_while(*args, &block); end
+  def drop_while(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def each(*args, &block); end
+  def each(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def each_cons(*args, &block); end
+  def each_cons(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def each_entry(*args, &block); end
+  def each_entry(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def each_index(*args, &block); end
+  def each_index(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def each_slice(*args, &block); end
+  def each_slice(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def each_with_index(*args, &block); end
+  def each_with_index(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def each_with_object(*args, &block); end
+  def each_with_object(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def empty?(*args, &block); end
+  def empty?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def entries(*args, &block); end
+  def entries(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def exclude?(*args, &block); end
+  def exclude?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def excluding(*args, &block); end
+  def excluding(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def extract!(*args, &block); end
+  def extract!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def extract_options!(*args, &block); end
+  def extract_options!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def fetch(*args, &block); end
+  def fetch(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def fifth(*args, &block); end
+  def fifth(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def fill(*args, &block); end
+  def fill(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def filter(*args, &block); end
+  def filter(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def filter!(*args, &block); end
+  def filter!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def filter_map(*args, &block); end
+  def filter_map(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def find(*args, &block); end
+  def find(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def find_all(*args, &block); end
+  def find_all(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def find_index(*args, &block); end
+  def find_index(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def first(*args, &block); end
+  def first(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def flat_map(*args, &block); end
+  def flat_map(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def flatten(*args, &block); end
+  def flatten(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def flatten!(*args, &block); end
+  def flatten!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def forty_two(*args, &block); end
+  def forty_two(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def fourth(*args, &block); end
+  def fourth(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def from(*args, &block); end
+  def from(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def grep(*args, &block); end
+  def grep(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def grep_v(*args, &block); end
+  def grep_v(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def group_by(*args, &block); end
+  def group_by(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def in_groups(*args, &block); end
+  def in_groups(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def in_groups_of(*args, &block); end
+  def in_groups_of(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def in_order_of(*args, &block); end
+  def in_order_of(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def include?(*args, &block); end
+  def include?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def including(*args, &block); end
+  def including(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def index(*args, &block); end
+  def index(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def index_by(*args, &block); end
+  def index_by(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def index_with(*args, &block); end
+  def index_with(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def inject(*args, &block); end
+  def inject(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def inquiry(*args, &block); end
+  def inquiry(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def insert(*args, &block); end
+  def insert(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def intersection(*args, &block); end
+  def intersect?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def join(*args, &block); end
+  def intersection(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def keep_if(*args, &block); end
+  def join(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def last(*args, &block); end
+  def keep_if(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def lazy(*args, &block); end
+  def last(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def length(*args, &block); end
+  def lazy(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def many?(*args, &block); end
+  def length(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def map(*args, &block); end
+  def many?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def map!(*args, &block); end
+  def map(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def max(*args, &block); end
+  def map!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def max_by(*args, &block); end
+  def max(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def maximum(*args, &block); end
+  def max_by(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def member?(*args, &block); end
+  def maximum(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def min(*args, &block); end
+  def member?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def min_by(*args, &block); end
+  def min(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def minimum(*args, &block); end
+  def min_by(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def minmax(*args, &block); end
+  def minimum(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def minmax_by(*args, &block); end
+  def minmax(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def none?(*args, &block); end
+  def minmax_by(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def one?(*args, &block); end
+  def none?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def pack(*args, &block); end
+  def one?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def partition(*args, &block); end
+  def pack(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def permutation(*args, &block); end
+  def partition(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def pick(*args, &block); end
+  def permutation(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def place(*args, &block); end
+  def pick(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def pluck(*args, &block); end
+  def place(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def pop(*args, &block); end
+  def pluck(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def prepend(*args, &block); end
+  def pop(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def product(*args, &block); end
+  def prepend(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def push(*args, &block); end
+  def product(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def rassoc(*args, &block); end
+  def push(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def reduce(*args, &block); end
+  def rassoc(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def reject(*args, &block); end
+  def reduce(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def reject!(*args, &block); end
+  def reject(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def repeated_combination(*args, &block); end
+  def reject!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def repeated_permutation(*args, &block); end
+  def repeated_combination(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def replace(*args, &block); end
+  def repeated_permutation(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def reverse(*args, &block); end
+  def replace(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def reverse!(*args, &block); end
+  def reverse(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def reverse_each(*args, &block); end
+  def reverse!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def rindex(*args, &block); end
+  def reverse_each(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def rotate(*args, &block); end
+  def rindex(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def rotate!(*args, &block); end
+  def rotate(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sample(*args, &block); end
+  def rotate!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def second(*args, &block); end
+  def sample(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def second_to_last(*args, &block); end
+  def second(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def select(*args, &block); end
+  def second_to_last(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def select!(*args, &block); end
+  def select(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def shelljoin(*args, &block); end
+  def select!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def shift(*args, &block); end
+  def shelljoin(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def shuffle(*args, &block); end
+  def shift(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def shuffle!(*args, &block); end
+  def shuffle(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def size(*args, &block); end
+  def shuffle!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def slice(*args, &block); end
+  def size(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def slice!(*args, &block); end
+  def slice(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def slice_after(*args, &block); end
+  def slice!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def slice_before(*args, &block); end
+  def slice_after(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def slice_when(*args, &block); end
+  def slice_before(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sole(*args, &block); end
+  def slice_when(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sort(*args, &block); end
+  def sole(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sort!(*args, &block); end
+  def sort(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sort_by(*args, &block); end
+  def sort!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sort_by!(*args, &block); end
+  def sort_by(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def split(*args, &block); end
+  def sort_by!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sum(*args, &block); end
+  def split(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def take(*args, &block); end
+  def sum(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def take_while(*args, &block); end
+  def take(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def tally(*args, &block); end
+  def take_while(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def third(*args, &block); end
+  def tally(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def third_to_last(*args, &block); end
+  def third(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def to(*args, &block); end
+  def third_to_last(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def to_ary(*args, &block); end
+  def to(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def to_default_s(*args, &block); end
+  def to_ary(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def to_formatted_s(*args, &block); end
+  def to_default_s(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def to_fs(*args, &block); end
+  def to_formatted_s(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def to_h(*args, &block); end
+  def to_fs(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def to_msgpack(*args, &block); end
+  def to_h(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def to_sentence(*args, &block); end
+  def to_msgpack(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def to_set(*args, &block); end
+  def to_sentence(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def to_xml(*args, &block); end
+  def to_set(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def transpose(*args, &block); end
+  def to_xml(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def union(*args, &block); end
+  def transpose(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def uniq(*args, &block); end
+  def union(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def uniq!(*args, &block); end
+  def uniq(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def unshift(*args, &block); end
+  def uniq!(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def values_at(*args, &block); end
+  def unshift(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def without(*args, &block); end
+  def values_at(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def zip(*args, &block); end
+  def without(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def |(*args, &block); end
+  def zip(*args, **_arg1, &block); end
+
+  # source://forwardable/1.3.2/forwardable.rb#229
+  def |(*args, **_arg1, &block); end
 end
 
 # source://rubocop-ast//lib/rubocop/ast/node/mixin/collection_node.rb#9
@@ -3572,7 +3575,7 @@ class RuboCop::AST::NodePattern
   def ast; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def captures(*args, &block); end
+  def captures(*args, **_arg1, &block); end
 
   # source://rubocop-ast//lib/rubocop/ast/node_pattern.rb#95
   def encode_with(coder); end
@@ -3601,7 +3604,7 @@ class RuboCop::AST::NodePattern
   def match_code; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def named_parameters(*args, &block); end
+  def named_parameters(*args, **_arg1, &block); end
 
   # Returns the value of attribute pattern.
   #
@@ -3609,7 +3612,7 @@ class RuboCop::AST::NodePattern
   def pattern; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def positional_parameters(*args, &block); end
+  def positional_parameters(*args, **_arg1, &block); end
 
   # source://rubocop-ast//lib/rubocop/ast/node_pattern.rb#79
   def to_s; end
@@ -3722,7 +3725,7 @@ class RuboCop::AST::NodePattern::Compiler
   def initialize; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def bind(*args, &block); end
+  def bind(*args, **_arg1, &block); end
 
   # Returns the value of attribute binding.
   #
@@ -3866,7 +3869,7 @@ class RuboCop::AST::NodePattern::Compiler::Debug < ::RuboCop::AST::NodePattern::
   def initialize; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def comments(*args, &block); end
+  def comments(*args, **_arg1, &block); end
 
   # source://rubocop-ast//lib/rubocop/ast/node_pattern/compiler/debug.rb#128
   def named_parameters; end
@@ -3880,7 +3883,7 @@ class RuboCop::AST::NodePattern::Compiler::Debug < ::RuboCop::AST::NodePattern::
   def parser; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def tokens(*args, &block); end
+  def tokens(*args, **_arg1, &block); end
 end
 
 # @api private
@@ -3965,8 +3968,6 @@ class RuboCop::AST::NodePattern::Compiler::Debug::Colorizer::Result < ::Struct
   #
   # @param value [Object] the value to set the attribute colorizer to.
   # @return [Object] the newly set value
-  #
-  # source://rubocop-ast//lib/rubocop/ast/node_pattern/compiler/debug.rb#46
   def colorizer=(_); end
 
   # @api private
@@ -3990,8 +3991,6 @@ class RuboCop::AST::NodePattern::Compiler::Debug::Colorizer::Result < ::Struct
   #
   # @param value [Object] the value to set the attribute returned to.
   # @return [Object] the newly set value
-  #
-  # source://rubocop-ast//lib/rubocop/ast/node_pattern/compiler/debug.rb#46
   def returned=(_); end
 
   # Returns the value of attribute ruby_ast
@@ -4003,8 +4002,6 @@ class RuboCop::AST::NodePattern::Compiler::Debug::Colorizer::Result < ::Struct
   #
   # @param value [Object] the value to set the attribute ruby_ast to.
   # @return [Object] the newly set value
-  #
-  # source://rubocop-ast//lib/rubocop/ast/node_pattern/compiler/debug.rb#46
   def ruby_ast=(_); end
 
   # Returns the value of attribute trace
@@ -4016,8 +4013,6 @@ class RuboCop::AST::NodePattern::Compiler::Debug::Colorizer::Result < ::Struct
   #
   # @param value [Object] the value to set the attribute trace to.
   # @return [Object] the newly set value
-  #
-  # source://rubocop-ast//lib/rubocop/ast/node_pattern/compiler/debug.rb#46
   def trace=(_); end
 
   private
@@ -4035,6 +4030,7 @@ class RuboCop::AST::NodePattern::Compiler::Debug::Colorizer::Result < ::Struct
   class << self
     def [](*_arg0); end
     def inspect; end
+    def keyword_init?; end
     def members; end
     def new(*_arg0); end
   end
@@ -4750,7 +4746,7 @@ RuboCop::AST::NodePattern::Node::AnyOrder::ARITIES = T.let(T.unsafe(nil), Hash)
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/node.rb#94
 class RuboCop::AST::NodePattern::Node::Capture < ::RuboCop::AST::NodePattern::Node
   # source://forwardable/1.3.2/forwardable.rb#229
-  def arity(*args, &block); end
+  def arity(*args, **_arg1, &block); end
 
   # @return [Boolean]
   #
@@ -4764,7 +4760,7 @@ class RuboCop::AST::NodePattern::Node::Capture < ::RuboCop::AST::NodePattern::No
   def nb_captures; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def rest?(*args, &block); end
+  def rest?(*args, **_arg1, &block); end
 end
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/node.rb#82
@@ -4999,28 +4995,28 @@ class RuboCop::AST::NodePattern::Parser < ::Racc::Parser
   def _reduce_none(val, _values); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def emit_atom(*args, &block); end
+  def emit_atom(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def emit_call(*args, &block); end
+  def emit_call(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def emit_capture(*args, &block); end
+  def emit_capture(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def emit_list(*args, &block); end
+  def emit_list(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def emit_unary_op(*args, &block); end
+  def emit_unary_op(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def emit_union(*args, &block); end
+  def emit_union(*args, **_arg1, &block); end
 
   # source://rubocop-ast//lib/rubocop/ast/node_pattern/parser.rb#40
   def inspect; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def next_token(*args, &block); end
+  def next_token(*args, **_arg1, &block); end
 
   # (Similar API to `parser` gem)
   # Parses a source and returns the AST.
@@ -6439,6 +6435,11 @@ class RuboCop::AST::StrNode < ::RuboCop::AST::Node
   # @return [Boolean]
   #
   # source://rubocop-ast//lib/rubocop/ast/node/str_node.rb#11
+  def character_literal?; end
+
+  # @return [Boolean]
+  #
+  # source://rubocop-ast//lib/rubocop/ast/node/str_node.rb#15
   def heredoc?; end
 end
 
@@ -7196,11 +7197,11 @@ class RuboCop::AST::YieldNode < ::RuboCop::AST::Node
   def node_parts; end
 end
 
-# source://rubocop/1.35.1/lib/rubocop/ast_aliases.rb#5
+# source://rubocop/1.36.0/lib/rubocop/ast_aliases.rb#5
 RuboCop::NodePattern = RuboCop::AST::NodePattern
 
-# source://rubocop/1.35.1/lib/rubocop/ast_aliases.rb#6
+# source://rubocop/1.36.0/lib/rubocop/ast_aliases.rb#6
 RuboCop::ProcessedSource = RuboCop::AST::ProcessedSource
 
-# source://rubocop/1.35.1/lib/rubocop/ast_aliases.rb#7
+# source://rubocop/1.36.0/lib/rubocop/ast_aliases.rb#7
 RuboCop::Token = RuboCop::AST::Token
