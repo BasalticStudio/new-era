@@ -4,13 +4,6 @@
 
 # typed: false
 
-module Capybara::DSLRSpecProxyInstaller; end
-module Capybara::RSpecMatcherProxyInstaller; end
-module Capybara::RSpecMatcherProxyInstaller::ClassMethods; end
-module Capybara::RSpecMatchers; end
 module Cucumber::Rails::Database; end
-module Sidekiq::Process; end
-module Sidekiq::SortedEntry; end
-module Sidekiq::Web; end
 module Sprockets::SassProcessor::Functions; end
 module Turbo::Streams::ActionHelper; end

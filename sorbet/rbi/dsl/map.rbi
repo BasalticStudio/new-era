@@ -182,6 +182,8 @@ class Map
     sig { params(ids: T::Array[T.untyped]).returns(T::Array[T.untyped]) }
     def area_ids=(ids); end
 
+    # This method is created by ActiveRecord on the `Map` class because it declared `has_many :areas`.
+    # 🔗 [Rails guide for `has_many` association](https://guides.rubyonrails.org/association_basics.html#the-has-many-association)
     sig { returns(::Area::PrivateCollectionProxy) }
     def areas; end
 

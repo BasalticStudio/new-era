@@ -364,26 +364,26 @@ class RuboCop::Cop::Rails::ActionControllerFlashBeforeRender < ::RuboCop::Cop::B
   def on_send(flash_node); end
 
   # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#40
-  def redirect_to?(param0); end
+  def render?(param0); end
 
   private
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#93
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#95
   def find_ancestor(node, type:); end
 
   # @return [Boolean]
   #
   # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#69
-  def followed_by_redirect_to?(flash_node); end
+  def followed_by_render?(flash_node); end
 
   # @return [Boolean]
   #
-  # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#79
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#81
   def inherit_action_controller_base?(node); end
 
   # @return [Boolean]
   #
-  # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#86
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#88
   def instance_method_or_block?(node); end
 end
 
@@ -4651,16 +4651,24 @@ class RuboCop::Cop::Rails::Pluck < ::RuboCop::Cop::Base
 
   private
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/pluck.rb#62
+  # source://rubocop-rails//lib/rubocop/cop/rails/pluck.rb#76
   def message(replacement, node); end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/pluck.rb#58
+  # source://rubocop-rails//lib/rubocop/cop/rails/pluck.rb#63
   def offense_range(node); end
+
+  # source://rubocop-rails//lib/rubocop/cop/rails/pluck.rb#67
+  def register_offense(node, key); end
 
   # @return [Boolean]
   #
-  # source://rubocop-rails//lib/rubocop/cop/rails/pluck.rb#54
+  # source://rubocop-rails//lib/rubocop/cop/rails/pluck.rb#57
   def use_block_argument_in_key?(block_argument, key); end
+
+  # @return [Boolean]
+  #
+  # source://rubocop-rails//lib/rubocop/cop/rails/pluck.rb#51
+  def use_one_block_argument?(argument); end
 end
 
 # source://rubocop-rails//lib/rubocop/cop/rails/pluck.rb#24

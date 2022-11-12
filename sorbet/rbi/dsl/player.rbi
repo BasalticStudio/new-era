@@ -182,6 +182,8 @@ class Player
     sig { params(ids: T::Array[T.untyped]).returns(T::Array[T.untyped]) }
     def player_quest_ids=(ids); end
 
+    # This method is created by ActiveRecord on the `Player` class because it declared `has_many :player_quests`.
+    # 🔗 [Rails guide for `has_many` association](https://guides.rubyonrails.org/association_basics.html#the-has-many-association)
     sig { returns(::PlayerQuest::PrivateCollectionProxy) }
     def player_quests; end
 
@@ -194,6 +196,8 @@ class Player
     sig { params(ids: T::Array[T.untyped]).returns(T::Array[T.untyped]) }
     def quest_ids=(ids); end
 
+    # This method is created by ActiveRecord on the `Player` class because it declared `has_many :quests, through: :player_quests`.
+    # 🔗 [Rails guide for `has_many_through` association](https://guides.rubyonrails.org/association_basics.html#the-has-many-through-association)
     sig { returns(::Quest::PrivateCollectionProxy) }
     def quests; end
 

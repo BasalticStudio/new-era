@@ -298,8 +298,6 @@ class Selenium::WebDriver::BiDi::Session::Status < ::Struct
   #
   # @param value [Object] the value to set the attribute message to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver/bidi/session.rb#24
   def message=(_); end
 
   # Returns the value of attribute ready
@@ -311,13 +309,12 @@ class Selenium::WebDriver::BiDi::Session::Status < ::Struct
   #
   # @param value [Object] the value to set the attribute ready to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver/bidi/session.rb#24
   def ready=(_); end
 
   class << self
     def [](*_arg0); end
     def inspect; end
+    def keyword_init?; end
     def members; end
     def new(*_arg0); end
   end
@@ -1280,8 +1277,6 @@ class Selenium::WebDriver::Dimension < ::Struct
   #
   # @param value [Object] the value to set the attribute height to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver.rb#35
   def height=(_); end
 
   # Returns the value of attribute width
@@ -1293,13 +1288,12 @@ class Selenium::WebDriver::Dimension < ::Struct
   #
   # @param value [Object] the value to set the attribute width to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver.rb#35
   def width=(_); end
 
   class << self
     def [](*_arg0); end
     def inspect; end
+    def keyword_init?; end
     def members; end
     def new(*_arg0); end
   end
@@ -3896,8 +3890,6 @@ class Selenium::WebDriver::Location < ::Struct
   #
   # @param value [Object] the value to set the attribute altitude to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver.rb#37
   def altitude=(_); end
 
   # Returns the value of attribute latitude
@@ -3909,8 +3901,6 @@ class Selenium::WebDriver::Location < ::Struct
   #
   # @param value [Object] the value to set the attribute latitude to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver.rb#37
   def latitude=(_); end
 
   # Returns the value of attribute longitude
@@ -3922,13 +3912,12 @@ class Selenium::WebDriver::Location < ::Struct
   #
   # @param value [Object] the value to set the attribute longitude to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver.rb#37
   def longitude=(_); end
 
   class << self
     def [](*_arg0); end
     def inspect; end
+    def keyword_init?; end
     def members; end
     def new(*_arg0); end
   end
@@ -3985,13 +3974,13 @@ class Selenium::WebDriver::Logger
   def initialize(progname = T.unsafe(nil)); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def close(*args, &block); end
+  def close(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def debug(*args, &block); end
+  def debug(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def debug?(*args, &block); end
+  def debug?(*args, **_arg1, &block); end
 
   # Marks code as deprecated with/without replacement.
   #
@@ -4005,16 +3994,16 @@ class Selenium::WebDriver::Logger
   def deprecate(old, new = T.unsafe(nil), id: T.unsafe(nil), reference: T.unsafe(nil), &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def error(*args, &block); end
+  def error(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def error?(*args, &block); end
+  def error?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def fatal(*args, &block); end
+  def fatal(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def fatal?(*args, &block); end
+  def fatal?(*args, **_arg1, &block); end
 
   # Will not log the provided ID.
   #
@@ -4024,10 +4013,10 @@ class Selenium::WebDriver::Logger
   def ignore(id); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def info(*args, &block); end
+  def info(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def info?(*args, &block); end
+  def info?(*args, **_arg1, &block); end
 
   # Returns IO object used by logger internally.
   #
@@ -4043,10 +4032,10 @@ class Selenium::WebDriver::Logger
   def io; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def level(*args, &block); end
+  def level(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def level=(*args, &block); end
+  def level=(*args, **_arg1, &block); end
 
   # Changes logger output to a new IO.
   #
@@ -4065,7 +4054,7 @@ class Selenium::WebDriver::Logger
   def warn(message, id: T.unsafe(nil)); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def warn?(*args, &block); end
+  def warn?(*args, **_arg1, &block); end
 
   private
 
@@ -4589,8 +4578,6 @@ class Selenium::WebDriver::Point < ::Struct
   #
   # @param value [Object] the value to set the attribute x to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver.rb#34
   def x=(_); end
 
   # Returns the value of attribute y
@@ -4602,13 +4589,12 @@ class Selenium::WebDriver::Point < ::Struct
   #
   # @param value [Object] the value to set the attribute y to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver.rb#34
   def y=(_); end
 
   class << self
     def [](*_arg0); end
     def inspect; end
+    def keyword_init?; end
     def members; end
     def new(*_arg0); end
   end
@@ -5040,8 +5026,6 @@ class Selenium::WebDriver::Rectangle < ::Struct
   #
   # @param value [Object] the value to set the attribute height to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver.rb#36
   def height=(_); end
 
   # Returns the value of attribute width
@@ -5053,8 +5037,6 @@ class Selenium::WebDriver::Rectangle < ::Struct
   #
   # @param value [Object] the value to set the attribute width to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver.rb#36
   def width=(_); end
 
   # Returns the value of attribute x
@@ -5066,8 +5048,6 @@ class Selenium::WebDriver::Rectangle < ::Struct
   #
   # @param value [Object] the value to set the attribute x to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver.rb#36
   def x=(_); end
 
   # Returns the value of attribute y
@@ -5079,13 +5059,12 @@ class Selenium::WebDriver::Rectangle < ::Struct
   #
   # @param value [Object] the value to set the attribute y to.
   # @return [Object] the newly set value
-  #
-  # source://selenium-webdriver//lib/selenium/webdriver.rb#36
   def y=(_); end
 
   class << self
     def [](*_arg0); end
     def inspect; end
+    def keyword_init?; end
     def members; end
     def new(*_arg0); end
   end
@@ -6133,6 +6112,42 @@ end
 # source://selenium-webdriver//lib/selenium/webdriver/common/search_context.rb#24
 Selenium::WebDriver::SearchContext::FINDERS = T.let(T.unsafe(nil), Hash)
 
+# Wrapper for getting information from the Selenium Manager binaries.
+# This implementation is still in beta, and may change.
+#
+# @api private
+#
+# source://selenium-webdriver//lib/selenium/webdriver/common/selenium_manager.rb#27
+class Selenium::WebDriver::SeleniumManager
+  class << self
+    # @api private
+    # @param driver_name [String] which driver to use.
+    # @return [String] the path to the correct driver.
+    #
+    # source://selenium-webdriver//lib/selenium/webdriver/common/selenium_manager.rb#33
+    def driver_path(driver_name); end
+
+    private
+
+    # @api private
+    # @return [String] the path to the correct selenium manager
+    #
+    # source://selenium-webdriver//lib/selenium/webdriver/common/selenium_manager.rb#51
+    def binary; end
+
+    # @api private
+    # @raise [Error::WebDriverError]
+    #
+    # source://selenium-webdriver//lib/selenium/webdriver/common/selenium_manager.rb#71
+    def run(command); end
+  end
+end
+
+# @api private
+#
+# source://selenium-webdriver//lib/selenium/webdriver/common/selenium_manager.rb#28
+Selenium::WebDriver::SeleniumManager::BIN_PATH = T.let(T.unsafe(nil), String)
+
 # Base class implementing default behavior of service object,
 # responsible for storing a service manager configuration.
 #
@@ -6177,19 +6192,19 @@ class Selenium::WebDriver::Service
   # source://selenium-webdriver//lib/selenium/webdriver/common/service.rb#60
   def port; end
 
-  # source://selenium-webdriver//lib/selenium/webdriver/common/service.rb#88
+  # source://selenium-webdriver//lib/selenium/webdriver/common/service.rb#86
   def shutdown_supported; end
 
   protected
 
-  # source://selenium-webdriver//lib/selenium/webdriver/common/service.rb#94
+  # source://selenium-webdriver//lib/selenium/webdriver/common/service.rb#92
   def extract_service_args(driver_opts); end
 
   private
 
   # @raise [Error::WebDriverError]
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/common/service.rb#100
+  # source://selenium-webdriver//lib/selenium/webdriver/common/service.rb#98
   def binary_path(path = T.unsafe(nil)); end
 
   class << self
@@ -6799,7 +6814,7 @@ class Selenium::WebDriver::Support::Select
   #
   # @raise [Error::UnsupportedOperationError] if the element does not support multiple selections.
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#158
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#155
   def deselect_all; end
 
   # Deselect options by visible text, index or value.
@@ -6809,7 +6824,7 @@ class Selenium::WebDriver::Support::Select
   # @raise [Error::UnsupportedOperationError] if the element does not support multiple selections.
   # @see Select#select_by
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#127
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#124
   def deselect_by(how, what); end
 
   # Get the first selected option in this select element
@@ -6817,28 +6832,28 @@ class Selenium::WebDriver::Support::Select
   # @raise [Error::NoSuchElementError] if no options are selected
   # @return [Element]
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#77
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#74
   def first_selected_option; end
 
   # Does this select element support selecting multiple options?
   #
   # @return [Boolean]
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#46
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#43
   def multiple?; end
 
   # Get all options for this select element
   #
   # @return [Array<Element>]
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#56
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#53
   def options; end
 
   # Select all unselected options. Only valid if the element supports multiple selections.
   #
   # @raise [Error::UnsupportedOperationError] if the element does not support multiple selections.
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#146
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#143
   def select_all; end
 
   # Select options by visible text, index or value.
@@ -6859,69 +6874,69 @@ class Selenium::WebDriver::Support::Select
   # @param how [:text, :index, :value] How to find the option
   # @param what [String] What value to find the option by.
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#104
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#101
   def select_by(how, what); end
 
   # Get all selected options for this select element
   #
   # @return [Array<Element>]
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#66
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#63
   def selected_options; end
 
   private
 
   # @raise [Error::UnsupportedOperationError]
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#210
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#207
   def deselect_by_index(index); end
 
   # @raise [Error::UnsupportedOperationError]
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#190
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#187
   def deselect_by_text(text); end
 
   # @raise [Error::UnsupportedOperationError]
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#200
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#197
   def deselect_by_value(value); end
 
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#226
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#223
   def deselect_option(option); end
 
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#238
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#235
   def deselect_options(opts); end
 
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#265
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#262
   def find_by_index(index); end
 
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#246
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#243
   def find_by_text(text); end
 
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#269
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#266
   def find_by_value(value); end
 
   # @raise [Error::NoSuchElementError]
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#174
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#171
   def select_by_index(index); end
 
   # @raise [Error::NoSuchElementError]
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#166
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#163
   def select_by_text(text); end
 
   # @raise [Error::NoSuchElementError]
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#182
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#179
   def select_by_value(value); end
 
   # @raise [Error::UnsupportedOperationError]
   #
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#220
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#217
   def select_option(option); end
 
-  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#230
+  # source://selenium-webdriver//lib/selenium/webdriver/support/select.rb#227
   def select_options(opts); end
 end
 

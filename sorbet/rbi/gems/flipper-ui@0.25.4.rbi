@@ -7,145 +7,145 @@
 # source://flipper-ui//lib/flipper/ui/action_collection.rb#1
 module Flipper
   # source://forwardable/1.3.2/forwardable.rb#229
-  def [](*args, &block); end
+  def [](*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def actor(*args, &block); end
+  def actor(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def actors(*args, &block); end
+  def actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def adapter(*args, &block); end
+  def adapter(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def add(*args, &block); end
+  def add(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def bool(*args, &block); end
+  def bool(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def boolean(*args, &block); end
+  def boolean(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#28
+  # source://flipper/0.25.4/lib/flipper.rb#28
   def configuration; end
 
-  # source://flipper/0.25.2/lib/flipper.rb#33
+  # source://flipper/0.25.4/lib/flipper.rb#33
   def configuration=(configuration); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#23
+  # source://flipper/0.25.4/lib/flipper.rb#23
   def configure; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable(*args, &block); end
+  def disable(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable_actor(*args, &block); end
+  def disable_actor(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable_group(*args, &block); end
+  def disable_group(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable_percentage_of_actors(*args, &block); end
+  def disable_percentage_of_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable_percentage_of_time(*args, &block); end
+  def disable_percentage_of_time(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable(*args, &block); end
+  def enable(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable_actor(*args, &block); end
+  def enable_actor(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable_group(*args, &block); end
+  def enable_group(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable_percentage_of_actors(*args, &block); end
+  def enable_percentage_of_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable_percentage_of_time(*args, &block); end
+  def enable_percentage_of_time(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enabled?(*args, &block); end
+  def enabled?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def exist?(*args, &block); end
+  def exist?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def feature(*args, &block); end
+  def feature(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def features(*args, &block); end
+  def features(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#128
+  # source://flipper/0.25.4/lib/flipper.rb#128
   def group(name); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#115
+  # source://flipper/0.25.4/lib/flipper.rb#115
   def group_exists?(name); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#101
+  # source://flipper/0.25.4/lib/flipper.rb#101
   def group_names; end
 
-  # source://flipper/0.25.2/lib/flipper.rb#94
+  # source://flipper/0.25.4/lib/flipper.rb#94
   def groups; end
 
-  # source://flipper/0.25.2/lib/flipper.rb#133
+  # source://flipper/0.25.4/lib/flipper.rb#133
   def groups_registry; end
 
-  # source://flipper/0.25.2/lib/flipper.rb#138
+  # source://flipper/0.25.4/lib/flipper.rb#138
   def groups_registry=(registry); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def import(*args, &block); end
+  def import(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#45
+  # source://flipper/0.25.4/lib/flipper.rb#45
   def instance; end
 
-  # source://flipper/0.25.2/lib/flipper.rb#52
+  # source://flipper/0.25.4/lib/flipper.rb#52
   def instance=(flipper); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def memoize=(*args, &block); end
+  def memoize=(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def memoizing?(*args, &block); end
+  def memoizing?(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#12
+  # source://flipper/0.25.4/lib/flipper.rb#12
   def new(adapter, options = T.unsafe(nil)); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def percentage_of_actors(*args, &block); end
+  def percentage_of_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def percentage_of_time(*args, &block); end
+  def percentage_of_time(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def preload(*args, &block); end
+  def preload(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def preload_all(*args, &block); end
+  def preload_all(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#85
+  # source://flipper/0.25.4/lib/flipper.rb#85
   def register(name, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def remove(*args, &block); end
+  def remove(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sync(*args, &block); end
+  def sync(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sync_secret(*args, &block); end
+  def sync_secret(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def time(*args, &block); end
+  def time(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#108
+  # source://flipper/0.25.4/lib/flipper.rb#108
   def unregister_groups; end
 end
 
-# source://flipper/0.25.2/lib/flipper.rb#8
+# source://flipper/0.25.4/lib/flipper.rb#8
 Flipper::InstrumentationNamespace = T.let(T.unsafe(nil), Symbol)
 
 # source://flipper-ui//lib/flipper/ui/action_collection.rb#2
@@ -180,10 +180,10 @@ class Flipper::UI::Action
   # source://flipper-ui//lib/flipper/ui/action.rb#109
   def initialize(flipper, request); end
 
-  # source://flipper-ui//lib/flipper/ui/action.rb#274
+  # source://flipper-ui//lib/flipper/ui/action.rb#286
   def bootstrap_css; end
 
-  # source://flipper-ui//lib/flipper/ui/action.rb#278
+  # source://flipper-ui//lib/flipper/ui/action.rb#290
   def bootstrap_js; end
 
   # Public: Add a breadcrumb to the trail.
@@ -220,7 +220,7 @@ class Flipper::UI::Action
   # source://flipper-ui//lib/flipper/ui/action.rb#201
   def header(name, value); end
 
-  # source://flipper-ui//lib/flipper/ui/action.rb#286
+  # source://flipper-ui//lib/flipper/ui/action.rb#298
   def jquery_js; end
 
   # Public: Dumps an object as json and returns rack response with that as
@@ -234,15 +234,21 @@ class Flipper::UI::Action
   def json_response(object); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def params(*args, &block); end
+  def params(*args, **_arg1, &block); end
 
-  # source://flipper-ui//lib/flipper/ui/action.rb#282
+  # source://flipper-ui//lib/flipper/ui/action.rb#294
   def popper_js; end
 
   # Private
   #
   # source://flipper-ui//lib/flipper/ui/action.rb#257
   def public_path; end
+
+  # Internal: Method to call when the UI is in read only mode and you want
+  # to inform people of that fact.
+  #
+  # source://flipper-ui//lib/flipper/ui/action.rb#276
+  def read_only; end
 
   # Public: Redirect to a new location.
   #
@@ -526,49 +532,49 @@ end
 class Flipper::UI::Configuration
   # @return [Configuration] a new instance of Configuration
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#65
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#74
   def initialize; end
 
   # Public: What should be used to denote you are trying to add multiple
   # actors at once (instead of just a single actor).
   # Default is comma ",".
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#50
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#55
   def actors_separator; end
 
   # Public: What should be used to denote you are trying to add multiple
   # actors at once (instead of just a single actor).
   # Default is comma ",".
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#50
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#55
   def actors_separator=(_arg0); end
 
   # Public: What should show up in the form to add actors. This can be
   # different per application since flipper_id's can be whatever an
   # application needs. Defaults to "a flipper id".
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#36
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#41
   def add_actor_placeholder; end
 
   # Public: What should show up in the form to add actors. This can be
   # different per application since flipper_id's can be whatever an
   # application needs. Defaults to "a flipper id".
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#36
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#41
   def add_actor_placeholder=(_arg0); end
 
   # Public: If you set this, the UI will always have a first breadcrumb that
   # says "App" which points to this href. The href can be a path (ie: "/")
   # or full url ("https://app.example.com/").
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#14
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#19
   def application_breadcrumb_href; end
 
   # Public: If you set this, the UI will always have a first breadcrumb that
   # says "App" which points to this href. The href can be a path (ie: "/")
   # or full url ("https://app.example.com/").
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#14
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#19
   def application_breadcrumb_href=(_arg0); end
 
   # Returns the value of attribute banner_class.
@@ -580,7 +586,7 @@ class Flipper::UI::Configuration
   #
   # @param value the value to set the attribute banner_class to.
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#87
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#98
   def banner_class=(value); end
 
   # Returns the value of attribute banner_text.
@@ -598,14 +604,26 @@ class Flipper::UI::Configuration
   # Public: Tired of seeing the awesome message about Cloud? Set this to
   # false and it will go away. Defaults to true.
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#31
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#36
   def cloud_recommendation; end
 
   # Public: Tired of seeing the awesome message about Cloud? Set this to
   # false and it will go away. Defaults to true.
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#31
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#36
   def cloud_recommendation=(_arg0); end
+
+  # Public: if you want to get a confirm pop up box while fully enabling a feature
+  # Default is false.
+  #
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#59
+  def confirm_fully_enable; end
+
+  # Public: if you want to get a confirm pop up box while fully enabling a feature
+  # Default is false.
+  #
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#59
+  def confirm_fully_enable=(_arg0); end
 
   # Returns the value of attribute delete.
   #
@@ -616,81 +634,95 @@ class Flipper::UI::Configuration
   # from your external source. Descriptions for `features` will be shown on `feature`
   # page, and optionally the `features` pages. Defaults to empty block.
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#41
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#46
   def descriptions_source; end
 
   # Public: If you set this, Flipper::UI will fetch descriptions
   # from your external source. Descriptions for `features` will be shown on `feature`
   # page, and optionally the `features` pages. Defaults to empty block.
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#41
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#46
   def descriptions_source=(_arg0); end
 
   # Public: Is feature creation allowed from the UI? Defaults to true. If
   # set to false, users of the UI cannot create features. All feature
   # creation will need to be done through the configured flipper instance.
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#19
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#24
   def feature_creation_enabled; end
 
   # Public: Is feature creation allowed from the UI? Defaults to true. If
   # set to false, users of the UI cannot create features. All feature
   # creation will need to be done through the configured flipper instance.
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#19
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#24
   def feature_creation_enabled=(_arg0); end
 
   # Public: Is feature deletion allowed from the UI? Defaults to true. If
   # set to false, users won't be able to delete features from the UI.
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#23
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#28
   def feature_removal_enabled; end
 
   # Public: Is feature deletion allowed from the UI? Defaults to true. If
   # set to false, users won't be able to delete features from the UI.
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#23
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#28
   def feature_removal_enabled=(_arg0); end
 
   # Public: Are you feeling lucky? Defaults to true. If set to false, users
   # won't see a videoclip of Taylor Swift when there aren't any features
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#27
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#32
   def fun; end
 
   # Public: Are you feeling lucky? Defaults to true. If set to false, users
   # won't see a videoclip of Taylor Swift when there aren't any features
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#27
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#32
   def fun=(_arg0); end
+
+  # Public: Is the UI in read only mode or not. Default is false. This
+  # supersedes all other write-related options such as
+  # (feature_creation_enabled and feature_removal_enabled).
+  #
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#14
+  def read_only; end
+
+  # Public: Is the UI in read only mode or not. Default is false. This
+  # supersedes all other write-related options such as
+  # (feature_creation_enabled and feature_removal_enabled).
+  #
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#14
+  def read_only=(_arg0); end
 
   # Public: Should feature descriptions be show on the `features` list page.
   # Default false. Only works when using descriptions.
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#45
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#50
   def show_feature_description_in_list; end
 
   # Public: Should feature descriptions be show on the `features` list page.
   # Default false. Only works when using descriptions.
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#45
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#50
   def show_feature_description_in_list=(_arg0); end
 
   # @return [Boolean]
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#83
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#94
   def show_feature_description_in_list?; end
 
   # @return [Boolean]
   #
-  # source://flipper-ui//lib/flipper/ui/configuration.rb#79
+  # source://flipper-ui//lib/flipper/ui/configuration.rb#90
   def using_descriptions?; end
 end
 
-# source://flipper-ui//lib/flipper/ui/configuration.rb#63
+# source://flipper-ui//lib/flipper/ui/configuration.rb#72
 Flipper::UI::Configuration::DEFAULT_DESCRIPTIONS_SOURCE = T.let(T.unsafe(nil), Proc)
 
-# source://flipper-ui//lib/flipper/ui/configuration.rb#52
+# source://flipper-ui//lib/flipper/ui/configuration.rb#61
 Flipper::UI::Configuration::VALID_BANNER_CLASS_VALUES = T.let(T.unsafe(nil), Array)
 
 # source://flipper-ui//lib/flipper/ui/decorators/gate.rb#5

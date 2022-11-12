@@ -13,25 +13,25 @@ module Flipper
   extend ::Forwardable
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def [](*args, &block); end
+  def [](*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def actor(*args, &block); end
+  def actor(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def actors(*args, &block); end
+  def actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def adapter(*args, &block); end
+  def adapter(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def add(*args, &block); end
+  def add(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def bool(*args, &block); end
+  def bool(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def boolean(*args, &block); end
+  def boolean(*args, **_arg1, &block); end
 
   # Public: Returns Flipper::Configuration instance.
   #
@@ -57,46 +57,46 @@ module Flipper
   def configure; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable(*args, &block); end
+  def disable(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable_actor(*args, &block); end
+  def disable_actor(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable_group(*args, &block); end
+  def disable_group(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable_percentage_of_actors(*args, &block); end
+  def disable_percentage_of_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable_percentage_of_time(*args, &block); end
+  def disable_percentage_of_time(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable(*args, &block); end
+  def enable(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable_actor(*args, &block); end
+  def enable_actor(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable_group(*args, &block); end
+  def enable_group(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable_percentage_of_actors(*args, &block); end
+  def enable_percentage_of_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable_percentage_of_time(*args, &block); end
+  def enable_percentage_of_time(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enabled?(*args, &block); end
+  def enabled?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def exist?(*args, &block); end
+  def exist?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def feature(*args, &block); end
+  def feature(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def features(*args, &block); end
+  def features(*args, **_arg1, &block); end
 
   # Public: Fetches a group by name.
   #
@@ -143,7 +143,7 @@ module Flipper
   def groups_registry=(registry); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def import(*args, &block); end
+  def import(*args, **_arg1, &block); end
 
   # Public: Default per thread flipper instance if configured. You should not
   # need to use this directly as most of the Flipper::DSL methods are delegated
@@ -163,10 +163,10 @@ module Flipper
   def instance=(flipper); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def memoize=(*args, &block); end
+  def memoize=(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def memoizing?(*args, &block); end
+  def memoizing?(*args, **_arg1, &block); end
 
   # Public: Start here. Given an adapter returns a handy DSL to all the flipper
   # goodness. To see supported options, check out dsl.rb.
@@ -175,16 +175,16 @@ module Flipper
   def new(adapter, options = T.unsafe(nil)); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def percentage_of_actors(*args, &block); end
+  def percentage_of_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def percentage_of_time(*args, &block); end
+  def percentage_of_time(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def preload(*args, &block); end
+  def preload(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def preload_all(*args, &block); end
+  def preload_all(*args, **_arg1, &block); end
 
   # Public: Use this to register a group by name.
   #
@@ -205,16 +205,16 @@ module Flipper
   def register(name, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def remove(*args, &block); end
+  def remove(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sync(*args, &block); end
+  def sync(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sync_secret(*args, &block); end
+  def sync_secret(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def time(*args, &block); end
+  def time(*args, **_arg1, &block); end
 
   # Public: Clears the group registry.
   #
@@ -584,34 +584,34 @@ class Flipper::Adapters::Sync::FeatureSynchronizer
   def call; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def local_actors(*args, &block); end
+  def local_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def local_boolean(*args, &block); end
+  def local_boolean(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def local_groups(*args, &block); end
+  def local_groups(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def local_percentage_of_actors(*args, &block); end
+  def local_percentage_of_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def local_percentage_of_time(*args, &block); end
+  def local_percentage_of_time(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def remote_actors(*args, &block); end
+  def remote_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def remote_boolean(*args, &block); end
+  def remote_boolean(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def remote_groups(*args, &block); end
+  def remote_groups(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def remote_percentage_of_actors(*args, &block); end
+  def remote_percentage_of_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def remote_percentage_of_time(*args, &block); end
+  def remote_percentage_of_time(*args, **_arg1, &block); end
 
   private
 
@@ -989,10 +989,10 @@ class Flipper::DSL
   def instrumenter; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def memoize=(*args, &block); end
+  def memoize=(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def memoizing?(*args, &block); end
+  def memoizing?(*args, **_arg1, &block); end
 
   # Public: Shortcut for getting a percentage of actors instance.
   #
@@ -1822,8 +1822,6 @@ class Flipper::Instrumenters::Memory::Event < ::Struct
   #
   # @param value [Object] the value to set the attribute name to.
   # @return [Object] the newly set value
-  #
-  # source://flipper//lib/flipper/instrumenters/memory.rb#6
   def name=(_); end
 
   # Returns the value of attribute payload
@@ -1835,8 +1833,6 @@ class Flipper::Instrumenters::Memory::Event < ::Struct
   #
   # @param value [Object] the value to set the attribute payload to.
   # @return [Object] the newly set value
-  #
-  # source://flipper//lib/flipper/instrumenters/memory.rb#6
   def payload=(_); end
 
   # Returns the value of attribute result
@@ -1848,13 +1844,12 @@ class Flipper::Instrumenters::Memory::Event < ::Struct
   #
   # @param value [Object] the value to set the attribute result to.
   # @return [Object] the newly set value
-  #
-  # source://flipper//lib/flipper/instrumenters/memory.rb#6
   def result=(_); end
 
   class << self
     def [](*_arg0); end
     def inspect; end
+    def keyword_init?; end
     def members; end
     def new(*_arg0); end
   end

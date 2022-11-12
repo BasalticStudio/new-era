@@ -7,141 +7,141 @@
 # source://flipper-active_support_cache_store//lib/flipper/adapters/active_support_cache_store.rb#3
 module Flipper
   # source://forwardable/1.3.2/forwardable.rb#229
-  def [](*args, &block); end
+  def [](*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def actor(*args, &block); end
+  def actor(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def actors(*args, &block); end
+  def actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def adapter(*args, &block); end
+  def adapter(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def add(*args, &block); end
+  def add(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def bool(*args, &block); end
+  def bool(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def boolean(*args, &block); end
+  def boolean(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#28
+  # source://flipper/0.25.4/lib/flipper.rb#28
   def configuration; end
 
-  # source://flipper/0.25.2/lib/flipper.rb#33
+  # source://flipper/0.25.4/lib/flipper.rb#33
   def configuration=(configuration); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#23
+  # source://flipper/0.25.4/lib/flipper.rb#23
   def configure; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable(*args, &block); end
+  def disable(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable_actor(*args, &block); end
+  def disable_actor(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable_group(*args, &block); end
+  def disable_group(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable_percentage_of_actors(*args, &block); end
+  def disable_percentage_of_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def disable_percentage_of_time(*args, &block); end
+  def disable_percentage_of_time(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable(*args, &block); end
+  def enable(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable_actor(*args, &block); end
+  def enable_actor(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable_group(*args, &block); end
+  def enable_group(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable_percentage_of_actors(*args, &block); end
+  def enable_percentage_of_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enable_percentage_of_time(*args, &block); end
+  def enable_percentage_of_time(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def enabled?(*args, &block); end
+  def enabled?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def exist?(*args, &block); end
+  def exist?(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def feature(*args, &block); end
+  def feature(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def features(*args, &block); end
+  def features(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#128
+  # source://flipper/0.25.4/lib/flipper.rb#128
   def group(name); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#115
+  # source://flipper/0.25.4/lib/flipper.rb#115
   def group_exists?(name); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#101
+  # source://flipper/0.25.4/lib/flipper.rb#101
   def group_names; end
 
-  # source://flipper/0.25.2/lib/flipper.rb#94
+  # source://flipper/0.25.4/lib/flipper.rb#94
   def groups; end
 
-  # source://flipper/0.25.2/lib/flipper.rb#133
+  # source://flipper/0.25.4/lib/flipper.rb#133
   def groups_registry; end
 
-  # source://flipper/0.25.2/lib/flipper.rb#138
+  # source://flipper/0.25.4/lib/flipper.rb#138
   def groups_registry=(registry); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def import(*args, &block); end
+  def import(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#45
+  # source://flipper/0.25.4/lib/flipper.rb#45
   def instance; end
 
-  # source://flipper/0.25.2/lib/flipper.rb#52
+  # source://flipper/0.25.4/lib/flipper.rb#52
   def instance=(flipper); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def memoize=(*args, &block); end
+  def memoize=(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def memoizing?(*args, &block); end
+  def memoizing?(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#12
+  # source://flipper/0.25.4/lib/flipper.rb#12
   def new(adapter, options = T.unsafe(nil)); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def percentage_of_actors(*args, &block); end
+  def percentage_of_actors(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def percentage_of_time(*args, &block); end
+  def percentage_of_time(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def preload(*args, &block); end
+  def preload(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def preload_all(*args, &block); end
+  def preload_all(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#85
+  # source://flipper/0.25.4/lib/flipper.rb#85
   def register(name, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def remove(*args, &block); end
+  def remove(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sync(*args, &block); end
+  def sync(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def sync_secret(*args, &block); end
+  def sync_secret(*args, **_arg1, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
-  def time(*args, &block); end
+  def time(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.2/lib/flipper.rb#108
+  # source://flipper/0.25.4/lib/flipper.rb#108
   def unregister_groups; end
 end
 
@@ -250,5 +250,5 @@ Flipper::Adapters::ActiveSupportCacheStore::Namespace = T.let(T.unsafe(nil), Str
 # source://flipper-active_support_cache_store//lib/flipper/adapters/active_support_cache_store.rb#11
 Flipper::Adapters::ActiveSupportCacheStore::Version = T.let(T.unsafe(nil), String)
 
-# source://flipper/0.25.2/lib/flipper.rb#8
+# source://flipper/0.25.4/lib/flipper.rb#8
 Flipper::InstrumentationNamespace = T.let(T.unsafe(nil), Symbol)
