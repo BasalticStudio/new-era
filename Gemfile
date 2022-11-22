@@ -110,7 +110,6 @@ group :test do
   gem 'rspec', require: false
   gem 'rspec_junit_formatter', require: false
   gem 'rspec-rails', require: false
-  gem 'shoulda', require: false
   gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
   gem 'simplecov-cobertura', require: false
