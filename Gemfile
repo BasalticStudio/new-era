@@ -47,7 +47,7 @@ gem 'flipper-ui'
 # Monitor
 gem 'liveness'
 gem 'sentry-rails'
-gem 'sentry-ruby'
+gem 'sentry-ruby', '~> 5.7.0'
 
 # Utils
 gem 'activerecord-import'
