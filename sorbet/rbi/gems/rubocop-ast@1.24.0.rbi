@@ -2857,6 +2857,12 @@ class RuboCop::AST::Node < ::Parser::AST::Node
   # source://rubocop-ast//lib/rubocop/ast/node.rb#106
   def forwarded_args_type?; end
 
+  # source://rubocop-ast//lib/rubocop/ast/node.rb#106
+  def forwarded_kwrestarg_type?; end
+
+  # source://rubocop-ast//lib/rubocop/ast/node.rb#106
+  def forwarded_restarg_type?; end
+
   # source://rubocop-ast//lib/rubocop/ast/node.rb#499
   def global_const?(param0 = T.unsafe(nil), param1); end
 
@@ -5503,6 +5509,9 @@ RuboCop::AST::NodePattern::Sets::SET_START_WITH_END_WITH = T.let(T.unsafe(nil), 
 RuboCop::AST::NodePattern::Sets::SET_START_WITH_STARTS_WITH_END_WITH_ENDS_WITH = T.let(T.unsafe(nil), Set)
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
+RuboCop::AST::NodePattern::Sets::SET_STDOUT_STDERR = T.let(T.unsafe(nil), Set)
+
+# source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
 RuboCop::AST::NodePattern::Sets::SET_STRUCT_CLASS = T.let(T.unsafe(nil), Set)
 
 # source://rubocop-ast//lib/rubocop/ast/node_pattern/sets.rb#10
@@ -6634,388 +6643,394 @@ end
 module RuboCop::AST::Traversal
   extend ::RuboCop::AST::Traversal::CallbackCompiler
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#172
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#173
   def on_(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on___ENCODING__(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on___FILE__(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on___LINE__(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_alias(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_and(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_and_asgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_arg(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#128
   def on_arg_expr(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_args(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_array(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_array_pattern(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_array_pattern_with_tail(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_back_ref(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_begin(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#150
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#151
   def on_block(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#128
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#129
   def on_block_pass(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_blockarg(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_break(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#138
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#139
   def on_case(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#138
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#139
   def on_case_match(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#145
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#146
   def on_casgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_cbase(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#146
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#147
   def on_class(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_complex(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#144
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#145
   def on_const(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_const_pattern(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#154
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#155
   def on_csend(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_cvar(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#130
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#131
   def on_cvasgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#147
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#148
   def on_def(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#128
   def on_defined?(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#152
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#153
   def on_defs(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_dstr(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_dsym(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_eflipflop(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_empty_else(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#138
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#139
   def on_ensure(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#138
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#139
   def on_erange(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_false(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_find_pattern(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_float(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#138
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#139
   def on_for(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_forward_arg(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_forward_args(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_forwarded_args(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
+  def on_forwarded_kwrestarg(node); end
+
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
+  def on_forwarded_restarg(node); end
+
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_gvar(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#130
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#131
   def on_gvasgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_hash(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_hash_pattern(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#149
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#150
   def on_if(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#128
   def on_if_guard(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_iflipflop(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_in_match(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#138
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#139
   def on_in_pattern(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_index(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_indexasgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_int(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#138
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#139
   def on_irange(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_ivar(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#130
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#131
   def on_ivasgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_kwarg(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_kwargs(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_kwbegin(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_kwnilarg(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#131
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#132
   def on_kwoptarg(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#124
   def on_kwrestarg(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#124
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#125
   def on_kwsplat(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_lambda(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_lvar(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#130
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#131
   def on_lvasgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_masgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_match_alt(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_match_as(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#128
   def on_match_current_line(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_match_nil_pattern(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#138
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#139
   def on_match_pattern(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#138
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#139
   def on_match_pattern_p(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#124
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#125
   def on_match_rest(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_match_var(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_match_with_lvasgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#128
   def on_match_with_trailing_comma(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_mlhs(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#132
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#133
   def on_module(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_mrasgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_next(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_nil(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#128
   def on_not(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_nth_ref(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#151
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#152
   def on_numblock(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#148
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#149
   def on_op_asgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#131
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#132
   def on_optarg(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_or(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_or_asgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_pair(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#128
   def on_pin(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#128
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#129
   def on_postexe(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#128
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#129
   def on_preexe(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_procarg0(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_rasgn(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_rational(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_redo(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_regexp(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#134
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
   def on_regopt(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#138
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#139
   def on_resbody(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#138
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#139
   def on_rescue(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#124
   def on_restarg(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_retry(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_return(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#132
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#133
   def on_sclass(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_self(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#154
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#155
   def on_send(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_shadowarg(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#124
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#125
   def on_splat(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_str(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_super(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#126
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
   def on_sym(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_true(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_undef(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#127
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#128
   def on_unless_guard(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#132
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#133
   def on_until(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_until_post(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#138
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#139
   def on_when(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#132
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#133
   def on_while(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_while_post(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_xstr(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#135
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#136
   def on_yield(node); end
 
-  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#122
+  # source://rubocop-ast//lib/rubocop/ast/traversal.rb#123
   def on_zsuper(node); end
 
   # source://rubocop-ast//lib/rubocop/ast/traversal.rb#17
@@ -7059,7 +7074,7 @@ RuboCop::AST::Traversal::CallbackCompiler::TEMPLATE = T.let(T.unsafe(nil), Hash)
 # source://rubocop-ast//lib/rubocop/ast/traversal.rb#12
 class RuboCop::AST::Traversal::DebugError < ::RuntimeError; end
 
-# source://rubocop-ast//lib/rubocop/ast/traversal.rb#99
+# source://rubocop-ast//lib/rubocop/ast/traversal.rb#100
 RuboCop::AST::Traversal::NO_CHILD_NODES = T.let(T.unsafe(nil), Set)
 
 # source://rubocop-ast//lib/rubocop/ast/traversal.rb#15

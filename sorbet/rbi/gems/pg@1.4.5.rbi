@@ -1330,7 +1330,7 @@ class PG::Connection
     # Do not use this method in production code.
     # Any issues with the default setting of <tt>async_api=true</tt> should be reported to the maintainers instead.
     #
-    # source://pg//lib/pg/connection.rb#863
+    # source://pg//lib/pg/connection.rb#864
     def async_api=(enable); end
 
     # call-seq:
@@ -1407,10 +1407,10 @@ class PG::Connection
     # [+PQPING_NO_ATTEMPT+]
     #   connection not attempted (bad params)
     #
-    # source://pg//lib/pg/connection.rb#788
+    # source://pg//lib/pg/connection.rb#789
     def async_ping(*args); end
 
-    # source://pg//lib/pg/connection.rb#840
+    # source://pg//lib/pg/connection.rb#841
     def async_send_api=(enable); end
 
     def conndefaults; end
@@ -1638,7 +1638,7 @@ class PG::Connection
     # [+PQPING_NO_ATTEMPT+]
     #   connection not attempted (bad params)
     #
-    # source://pg//lib/pg/connection.rb#788
+    # source://pg//lib/pg/connection.rb#789
     def ping(*args); end
 
     # Quote a single +value+ for use in a connection-parameter string.
@@ -1767,7 +1767,7 @@ class PG::Connection
     # source://pg//lib/pg/connection.rb#712
     def connect_to_hosts(*args); end
 
-    # source://pg//lib/pg/connection.rb#763
+    # source://pg//lib/pg/connection.rb#764
     def host_is_named_pipe?(host_string); end
   end
 end
@@ -1799,6 +1799,7 @@ PG::Constants::CONNECTION_OK = T.let(T.unsafe(nil), Integer)
 PG::Constants::CONNECTION_SETENV = T.let(T.unsafe(nil), Integer)
 PG::Constants::CONNECTION_SSL_STARTUP = T.let(T.unsafe(nil), Integer)
 PG::Constants::CONNECTION_STARTED = T.let(T.unsafe(nil), Integer)
+PG::Constants::DEF_PGPORT = T.let(T.unsafe(nil), Integer)
 PG::Constants::INVALID_OID = T.let(T.unsafe(nil), Integer)
 PG::Constants::INV_READ = T.let(T.unsafe(nil), Integer)
 PG::Constants::INV_WRITE = T.let(T.unsafe(nil), Integer)
@@ -2203,6 +2204,7 @@ class PG::SimpleEncoder < ::PG::SimpleCoder; end
 class PG::SingletonSqlJsonItemRequired < ::PG::DataException; end
 class PG::SnapshotTooOld < ::PG::ServerError; end
 class PG::SqlJsonArrayNotFound < ::PG::DataException; end
+class PG::SqlJsonItemCannotBeCastToTargetType < ::PG::DataException; end
 class PG::SqlJsonMemberNotFound < ::PG::DataException; end
 class PG::SqlJsonNumberNotFound < ::PG::DataException; end
 class PG::SqlJsonObjectNotFound < ::PG::DataException; end

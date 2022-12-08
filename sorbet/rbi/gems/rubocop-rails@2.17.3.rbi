@@ -368,7 +368,7 @@ class RuboCop::Cop::Rails::ActionControllerFlashBeforeRender < ::RuboCop::Cop::B
 
   private
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#95
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#98
   def find_ancestor(node, type:); end
 
   # @return [Boolean]
@@ -378,12 +378,12 @@ class RuboCop::Cop::Rails::ActionControllerFlashBeforeRender < ::RuboCop::Cop::B
 
   # @return [Boolean]
   #
-  # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#81
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#84
   def inherit_action_controller_base?(node); end
 
   # @return [Boolean]
   #
-  # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#88
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_controller_flash_before_render.rb#91
   def instance_method_or_block?(node); end
 end
 
@@ -488,7 +488,8 @@ RuboCop::Cop::Rails::ActionFilter::RESTRICT_ON_SEND = T.let(T.unsafe(nil), Array
 # Enforces consistent ordering of the standard Rails RESTful controller actions.
 #
 # The cop is configurable and can enforce any ordering of the standard actions.
-# All other methods are ignored.
+# All other methods are ignored. So, the actions specified in `ExpectedOrder` should be
+# defined before actions not specified.
 #
 # [source,yaml]
 # ----
@@ -514,34 +515,50 @@ RuboCop::Cop::Rails::ActionFilter::RESTRICT_ON_SEND = T.let(T.unsafe(nil), Array
 #   def show; end
 #   def destroy; end
 #
-# source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#34
+# source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#35
 class RuboCop::Cop::Rails::ActionOrder < ::RuboCop::Cop::Base
   include ::RuboCop::Cop::VisibilityHelp
   include ::RuboCop::Cop::DefNode
+  include ::RuboCop::Cop::RangeHelp
   extend ::RuboCop::Cop::AutoCorrector
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#41
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#43
   def action_declarations(param0, param1); end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#43
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#45
   def on_class(node); end
 
   private
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#58
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#60
   def actions; end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#54
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#87
+  def add_range(range1, range2); end
+
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#83
+  def correction_target(def_node); end
+
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#56
   def expected_order; end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#62
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#64
   def find_index(node); end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#66
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#94
+  def range_with_comments(node); end
+
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#106
+  def range_with_comments_and_lines(node); end
+
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#68
   def register_offense(previous, current); end
+
+  # source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#110
+  def swap_range(corrector, range1, range2); end
 end
 
-# source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#39
+# source://rubocop-rails//lib/rubocop/cop/rails/action_order.rb#41
 RuboCop::Cop::Rails::ActionOrder::MSG = T.let(T.unsafe(nil), String)
 
 # Checks that ActiveRecord aliases are not used. The direct method names
@@ -2302,42 +2319,57 @@ class RuboCop::Cop::Rails::DynamicFindBy < ::RuboCop::Cop::Base
 
   # @return [Boolean]
   #
-  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#76
+  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#72
   def allowed_invocation?(node); end
 
   # @return [Boolean]
   #
-  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#80
+  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#76
   def allowed_method?(node); end
 
   # @return [Boolean]
   #
-  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#86
+  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#82
   def allowed_receiver?(node); end
 
   # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#67
   def autocorrect(corrector, node); end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#104
+  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#100
   def autocorrect_argument_keywords(corrector, node, keywords); end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#100
+  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#96
   def autocorrect_method_name(corrector, node); end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#110
+  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#106
   def column_keywords(method); end
+
+  # @return [Boolean]
+  #
+  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#120
+  def dynamic_find_by_arguments?(node); end
+
+  # @return [Boolean]
+  #
+  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#124
+  def dynamic_find_by_arguments_count?(node); end
+
+  # @return [Boolean]
+  #
+  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#128
+  def dynamic_find_by_arguments_type?(node); end
 
   # Returns static method name.
   # If code isn't wrong, returns nil
   #
-  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#117
+  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#113
   def static_method_name(method_name); end
 
   # config option `WhiteList` will be deprecated soon
   #
   # @return [Boolean]
   #
-  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#93
+  # source://rubocop-rails//lib/rubocop/cop/rails/dynamic_find_by.rb#89
   def whitelisted?(node); end
 end
 
@@ -3003,7 +3035,7 @@ class RuboCop::Cop::Rails::FreezeTime < ::RuboCop::Cop::Base
 end
 
 # source://rubocop-rails//lib/rubocop/cop/rails/freeze_time.rb#32
-RuboCop::Cop::Rails::FreezeTime::CONV_METHODS = T.let(T.unsafe(nil), Array)
+RuboCop::Cop::Rails::FreezeTime::CONVERT_METHODS = T.let(T.unsafe(nil), Array)
 
 # source://rubocop-rails//lib/rubocop/cop/rails/freeze_time.rb#30
 RuboCop::Cop::Rails::FreezeTime::MSG = T.let(T.unsafe(nil), String)
@@ -3432,26 +3464,29 @@ class RuboCop::Cop::Rails::I18nLazyLookup < ::RuboCop::Cop::Base
   include ::RuboCop::Cop::VisibilityHelp
   extend ::RuboCop::Cop::AutoCorrector
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/i18n_lazy_lookup.rb#41
+  # source://rubocop-rails//lib/rubocop/cop/rails/i18n_lazy_lookup.rb#43
   def on_send(node); end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/i18n_lazy_lookup.rb#37
+  # source://rubocop-rails//lib/rubocop/cop/rails/i18n_lazy_lookup.rb#39
   def translate_call?(param0 = T.unsafe(nil)); end
 
   private
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/i18n_lazy_lookup.rb#61
+  # source://rubocop-rails//lib/rubocop/cop/rails/i18n_lazy_lookup.rb#63
   def controller_and_action(node); end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/i18n_lazy_lookup.rb#79
+  # source://rubocop-rails//lib/rubocop/cop/rails/i18n_lazy_lookup.rb#81
   def controller_path(controller); end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/i18n_lazy_lookup.rb#71
+  # source://rubocop-rails//lib/rubocop/cop/rails/i18n_lazy_lookup.rb#73
   def get_scoped_key(key_node, controller, action); end
 end
 
 # source://rubocop-rails//lib/rubocop/cop/rails/i18n_lazy_lookup.rb#35
 RuboCop::Cop::Rails::I18nLazyLookup::MSG = T.let(T.unsafe(nil), String)
+
+# source://rubocop-rails//lib/rubocop/cop/rails/i18n_lazy_lookup.rb#37
+RuboCop::Cop::Rails::I18nLazyLookup::RESTRICT_ON_SEND = T.let(T.unsafe(nil), Array)
 
 # Checks for the use of `I18n.locale=` method.
 #
@@ -6258,20 +6293,23 @@ class RuboCop::Cop::Rails::RootPathnameMethods < ::RuboCop::Cop::Base
 
   private
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/root_pathname_methods.rb#187
-  def build_path_glob(path, method); end
+  # source://rubocop-rails//lib/rubocop/cop/rails/root_pathname_methods.rb#186
+  def build_path_glob_replacement(path, method); end
+
+  # source://rubocop-rails//lib/rubocop/cop/rails/root_pathname_methods.rb#198
+  def build_path_replacement(path, method, args); end
 
   # @yield [method, path, args, rails_root]
   #
-  # source://rubocop-rails//lib/rubocop/cop/rails/root_pathname_methods.rb#180
+  # source://rubocop-rails//lib/rubocop/cop/rails/root_pathname_methods.rb#179
   def evidence(node); end
 
   # @return [Boolean]
   #
-  # source://rubocop-rails//lib/rubocop/cop/rails/root_pathname_methods.rb#199
+  # source://rubocop-rails//lib/rubocop/cop/rails/root_pathname_methods.rb#210
   def include_interpolation?(arguments); end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/root_pathname_methods.rb#205
+  # source://rubocop-rails//lib/rubocop/cop/rails/root_pathname_methods.rb#216
   def join_arguments(arguments); end
 end
 
@@ -7273,17 +7311,36 @@ class RuboCop::Cop::Rails::ToSWithArgument < ::RuboCop::Cop::Base
   extend ::RuboCop::Cop::AutoCorrector
   extend ::RuboCop::Cop::TargetRailsVersion
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/to_s_with_argument.rb#30
+  # source://rubocop-rails//lib/rubocop/cop/rails/to_s_with_argument.rb#61
   def on_csend(node); end
 
-  # source://rubocop-rails//lib/rubocop/cop/rails/to_s_with_argument.rb#30
+  # source://rubocop-rails//lib/rubocop/cop/rails/to_s_with_argument.rb#61
   def on_send(node); end
+
+  private
+
+  # @return [Boolean]
+  #
+  # source://rubocop-rails//lib/rubocop/cop/rails/to_s_with_argument.rb#72
+  def rails_extended_to_s?(node); end
 end
 
-# source://rubocop-rails//lib/rubocop/cop/rails/to_s_with_argument.rb#24
+# These types are defined by the following files in ActiveSupport:
+#   lib/active_support/core_ext/array/conversions.rb
+#   lib/active_support/core_ext/date/conversions.rb
+#   lib/active_support/core_ext/date_time/conversions.rb
+#   lib/active_support/core_ext/numeric/conversions.rb
+#   lib/active_support/core_ext/range/conversions.rb
+#   lib/active_support/core_ext/time/conversions.rb
+#   lib/active_support/time_with_zone.rb
+#
+# source://rubocop-rails//lib/rubocop/cop/rails/to_s_with_argument.rb#32
+RuboCop::Cop::Rails::ToSWithArgument::EXTENDED_FORMAT_TYPES = T.let(T.unsafe(nil), Set)
+
+# source://rubocop-rails//lib/rubocop/cop/rails/to_s_with_argument.rb#55
 RuboCop::Cop::Rails::ToSWithArgument::MSG = T.let(T.unsafe(nil), String)
 
-# source://rubocop-rails//lib/rubocop/cop/rails/to_s_with_argument.rb#26
+# source://rubocop-rails//lib/rubocop/cop/rails/to_s_with_argument.rb#57
 RuboCop::Cop::Rails::ToSWithArgument::RESTRICT_ON_SEND = T.let(T.unsafe(nil), Array)
 
 # Identifies top-level `HashWithIndifferentAccess`.

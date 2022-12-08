@@ -10,7 +10,7 @@
 # source://yard/0.9.28/lib/yard.rb#62
 ::RUBY19 = T.let(T.unsafe(nil), TrueClass)
 
-# source://config/4.0.0/lib/config.rb#56
+# source://config/4.1.0/lib/config.rb#56
 ::Settings = T.let(T.unsafe(nil), Config::Options)
 
 # Nokogiri parses and searches XML/HTML very quickly, and also has
@@ -6518,8 +6518,6 @@ end
 
 class Object < ::BasicObject
   include ::Kernel
-  include ::ActiveSupport::ForkTracker::CoreExt
-  include ::ActiveSupport::ForkTracker::CoreExtPrivate
 
   private
 

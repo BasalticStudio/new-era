@@ -27,13 +27,13 @@ module Flipper
   # source://forwardable/1.3.2/forwardable.rb#229
   def boolean(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.4/lib/flipper.rb#28
+  # source://flipper/0.26.0/lib/flipper.rb#28
   def configuration; end
 
-  # source://flipper/0.25.4/lib/flipper.rb#33
+  # source://flipper/0.26.0/lib/flipper.rb#33
   def configuration=(configuration); end
 
-  # source://flipper/0.25.4/lib/flipper.rb#23
+  # source://flipper/0.26.0/lib/flipper.rb#23
   def configure; end
 
   # source://forwardable/1.3.2/forwardable.rb#229
@@ -78,31 +78,31 @@ module Flipper
   # source://forwardable/1.3.2/forwardable.rb#229
   def features(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.4/lib/flipper.rb#128
+  # source://flipper/0.26.0/lib/flipper.rb#128
   def group(name); end
 
-  # source://flipper/0.25.4/lib/flipper.rb#115
+  # source://flipper/0.26.0/lib/flipper.rb#115
   def group_exists?(name); end
 
-  # source://flipper/0.25.4/lib/flipper.rb#101
+  # source://flipper/0.26.0/lib/flipper.rb#101
   def group_names; end
 
-  # source://flipper/0.25.4/lib/flipper.rb#94
+  # source://flipper/0.26.0/lib/flipper.rb#94
   def groups; end
 
-  # source://flipper/0.25.4/lib/flipper.rb#133
+  # source://flipper/0.26.0/lib/flipper.rb#133
   def groups_registry; end
 
-  # source://flipper/0.25.4/lib/flipper.rb#138
+  # source://flipper/0.26.0/lib/flipper.rb#138
   def groups_registry=(registry); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
   def import(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.4/lib/flipper.rb#45
+  # source://flipper/0.26.0/lib/flipper.rb#45
   def instance; end
 
-  # source://flipper/0.25.4/lib/flipper.rb#52
+  # source://flipper/0.26.0/lib/flipper.rb#52
   def instance=(flipper); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
@@ -111,7 +111,7 @@ module Flipper
   # source://forwardable/1.3.2/forwardable.rb#229
   def memoizing?(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.4/lib/flipper.rb#12
+  # source://flipper/0.26.0/lib/flipper.rb#12
   def new(adapter, options = T.unsafe(nil)); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
@@ -126,7 +126,7 @@ module Flipper
   # source://forwardable/1.3.2/forwardable.rb#229
   def preload_all(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.4/lib/flipper.rb#85
+  # source://flipper/0.26.0/lib/flipper.rb#85
   def register(name, &block); end
 
   # source://forwardable/1.3.2/forwardable.rb#229
@@ -141,11 +141,11 @@ module Flipper
   # source://forwardable/1.3.2/forwardable.rb#229
   def time(*args, **_arg1, &block); end
 
-  # source://flipper/0.25.4/lib/flipper.rb#108
+  # source://flipper/0.26.0/lib/flipper.rb#108
   def unregister_groups; end
 end
 
-# source://flipper/0.25.4/lib/flipper.rb#8
+# source://flipper/0.26.0/lib/flipper.rb#8
 Flipper::InstrumentationNamespace = T.let(T.unsafe(nil), Symbol)
 
 # source://flipper-ui//lib/flipper/ui/action_collection.rb#2
