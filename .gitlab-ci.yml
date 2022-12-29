@@ -12,6 +12,7 @@ variables:
   # Deploy
   DEPLOY_BASE_DOMAIN: basaltic.tw
   DEPLOY_STACK_FILE: stack.yml
+  DEPLOY_NAME: newera-$CI_ENVIRONMENT_SLUG
 
 bundler-audit:
   rules:
