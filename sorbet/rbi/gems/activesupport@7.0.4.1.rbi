@@ -10,7 +10,7 @@
 # source://yard/0.9.28/lib/yard.rb#62
 ::RUBY19 = T.let(T.unsafe(nil), TrueClass)
 
-# source://config/4.0.0/lib/config.rb#56
+# source://config/4.1.0/lib/config.rb#56
 ::Settings = T.let(T.unsafe(nil), Config::Options)
 
 # source://activesupport//lib/active_support/lazy_load_hooks.rb#3
@@ -53,7 +53,7 @@ module ActiveSupport
     def error_reporter=(_arg0); end
 
     # source://activesupport//lib/active_support/json/encoding.rb#8
-    def escape_html_entities_in_json(*_arg0, &_arg1); end
+    def escape_html_entities_in_json(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/json/encoding.rb#8
     def escape_html_entities_in_json=(arg); end
@@ -64,7 +64,7 @@ module ActiveSupport
     def gem_version; end
 
     # source://activesupport//lib/active_support/json/encoding.rb#8
-    def json_encoder(*_arg0, &_arg1); end
+    def json_encoder(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/json/encoding.rb#8
     def json_encoder=(arg); end
@@ -88,7 +88,7 @@ module ActiveSupport
     def test_parallelization_threshold=(val); end
 
     # source://activesupport//lib/active_support/json/encoding.rb#8
-    def time_precision(*_arg0, &_arg1); end
+    def time_precision(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/json/encoding.rb#8
     def time_precision=(arg); end
@@ -100,7 +100,7 @@ module ActiveSupport
     def to_time_preserves_timezone=(value); end
 
     # source://activesupport//lib/active_support/json/encoding.rb#8
-    def use_standard_json_time_format(*_arg0, &_arg1); end
+    def use_standard_json_time_format(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/json/encoding.rb#8
     def use_standard_json_time_format=(arg); end
@@ -2570,8 +2570,6 @@ class ActiveSupport::Callbacks::Filters::Environment < ::Struct
   #
   # @param value [Object] the value to set the attribute halted to.
   # @return [Object] the newly set value
-  #
-  # source://activesupport//lib/active_support/callbacks.rb#160
   def halted=(_); end
 
   # Returns the value of attribute target
@@ -2583,8 +2581,6 @@ class ActiveSupport::Callbacks::Filters::Environment < ::Struct
   #
   # @param value [Object] the value to set the attribute target to.
   # @return [Object] the newly set value
-  #
-  # source://activesupport//lib/active_support/callbacks.rb#160
   def target=(_); end
 
   # Returns the value of attribute value
@@ -2596,13 +2592,12 @@ class ActiveSupport::Callbacks::Filters::Environment < ::Struct
   #
   # @param value [Object] the value to set the attribute value to.
   # @return [Object] the newly set value
-  #
-  # source://activesupport//lib/active_support/callbacks.rb#160
   def value=(_); end
 
   class << self
     def [](*_arg0); end
     def inspect; end
+    def keyword_init?; end
     def members; end
     def new(*_arg0); end
   end
@@ -3316,7 +3311,7 @@ class ActiveSupport::CurrentAttributes
     def instance; end
 
     # source://activesupport//lib/active_support/current_attributes.rb#147
-    def reset(*_arg0, &_arg1); end
+    def reset(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/current_attributes.rb#149
     def reset_all; end
@@ -3327,7 +3322,7 @@ class ActiveSupport::CurrentAttributes
     def resets(&block); end
 
     # source://activesupport//lib/active_support/current_attributes.rb#147
-    def set(*_arg0, &_arg1); end
+    def set(*_arg0, **_arg1, &_arg2); end
 
     private
 
@@ -3341,7 +3336,7 @@ class ActiveSupport::CurrentAttributes
     def generated_attribute_methods; end
 
     # source://activesupport//lib/active_support/current_attributes.rb#171
-    def method_missing(name, *args, &block); end
+    def method_missing(name, *args, **_arg2, &block); end
 
     # @return [Boolean]
     #
@@ -3490,7 +3485,7 @@ end
 # source://activesupport//lib/active_support/core_ext/range/deprecated_conversions.rb#4
 module ActiveSupport::DeprecatedRangeWithFormat
   # source://activesupport//lib/active_support/deprecation/method_wrappers.rb#63
-  def to_default_s(*args, &block); end
+  def to_default_s(*args, **_arg1, &block); end
 
   # source://activesupport//lib/active_support/core_ext/range/deprecated_conversions.rb#6
   def to_s(format = T.unsafe(nil)); end
@@ -3536,25 +3531,25 @@ class ActiveSupport::Deprecation
 
   class << self
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
-    def allow(*_arg0, &_arg1); end
+    def allow(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
-    def behavior(*_arg0, &_arg1); end
+    def behavior(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
     def behavior=(arg); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
-    def debug(*_arg0, &_arg1); end
+    def debug(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
     def debug=(arg); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
-    def deprecate_methods(*_arg0, &_arg1); end
+    def deprecate_methods(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
-    def deprecation_horizon(*_arg0, &_arg1); end
+    def deprecation_horizon(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
     def deprecation_horizon=(arg); end
@@ -3563,28 +3558,28 @@ class ActiveSupport::Deprecation
     def deprecation_warning(deprecated_method_name, message = T.unsafe(nil), caller_backtrace = T.unsafe(nil)); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
-    def disallowed_behavior(*_arg0, &_arg1); end
+    def disallowed_behavior(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
     def disallowed_behavior=(arg); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
-    def disallowed_warnings(*_arg0, &_arg1); end
+    def disallowed_warnings(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
     def disallowed_warnings=(arg); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
-    def gem_name(*_arg0, &_arg1); end
+    def gem_name(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
     def gem_name=(arg); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
-    def silence(*_arg0, &_arg1); end
+    def silence(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
-    def silenced(*_arg0, &_arg1); end
+    def silenced(*_arg0, **_arg1, &_arg2); end
 
     # source://activesupport//lib/active_support/deprecation/instance_delegator.rb#21
     def silenced=(arg); end
@@ -3745,7 +3740,7 @@ class ActiveSupport::Deprecation::DeprecatedConstantProxy < ::Module
   def class; end
 
   # source://activesupport//lib/active_support/deprecation/proxy_wrappers.rb#150
-  def hash(*_arg0, &_arg1); end
+  def hash(*_arg0, **_arg1, &_arg2); end
 
   # Don't give a deprecation warning on inspect since test/unit and error
   # logs rely on it for diagnostics.
@@ -3754,13 +3749,13 @@ class ActiveSupport::Deprecation::DeprecatedConstantProxy < ::Module
   def inspect; end
 
   # source://activesupport//lib/active_support/deprecation/proxy_wrappers.rb#150
-  def instance_methods(*_arg0, &_arg1); end
+  def instance_methods(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/deprecation/proxy_wrappers.rb#150
-  def name(*_arg0, &_arg1); end
+  def name(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/deprecation/proxy_wrappers.rb#150
-  def respond_to?(*_arg0, &_arg1); end
+  def respond_to?(*_arg0, **_arg1, &_arg2); end
 
   private
 
@@ -4113,82 +4108,36 @@ class ActiveSupport::DeprecationException < ::StandardError; end
 #
 # source://activesupport//lib/active_support/descendants_tracker.rb#9
 module ActiveSupport::DescendantsTracker
-  # source://activesupport//lib/active_support/descendants_tracker.rb#170
+  # source://activesupport//lib/active_support/descendants_tracker.rb#88
   def descendants; end
 
-  # source://activesupport//lib/active_support/descendants_tracker.rb#158
+  # source://activesupport//lib/active_support/descendants_tracker.rb#92
   def direct_descendants; end
 
-  # source://activesupport//lib/active_support/descendants_tracker.rb#153
-  def inherited(base); end
-
-  # source://activesupport//lib/active_support/descendants_tracker.rb#166
+  # source://activesupport//lib/active_support/descendants_tracker.rb#82
   def subclasses; end
 
   class << self
-    # source://activesupport//lib/active_support/descendants_tracker.rb#118
+    # source://activesupport//lib/active_support/descendants_tracker.rb#66
     def clear(classes); end
 
-    # source://activesupport//lib/active_support/descendants_tracker.rb#112
+    # source://activesupport//lib/active_support/descendants_tracker.rb#62
     def descendants(klass); end
 
     # source://activesupport//lib/active_support/descendants_tracker.rb#11
     def direct_descendants(klass); end
 
-    # source://activesupport//lib/active_support/descendants_tracker.rb#103
+    # source://activesupport//lib/active_support/descendants_tracker.rb#50
     def disable_clear!; end
 
     # @return [Boolean]
     #
-    # source://activesupport//lib/active_support/descendants_tracker.rb#132
+    # source://activesupport//lib/active_support/descendants_tracker.rb#77
     def native?; end
 
-    # This is the only method that is not thread safe, but is only ever called
-    # during the eager loading phase.
-    #
-    # source://activesupport//lib/active_support/descendants_tracker.rb#138
-    def store_inherited(klass, descendant); end
-
-    # source://activesupport//lib/active_support/descendants_tracker.rb#107
+    # source://activesupport//lib/active_support/descendants_tracker.rb#58
     def subclasses(klass); end
-
-    private
-
-    # source://activesupport//lib/active_support/descendants_tracker.rb#143
-    def accumulate_descendants(klass, acc); end
   end
-end
-
-# DescendantsArray is an array that contains weak references to classes.
-#
-# source://activesupport//lib/active_support/descendants_tracker.rb#175
-class ActiveSupport::DescendantsTracker::DescendantsArray
-  include ::Enumerable
-
-  # @return [DescendantsArray] a new instance of DescendantsArray
-  #
-  # source://activesupport//lib/active_support/descendants_tracker.rb#178
-  def initialize; end
-
-  # source://activesupport//lib/active_support/descendants_tracker.rb#186
-  def <<(klass); end
-
-  # source://activesupport//lib/active_support/descendants_tracker.rb#204
-  def cleanup!; end
-
-  # source://activesupport//lib/active_support/descendants_tracker.rb#190
-  def each; end
-
-  # source://activesupport//lib/active_support/descendants_tracker.rb#200
-  def refs_size; end
-
-  # source://activesupport//lib/active_support/descendants_tracker.rb#208
-  def reject!; end
-
-  private
-
-  # source://activesupport//lib/active_support/descendants_tracker.rb#182
-  def initialize_copy(orig); end
 end
 
 # source://activesupport//lib/active_support/digest.rb#6
@@ -4743,13 +4692,13 @@ class ActiveSupport::Duration::Scalar < ::Numeric
   def coerce(other); end
 
   # source://activesupport//lib/active_support/duration.rb#16
-  def to_f(*_arg0, &_arg1); end
+  def to_f(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/duration.rb#16
-  def to_i(*_arg0, &_arg1); end
+  def to_i(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/duration.rb#16
-  def to_s(*_arg0, &_arg1); end
+  def to_s(*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute value.
   #
@@ -4799,16 +4748,16 @@ class ActiveSupport::EncryptedConfiguration < ::ActiveSupport::EncryptedFile
   def initialize(config_path:, key_path:, env_key:, raise_if_missing_key:); end
 
   # source://activesupport//lib/active_support/encrypted_configuration.rb#11
-  def [](*_arg0, &_arg1); end
+  def [](*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/encrypted_configuration.rb#32
   def config; end
 
   # source://activesupport//lib/active_support/encrypted_configuration.rb#11
-  def fetch(*_arg0, &_arg1); end
+  def fetch(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/core_ext/module/delegation.rb#302
-  def method_missing(method, *args, &block); end
+  def method_missing(method, *args, **_arg2, &block); end
 
   # Allow a config to be started without a file present
   #
@@ -5067,7 +5016,7 @@ class ActiveSupport::ErrorReporter
   # See +ActiveSupport::ExecutionContext.set+
   #
   # source://activesupport//lib/active_support/error_reporter.rb#88
-  def set_context(*_arg0, &_arg1); end
+  def set_context(*_arg0, **_arg1, &_arg2); end
 
   # Register a new error subscriber. The subscriber must respond to
   #
@@ -5081,100 +5030,6 @@ end
 
 # source://activesupport//lib/active_support/error_reporter.rb#42
 ActiveSupport::ErrorReporter::SEVERITIES = T.let(T.unsafe(nil), Array)
-
-# Allows you to "listen" to changes in a file system.
-# The evented file updater does not hit disk when checking for updates.
-# Instead, it uses platform-specific file system events to trigger a change
-# in state.
-#
-# The file checker takes an array of files to watch or a hash specifying directories
-# and file extensions to watch. It also takes a block that is called when
-# EventedFileUpdateChecker#execute is run or when EventedFileUpdateChecker#execute_if_updated
-# is run and there have been changes to the file system.
-#
-# Example:
-#
-#     checker = ActiveSupport::EventedFileUpdateChecker.new(["/tmp/foo"]) { puts "changed" }
-#     checker.updated?
-#     # => false
-#     checker.execute_if_updated
-#     # => nil
-#
-#     FileUtils.touch("/tmp/foo")
-#
-#     checker.updated?
-#     # => true
-#     checker.execute_if_updated
-#     # => "changed"
-#
-# source://activesupport//lib/active_support/evented_file_update_checker.rb#35
-class ActiveSupport::EventedFileUpdateChecker
-  # @return [EventedFileUpdateChecker] a new instance of EventedFileUpdateChecker
-  #
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#36
-  def initialize(files, dirs = T.unsafe(nil), &block); end
-
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#55
-  def execute; end
-
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#60
-  def execute_if_updated; end
-
-  # @return [Boolean]
-  #
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#46
-  def updated?; end
-end
-
-# source://activesupport//lib/active_support/evented_file_update_checker.rb#68
-class ActiveSupport::EventedFileUpdateChecker::Core
-  # @return [Core] a new instance of Core
-  #
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#71
-  def initialize(files, dirs); end
-
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#129
-  def changed(modified, added, removed); end
-
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#163
-  def common_path(paths); end
-
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#157
-  def directories_to_watch; end
-
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#90
-  def finalizer; end
-
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#123
-  def normalize_dirs!; end
-
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#114
-  def restart; end
-
-  # @return [Boolean]
-  #
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#119
-  def restart?; end
-
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#103
-  def start; end
-
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#110
-  def stop; end
-
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#97
-  def thread_safely; end
-
-  # Returns the value of attribute updated.
-  #
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#69
-  def updated; end
-
-  # @return [Boolean]
-  #
-  # source://activesupport//lib/active_support/evented_file_update_checker.rb#135
-  def watching?(file); end
-end
 
 # source://activesupport//lib/active_support/execution_context.rb#4
 module ActiveSupport::ExecutionContext
@@ -5338,13 +5193,12 @@ class ActiveSupport::ExecutionWrapper::CompleteHook < ::Struct
   #
   # @param value [Object] the value to set the attribute hook to.
   # @return [Object] the newly set value
-  #
-  # source://activesupport//lib/active_support/execution_wrapper.rb#33
   def hook=(_); end
 
   class << self
     def [](*_arg0); end
     def inspect; end
+    def keyword_init?; end
     def members; end
     def new(*_arg0); end
   end
@@ -5367,13 +5221,12 @@ class ActiveSupport::ExecutionWrapper::RunHook < ::Struct
   #
   # @param value [Object] the value to set the attribute hook to.
   # @return [Object] the newly set value
-  #
-  # source://activesupport//lib/active_support/execution_wrapper.rb#26
   def hook=(_); end
 
   class << self
     def [](*_arg0); end
     def inspect; end
+    def keyword_init?; end
     def members; end
     def new(*_arg0); end
   end
@@ -5495,11 +5348,13 @@ end
 # source://activesupport//lib/active_support/fork_tracker.rb#15
 module ActiveSupport::ForkTracker::CoreExt
   # source://activesupport//lib/active_support/fork_tracker.rb#16
-  def fork(*_arg0, &_arg1); end
+  def fork(*_arg0, **_arg1, &_arg2); end
 end
 
 # source://activesupport//lib/active_support/fork_tracker.rb#31
-module ActiveSupport::ForkTracker::CoreExtPrivate; end
+module ActiveSupport::ForkTracker::CoreExtPrivate
+  include ::ActiveSupport::ForkTracker::CoreExt
+end
 
 # source://activesupport//lib/active_support/fork_tracker.rb#5
 module ActiveSupport::ForkTracker::ModernCoreExt
@@ -7830,13 +7685,13 @@ class ActiveSupport::Multibyte::Chars
   def initialize(string); end
 
   # source://activesupport//lib/active_support/multibyte/chars.rb#51
-  def <=>(*_arg0, &_arg1); end
+  def <=>(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/multibyte/chars.rb#51
-  def =~(*_arg0, &_arg1); end
+  def =~(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/multibyte/chars.rb#51
-  def acts_like_string?(*_arg0, &_arg1); end
+  def acts_like_string?(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/multibyte/chars.rb#159
   def as_json(options = T.unsafe(nil)); end
@@ -7875,7 +7730,7 @@ class ActiveSupport::Multibyte::Chars
   def limit(limit); end
 
   # source://activesupport//lib/active_support/multibyte/chars.rb#51
-  def match?(*_arg0, &_arg1); end
+  def match?(*_arg0, **_arg1, &_arg2); end
 
   # Forward all undefined methods to the wrapped string.
   #
@@ -8416,10 +8271,10 @@ class ActiveSupport::Notifications::Fanout
   # source://activesupport//lib/active_support/notifications/fanout.rb#117
   def listening?(name); end
 
-  # source://mutex_m/0.1.1/mutex_m.rb#92
+  # source://mutex_m/0.1.1/mutex_m.rb#93
   def lock; end
 
-  # source://mutex_m/0.1.1/mutex_m.rb#82
+  # source://mutex_m/0.1.1/mutex_m.rb#83
   def locked?; end
 
   # source://activesupport//lib/active_support/notifications/fanout.rb#79
@@ -8434,13 +8289,13 @@ class ActiveSupport::Notifications::Fanout
   # source://activesupport//lib/active_support/notifications/fanout.rb#34
   def subscribe(pattern = T.unsafe(nil), callable = T.unsafe(nil), monotonic: T.unsafe(nil), &block); end
 
-  # source://mutex_m/0.1.1/mutex_m.rb#77
+  # source://mutex_m/0.1.1/mutex_m.rb#78
   def synchronize(&block); end
 
-  # source://mutex_m/0.1.1/mutex_m.rb#87
+  # source://mutex_m/0.1.1/mutex_m.rb#88
   def try_lock; end
 
-  # source://mutex_m/0.1.1/mutex_m.rb#97
+  # source://mutex_m/0.1.1/mutex_m.rb#98
   def unlock; end
 
   # source://activesupport//lib/active_support/notifications/fanout.rb#51
@@ -9781,7 +9636,7 @@ module ActiveSupport::PerThreadRegistry
   private
 
   # source://activesupport//lib/active_support/per_thread_registry.rb#55
-  def method_missing(name, *args, &block); end
+  def method_missing(name, *args, **_arg2, &block); end
 
   class << self
     # @private
@@ -10110,7 +9965,7 @@ module ActiveSupport::RubyFeatures; end
 # RUBY_VERSION >= "3.1"
 #
 # source://activesupport//lib/active_support/ruby_features.rb#5
-ActiveSupport::RubyFeatures::CLASS_SUBCLASSES = T.let(T.unsafe(nil), FalseClass)
+ActiveSupport::RubyFeatures::CLASS_SUBCLASSES = T.let(T.unsafe(nil), TrueClass)
 
 # source://activesupport//lib/active_support/core_ext/string/output_safety.rb#162
 class ActiveSupport::SafeBuffer < ::String
@@ -10589,16 +10444,16 @@ end
 # source://activesupport//lib/active_support/tagged_logging.rb#28
 module ActiveSupport::TaggedLogging
   # source://activesupport//lib/active_support/tagged_logging.rb#95
-  def clear_tags!(*_arg0, &_arg1); end
+  def clear_tags!(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/tagged_logging.rb#108
   def flush; end
 
   # source://activesupport//lib/active_support/tagged_logging.rb#95
-  def pop_tags(*_arg0, &_arg1); end
+  def pop_tags(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/tagged_logging.rb#95
-  def push_tags(*_arg0, &_arg1); end
+  def push_tags(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/tagged_logging.rb#97
   def tagged(*tags); end
@@ -10689,48 +10544,48 @@ class ActiveSupport::TestCase < ::Minitest::Test
   # source://activesupport//lib/active_support/callbacks.rb#940
   def _teardown_callbacks; end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#709
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#709
   def assert_no_match(matcher, obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#638
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#638
   def assert_not_empty(obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#649
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#649
   def assert_not_equal(exp, act, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#661
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#661
   def assert_not_in_delta(exp, act, delta = T.unsafe(nil), msg = T.unsafe(nil)); end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#673
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#673
   def assert_not_in_epsilon(a, b, epsilon = T.unsafe(nil), msg = T.unsafe(nil)); end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#680
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#680
   def assert_not_includes(collection, obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#691
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#691
   def assert_not_instance_of(cls, obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#701
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#701
   def assert_not_kind_of(cls, obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#719
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#719
   def assert_not_nil(obj, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#730
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#730
   def assert_not_operator(o1, op, o2 = T.unsafe(nil), msg = T.unsafe(nil)); end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#753
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#753
   def assert_not_predicate(o1, op, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#761
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#761
   def assert_not_respond_to(obj, meth, msg = T.unsafe(nil)); end
 
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#770
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#770
   def assert_not_same(exp, act, msg = T.unsafe(nil)); end
 
   # test/unit backwards compatibility methods
   #
-  # source://minitest/5.16.3/lib/minitest/assertions.rb#396
+  # source://minitest/5.17.0/lib/minitest/assertions.rb#396
   def assert_raise(*exp); end
 
   # source://activesupport//lib/active_support/testing/file_fixtures.rb#20
@@ -10742,7 +10597,7 @@ class ActiveSupport::TestCase < ::Minitest::Test
   # source://activesupport//lib/active_support/test_case.rb#151
   def inspect; end
 
-  # source://minitest/5.16.3/lib/minitest.rb#304
+  # source://minitest/5.17.0/lib/minitest.rb#304
   def method_name; end
 
   class << self
@@ -10875,7 +10730,7 @@ end
 # source://activesupport//lib/active_support/test_case.rb#20
 ActiveSupport::TestCase::Assertion = Minitest::Assertion
 
-# source://activesupport//lib/active_support/testing/tagged_logging.rb#4
+# source://activesupport//lib/active_support/testing/file_fixtures.rb#6
 module ActiveSupport::Testing; end
 
 # source://activesupport//lib/active_support/testing/assertions.rb#7
@@ -11516,8 +11371,6 @@ class ActiveSupport::Testing::SimpleStubs::Stub < ::Struct
   #
   # @param value [Object] the value to set the attribute method_name to.
   # @return [Object] the newly set value
-  #
-  # source://activesupport//lib/active_support/testing/time_helpers.rb#11
   def method_name=(_); end
 
   # Returns the value of attribute object
@@ -11529,8 +11382,6 @@ class ActiveSupport::Testing::SimpleStubs::Stub < ::Struct
   #
   # @param value [Object] the value to set the attribute object to.
   # @return [Object] the newly set value
-  #
-  # source://activesupport//lib/active_support/testing/time_helpers.rb#11
   def object=(_); end
 
   # Returns the value of attribute original_method
@@ -11542,13 +11393,12 @@ class ActiveSupport::Testing::SimpleStubs::Stub < ::Struct
   #
   # @param value [Object] the value to set the attribute original_method to.
   # @return [Object] the newly set value
-  #
-  # source://activesupport//lib/active_support/testing/time_helpers.rb#11
   def original_method=(_); end
 
   class << self
     def [](*_arg0); end
     def inspect; end
+    def keyword_init?; end
     def members; end
     def new(*_arg0); end
   end
@@ -12803,10 +12653,10 @@ end
 # source://activesupport//lib/active_support/core_ext/object/try.rb#6
 module ActiveSupport::Tryable
   # source://activesupport//lib/active_support/core_ext/object/try.rb#7
-  def try(*args, &block); end
+  def try(*args, **_arg1, &block); end
 
   # source://activesupport//lib/active_support/core_ext/object/try.rb#20
-  def try!(*args, &block); end
+  def try!(*args, **_arg1, &block); end
 end
 
 # source://activesupport//lib/active_support/gem_version.rb#9
@@ -12819,7 +12669,7 @@ ActiveSupport::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveSupport::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://activesupport//lib/active_support/gem_version.rb#13
-ActiveSupport::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
+ActiveSupport::VERSION::PRE = T.let(T.unsafe(nil), String)
 
 # source://activesupport//lib/active_support/gem_version.rb#15
 ActiveSupport::VERSION::STRING = T.let(T.unsafe(nil), String)
@@ -12928,7 +12778,7 @@ module ActiveSupport::XmlMini
   def depth=(_arg0); end
 
   # source://activesupport//lib/active_support/xml_mini.rb#95
-  def parse(*_arg0, &_arg1); end
+  def parse(*_arg0, **_arg1, &_arg2); end
 
   # source://activesupport//lib/active_support/xml_mini.rb#148
   def rename_key(key, options = T.unsafe(nil)); end
@@ -13648,19 +13498,8 @@ class Class < ::Module
   #   class D < C; end
   #   C.descendants # => [B, A, D]
   #
-  # source://activesupport//lib/active_support/core_ext/class/subclasses.rb#24
+  # source://activesupport//lib/active_support/core_ext/class/subclasses.rb#20
   def descendants; end
-
-  # Returns an array with the direct children of +self+.
-  #
-  #   class Foo; end
-  #   class Bar < Foo; end
-  #   class Baz < Bar; end
-  #
-  #   Foo.subclasses # => [Bar]
-  #
-  # source://activesupport//lib/active_support/core_ext/class/subclasses.rb#38
-  def subclasses; end
 end
 
 # source://activesupport//lib/active_support/core_ext/date/zones.rb#6
@@ -13957,7 +13796,7 @@ Date::DATE_FORMATS = T.let(T.unsafe(nil), Hash)
 # source://activesupport//lib/active_support/core_ext/date/deprecated_conversions.rb#6
 Date::NOT_SET = T.let(T.unsafe(nil), Object)
 
-# source://date/3.1.3/date.rb#7
+# source://date/3.3.3/lib/date.rb#7
 Date::VERSION = T.let(T.unsafe(nil), String)
 
 # source://activesupport//lib/active_support/core_ext/date_and_time/compatibility.rb#5
@@ -15387,6 +15226,41 @@ class FalseClass
   def to_param; end
 end
 
+# source://activesupport//lib/active_support/core_ext/file/atomic.rb#5
+class File < ::IO
+  class << self
+    # Write to a file atomically. Useful for situations where you don't
+    # want other processes or threads to see half-written files.
+    #
+    #   File.atomic_write('important.file') do |file|
+    #     file.write('hello')
+    #   end
+    #
+    # This method needs to create a temporary file. By default it will create it
+    # in the same directory as the destination file. If you don't like this
+    # behavior you can provide a different directory but it must be on the
+    # same physical filesystem as the file you're trying to write.
+    #
+    #   File.atomic_write('/data/something.important', '/data/tmp') do |file|
+    #     file.write('hello')
+    #   end
+    #
+    # source://activesupport//lib/active_support/core_ext/file/atomic.rb#21
+    def atomic_write(file_name, temp_dir = T.unsafe(nil)); end
+
+    # Private utility method.
+    #
+    # source://activesupport//lib/active_support/core_ext/file/atomic.rb#56
+    def probe_stat_in(dir); end
+  end
+end
+
+# source://yard/0.9.28/lib/yard/core_ext/file.rb#5
+File::RELATIVE_PARENTDIR = T.let(T.unsafe(nil), String)
+
+# source://yard/0.9.28/lib/yard/core_ext/file.rb#6
+File::RELATIVE_SAMEDIR = T.let(T.unsafe(nil), String)
+
 # source://activesupport//lib/active_support/core_ext/object/json.rb#110
 class Float < ::Numeric
   include ::ActiveSupport::NumericWithFormat
@@ -15974,6 +15848,63 @@ class IO
   def as_json(options = T.unsafe(nil)); end
 end
 
+class IO::Buffer
+  include ::Comparable
+
+  def initialize(*_arg0); end
+
+  def <=>(_arg0); end
+  def clear(*_arg0); end
+  def copy(*_arg0); end
+  def empty?; end
+  def external?; end
+  def free; end
+  def get_string(*_arg0); end
+  def get_value(_arg0, _arg1); end
+  def hexdump; end
+  def inspect; end
+  def internal?; end
+  def locked; end
+  def locked?; end
+  def mapped?; end
+  def null?; end
+  def pread(_arg0, _arg1, _arg2); end
+  def pwrite(_arg0, _arg1, _arg2); end
+  def read(_arg0, _arg1); end
+  def readonly?; end
+  def resize(_arg0); end
+  def set_string(*_arg0); end
+  def set_value(_arg0, _arg1, _arg2); end
+  def size; end
+  def slice(_arg0, _arg1); end
+  def to_s; end
+  def transfer; end
+  def valid?; end
+  def write(_arg0, _arg1); end
+
+  class << self
+    def for(_arg0); end
+    def map(*_arg0); end
+  end
+end
+
+class IO::Buffer::AccessError < ::RuntimeError; end
+class IO::Buffer::AllocationError < ::RuntimeError; end
+IO::Buffer::BIG_ENDIAN = T.let(T.unsafe(nil), Integer)
+IO::Buffer::DEFAULT_SIZE = T.let(T.unsafe(nil), Integer)
+IO::Buffer::EXTERNAL = T.let(T.unsafe(nil), Integer)
+IO::Buffer::HOST_ENDIAN = T.let(T.unsafe(nil), Integer)
+IO::Buffer::INTERNAL = T.let(T.unsafe(nil), Integer)
+class IO::Buffer::InvalidatedError < ::RuntimeError; end
+IO::Buffer::LITTLE_ENDIAN = T.let(T.unsafe(nil), Integer)
+IO::Buffer::LOCKED = T.let(T.unsafe(nil), Integer)
+class IO::Buffer::LockedError < ::RuntimeError; end
+IO::Buffer::MAPPED = T.let(T.unsafe(nil), Integer)
+IO::Buffer::NETWORK_ENDIAN = T.let(T.unsafe(nil), Integer)
+IO::Buffer::PAGE_SIZE = T.let(T.unsafe(nil), Integer)
+IO::Buffer::PRIVATE = T.let(T.unsafe(nil), Integer)
+IO::Buffer::READONLY = T.let(T.unsafe(nil), Integer)
+
 class IO::ConsoleMode
   def echo=(_arg0); end
   def raw(*_arg0); end
@@ -16011,6 +15942,9 @@ class IPAddr
   # source://activesupport//lib/active_support/core_ext/object/json.rb#229
   def as_json(options = T.unsafe(nil)); end
 end
+
+# source://ipaddr/1.2.4/ipaddr.rb#43
+IPAddr::VERSION = T.let(T.unsafe(nil), String)
 
 # source://activesupport//lib/active_support/core_ext/integer/time.rb#6
 class Integer < ::Numeric
@@ -16097,9 +16031,6 @@ module Kernel
     #
     # source://activesupport//lib/active_support/core_ext/kernel/reporting.rb#20
     def enable_warnings(&block); end
-
-    # source://activesupport//lib/active_support/fork_tracker.rb#16
-    def fork(*_arg0, &_arg1); end
 
     # Sets $VERBOSE to +nil+ for the duration of the block and back to its original
     # value afterwards.
@@ -17251,6 +17182,7 @@ Module::RUBY_RESERVED_KEYWORDS = T.let(T.unsafe(nil), Array)
 
 # source://activesupport//lib/active_support/core_ext/name_error.rb#3
 class NameError < ::StandardError
+  include ::ErrorHighlight::CoreExt
   include ::DidYouMean::Correctable
 
   # Extract the name of the missing constant from the exception message.
@@ -17585,8 +17517,6 @@ class Object < ::BasicObject
   include ::ActiveSupport::ToJsonWithActiveSupportEncoder
   include ::ActiveSupport::Dependencies::RequireDependency
   include ::Kernel
-  include ::ActiveSupport::ForkTracker::CoreExt
-  include ::ActiveSupport::ForkTracker::CoreExtPrivate
   include ::ActiveSupport::Tryable
 
   # Provides a way to check whether some class acts like some other class based on the existence of
@@ -17858,9 +17788,11 @@ class Pathname
 end
 
 module Process
+  extend ::ActiveSupport::ForkTracker::ModernCoreExt
+
   class << self
-    # source://activesupport//lib/active_support/fork_tracker.rb#16
-    def fork(*_arg0, &_arg1); end
+    # source://activesupport//lib/active_support/fork_tracker.rb#6
+    def _fork; end
   end
 end
 
@@ -17955,7 +17887,7 @@ class Regexp
   def multiline?; end
 end
 
-# source://regexp_parser/2.6.0/lib/regexp_parser/token.rb#2
+# source://regexp_parser/2.6.1/lib/regexp_parser/token.rb#2
 Regexp::TOKEN_KEYS = T.let(T.unsafe(nil), Array)
 
 # source://activesupport//lib/active_support/core_ext/object/duplicable.rb#53
@@ -18703,7 +18635,7 @@ end
 
 Struct::Group = Etc::Group
 
-# source://nokogiri/1.13.9/lib/nokogiri/html4/element_description_defaults.rb#11
+# source://nokogiri/1.14.0/lib/nokogiri/html4/element_description_defaults.rb#11
 Struct::HTMLElementDescription = Struct
 
 Struct::Passwd = Etc::Passwd
