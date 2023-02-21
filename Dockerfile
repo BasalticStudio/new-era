@@ -1,5 +1,5 @@
 ARG APP_ROOT=/src/app
-ARG RUBY_VERSION=3.1.2
+ARG RUBY_VERSION=3.1.3
 
 FROM ruby:${RUBY_VERSION}-alpine AS gem
 ARG APP_ROOT
@@ -10,7 +10,7 @@ RUN mkdir -p ${APP_ROOT}
 COPY Gemfile Gemfile.lock ${APP_ROOT}/
 
 WORKDIR ${APP_ROOT}
-RUN gem install bundler:2.2.33 \
+RUN gem install bundler:2.3.14 \
     && bundle config --local deployment 'true' \
     && bundle config --local frozen 'true' \
     && bundle config --local no-cache 'true' \
