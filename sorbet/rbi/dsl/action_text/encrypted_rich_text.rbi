@@ -100,6 +100,30 @@ class ActionText::EncryptedRichText
 
     sig do
       params(
+        start: T.untyped,
+        finish: T.untyped,
+        batch_size: Integer,
+        error_on_ignore: T.untyped,
+        order: Symbol,
+        block: T.nilable(T.proc.params(object: ::ActionText::EncryptedRichText).void)
+      ).returns(T.nilable(T::Enumerator[::ActionText::EncryptedRichText]))
+    end
+    def find_each(start: nil, finish: nil, batch_size: 1000, error_on_ignore: nil, order: :asc, &block); end
+
+    sig do
+      params(
+        start: T.untyped,
+        finish: T.untyped,
+        batch_size: Integer,
+        error_on_ignore: T.untyped,
+        order: Symbol,
+        block: T.nilable(T.proc.params(object: T::Array[::ActionText::EncryptedRichText]).void)
+      ).returns(T.nilable(T::Enumerator[T::Enumerator[::ActionText::EncryptedRichText]]))
+    end
+    def find_in_batches(start: nil, finish: nil, batch_size: 1000, error_on_ignore: nil, order: :asc, &block); end
+
+    sig do
+      params(
         attributes: T.untyped,
         block: T.nilable(T.proc.params(object: ::ActionText::EncryptedRichText).void)
       ).returns(::ActionText::EncryptedRichText)
@@ -121,6 +145,12 @@ class ActionText::EncryptedRichText
       ).returns(::ActionText::EncryptedRichText)
     end
     def find_or_initialize_by(attributes, &block); end
+
+    sig { params(signed_id: T.untyped, purpose: T.untyped).returns(T.nilable(::ActionText::EncryptedRichText)) }
+    def find_signed(signed_id, purpose: nil); end
+
+    sig { params(signed_id: T.untyped, purpose: T.untyped).returns(::ActionText::EncryptedRichText) }
+    def find_signed!(signed_id, purpose: nil); end
 
     sig { params(arg: T.untyped, args: T.untyped).returns(::ActionText::EncryptedRichText) }
     def find_sole_by(arg, *args); end
@@ -145,6 +175,19 @@ class ActionText::EncryptedRichText
 
     sig { returns(Array) }
     def ids; end
+
+    sig do
+      params(
+        of: Integer,
+        start: T.untyped,
+        finish: T.untyped,
+        load: T.untyped,
+        error_on_ignore: T.untyped,
+        order: Symbol,
+        block: T.nilable(T.proc.params(object: PrivateRelation).void)
+      ).returns(T.nilable(::ActiveRecord::Batches::BatchEnumerator))
+    end
+    def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, order: :asc, &block); end
 
     sig { params(record: T.untyped).returns(T::Boolean) }
     def include?(record); end

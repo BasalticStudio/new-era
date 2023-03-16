@@ -90,6 +90,30 @@ class AdminUser
 
     sig do
       params(
+        start: T.untyped,
+        finish: T.untyped,
+        batch_size: Integer,
+        error_on_ignore: T.untyped,
+        order: Symbol,
+        block: T.nilable(T.proc.params(object: ::AdminUser).void)
+      ).returns(T.nilable(T::Enumerator[::AdminUser]))
+    end
+    def find_each(start: nil, finish: nil, batch_size: 1000, error_on_ignore: nil, order: :asc, &block); end
+
+    sig do
+      params(
+        start: T.untyped,
+        finish: T.untyped,
+        batch_size: Integer,
+        error_on_ignore: T.untyped,
+        order: Symbol,
+        block: T.nilable(T.proc.params(object: T::Array[::AdminUser]).void)
+      ).returns(T.nilable(T::Enumerator[T::Enumerator[::AdminUser]]))
+    end
+    def find_in_batches(start: nil, finish: nil, batch_size: 1000, error_on_ignore: nil, order: :asc, &block); end
+
+    sig do
+      params(
         attributes: T.untyped,
         block: T.nilable(T.proc.params(object: ::AdminUser).void)
       ).returns(::AdminUser)
@@ -111,6 +135,12 @@ class AdminUser
       ).returns(::AdminUser)
     end
     def find_or_initialize_by(attributes, &block); end
+
+    sig { params(signed_id: T.untyped, purpose: T.untyped).returns(T.nilable(::AdminUser)) }
+    def find_signed(signed_id, purpose: nil); end
+
+    sig { params(signed_id: T.untyped, purpose: T.untyped).returns(::AdminUser) }
+    def find_signed!(signed_id, purpose: nil); end
 
     sig { params(arg: T.untyped, args: T.untyped).returns(::AdminUser) }
     def find_sole_by(arg, *args); end
@@ -135,6 +165,19 @@ class AdminUser
 
     sig { returns(Array) }
     def ids; end
+
+    sig do
+      params(
+        of: Integer,
+        start: T.untyped,
+        finish: T.untyped,
+        load: T.untyped,
+        error_on_ignore: T.untyped,
+        order: Symbol,
+        block: T.nilable(T.proc.params(object: PrivateRelation).void)
+      ).returns(T.nilable(::ActiveRecord::Batches::BatchEnumerator))
+    end
+    def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, order: :asc, &block); end
 
     sig { params(record: T.untyped).returns(T::Boolean) }
     def include?(record); end
