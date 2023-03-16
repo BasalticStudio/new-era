@@ -3207,6 +3207,13 @@ class ActiveModel::NullMutationTracker
 
   # source://activemodel//lib/active_model/attribute_mutation_tracker.rb#178
   def original_value(attr_name); end
+
+  class << self
+    private
+
+    def allocate; end
+    def new(*_arg0); end
+  end
 end
 
 # source://activemodel//lib/active_model/railtie.rb#7

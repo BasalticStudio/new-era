@@ -2192,7 +2192,7 @@ class Rack::MockResponse < ::Rack::Response
   end
 end
 
-# source://rack-test/2.0.2/lib/rack/test.rb#413
+# source://rack-test/2.1.0/lib/rack/test.rb#381
 Rack::MockSession = Rack::Test::Session
 
 # A multipart form data parser, adapted from IOWA.
