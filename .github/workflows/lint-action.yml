@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       ruby-version:
-        default: '3.1.3'
+        default: '3.2.2'
         type: string
       upload-sarif:
         default: true
