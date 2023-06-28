@@ -7,11 +7,12 @@ RSpec.describe Admin::MainMenuComponent, type: :component do
   subject { page }
 
   let(:component) { described_class.new }
+  let(:admin) { create(:admin_user) }
 
   context 'when header given' do
     before do
       render_inline(component) do |c|
-        c.header { 'NewEra Dashboard' }
+        c.with_header { 'NewEra Dashboard' }
       end
     end
 

@@ -8,11 +8,10 @@ RSpec.describe Admin::MainMenuItemComponent, type: :component do
   subject { page }
 
   let(:component) { described_class.new(label: 'Game Map', link: '/admin') }
+  let(:admin) { create(:admin_user) }
 
   before do
-    warden = instance_double(Warden::Manager)
-    allow(warden).to receive(:send).with(:authenticate!, { scope: :admin_user }).and_return(true)
-    request.env['warden'] = warden
+    sign_in admin
     with_request_url '/' do
       render_inline(component)
     end
