@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# typed: false
 # == Schema Information
 #
 # Table name: admin_users
@@ -27,7 +26,7 @@
 #  index_admin_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_admin_users_on_unlock_token          (unlock_token) UNIQUE
 #
-# typed: false
+# frozen_string_literal: true
 
 FactoryBot.define do
   factory :admin_user do
