@@ -85,8 +85,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_19_130229) do
     t.datetime "updated_at", null: false
     t.string "name", default: ""
     t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at", precision: nil
-    t.datetime "last_sign_in_at", precision: nil
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.index ["email"], name: "index_players_on_email", unique: true

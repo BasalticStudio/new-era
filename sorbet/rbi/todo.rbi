@@ -5,6 +5,4 @@
 # typed: false
 
 module Cucumber::Rails::Database; end
-module Mail::Ruby19; end
 module Sprockets::SassProcessor::Functions; end
-module Turbo::Streams::ActionHelper; end
